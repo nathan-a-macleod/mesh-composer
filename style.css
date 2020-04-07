@@ -123,8 +123,8 @@ canvas {
   line-height: 0px;
   font-size: 20px;
   text-align: center;
-  background-color: #a1a1a1;
-  color: white;
+  background-color:rgba(0,0,0,.3);
+  color: #dfdfdf91;
   position: absolute;
 	width: 600px;
 	top: 0px;
@@ -134,4 +134,9 @@ canvas {
   margin-right: auto; 
 	z-index: 100;
 	border-radius: 5px;
+}
+
+#topMenus:hover{
+  background-color: #3f68d9;
+  color: white;
 }
