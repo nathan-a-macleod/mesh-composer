@@ -141,9 +141,12 @@ gridLine.scale.set(2, 2, 2);
 scene.add(gridLine);
 
 // Lighting:
-var directionalLight = new THREE.DirectionalLight(0xffffff, 1.3);
+var directionalLight = new THREE.DirectionalLight(0xffffff);
 directionalLight.position.set(8, 5, 10);
 scene.add(directionalLight);
+
+var ambientLight = new THREE.AmbientLight(0x404040, 0.5); // soft white light
+scene.add(ambientLight);
 
 // Get keyboard input and move the camera accordingly:
 document.addEventListener('keydown', function(event) {
