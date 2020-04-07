@@ -7,7 +7,7 @@ body {
   font-size: 25px;
   margin-top: 0px;
   padding: 10px;
-  padding-bottom: 0px;
+  margin-bottom: -2px;
   text-align: left;
 }
 
@@ -25,7 +25,7 @@ canvas {
 	text-align: center;
 	z-index: 100;
 	color: white;
-  font-size: 20px;
+  font-size: 18px;
   display: none;
   border-radius: 0px 0px 0px 10px;
 }
@@ -96,13 +96,13 @@ canvas {
 #colorSettings{
   background-color: #b0b0b0;
   width: 25vw;
-  height: 110px;
+  padding-bottom: 10px;
 }
 
 #editMode{
   background-color: #b0b0b0;
   width: 25vw;
-  height: 120px;
+  padding-bottom: 10px;
   margin-top: 20px;
 }
 
@@ -113,7 +113,7 @@ canvas {
 
 #transformSettings{
   width: 25vw;
-  height: 220px;
+  height: 210px;
   background-color: #b0b0b0;
   margin-top: 20px;
 }
@@ -139,4 +139,34 @@ canvas {
 #topMenus:hover{
   background-color: #3f68d9;
   color: white;
+}
+
+.rgbSlider{
+  width: 16vw;
+}
+
+.rgbColorCode{
+  margin-top: 5px;
+}
+
+label[for=r], output[for=r]{
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 2px;
+  background-color: #eee;
+  color: #f00;
+}
+label[for=g], output[for=g]{
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 2px;
+  background-color: #eee;
+  color: #0c0;
+}
+label[for=b], output[for=b]{
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 2px;
+  background-color: #eee;
+  color: #00f;
 }

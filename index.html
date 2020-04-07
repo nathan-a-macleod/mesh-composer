@@ -22,6 +22,27 @@
 		    
 	      <label>HEX Color Code: </label>
 		    <input placeholder="Enter a HEX code..." value="hi" type="text" class="input" id="changeColor" onkeydown="changeColor()">
+		    
+		    
+		    <p class="heading">RGB Color Code: </p>
+		    
+		    <form class="rgbColorCode">
+  	      <label for='r'>RED:</label>
+  	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="redSlider">
+          <output for="r" id="outputR">0</output>
+		    </form>
+		    
+		    <form class="rgbColorCode">
+  	      <label for='g'>GREEN:</label>
+  	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="greenSlider">
+          <output for="g" id="outputG">0</output>
+		    </form>
+		    
+		    <form class="rgbColorCode">
+  	      <label for='b'>BLUE:</label>
+  	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="blueSlider">
+          <output for="b" id="outputB">0</output>
+		    </form>
 		  </div>
 		  
 		  <div id="editMode">
@@ -33,28 +54,28 @@
 		  <div id="transformSettings">
 		    <p class="heading">Transform Settings: (X - Y - Z)</p>
 		    
-		    <form id="transformInputs">
-		      <div class="transformCategories">
+		    <div id="transformInputs">
+		      <form class="transformCategories">
   		      <label class="transformLabel">Translation: </label>
   		      <input type="text" class="input transformInputsClass" id="translation1">
   		      <input type="text" class="input transformInputsClass" id="translation2">
   		      <input type="text" class="input transformInputsClass" id="translation3">
-		      </div>
+		      </form>
 		      
-		      <div class="transformCategories">
+		      <form class="transformCategories">
 		        <label class="transformLabel">Rotation: </label>
   		      <input type="text" class="input transformInputsClass" id="rotation1">
   		      <input type="text" class="input transformInputsClass" id="rotation2">
   		      <input type="text" class="input transformInputsClass" id="rotation3">
-		      </div>
+		      </form>
 		      
-		      <div class="transformCategories">
+		      <form class="transformCategories">
 		        <label class="transformLabel">Scale: </label>
   		      <input type="text" class="input transformInputsClass" id="scale1">
   		      <input type="text" class="input transformInputsClass" id="scale2">
   		      <input type="text" class="input transformInputsClass" id="scale3">
-		      </div>
-		    </form>
+		      </form>
+		    </div>
 		  </div>
 		  
 		  <!-- At the bottom of the page: -->
