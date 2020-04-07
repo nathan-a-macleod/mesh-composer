@@ -1,6 +1,6 @@
 # Javascript-3D-Modeling-Program
 This is a very basic 3D program made in javascript with the three.js library. When it is finished, you should be able to do basic 3d box-modeling, change the colors of the object, and export the asset.
-## Controls:
+### Controls:
 Arrow keys for orbiting around, and also W, A, S, D for panning around.
 
 # Contributing
