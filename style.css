@@ -1,0 +1,108 @@
+body { 
+  margin: 0;
+  font-family: Sans-Serif;
+  font-size: 16px;
+}
+
+.heading{
+  font-size: 25px;
+  margin-top: 0px;
+  padding: 10px;
+  padding-bottom: 0px;
+  text-align: left;
+}
+
+canvas { 
+  display: block; 
+}
+
+#menuExpanded, #menuUnexpanded{
+  position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 25%;
+	height: auto;
+	background-color: #a1a1a1;
+	text-align: center;
+	z-index: 100;
+	color: white;
+  font-size: 20px;
+  display: none;
+  border-radius: 0px 0px 0px 10px;
+}
+
+#menuUnexpanded{
+  display: block;
+  height: 40px;
+  width: 240px;
+  background-color: #3f68d9;
+  line-height: 40px;
+  border-radius: 0px 0px 0px 10px;
+}
+
+.button{
+  background-color: #3f68d9;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.button:hover{
+  cursor: pointer;
+  background-color: #5B5BFF;
+}
+
+.input{
+  background-color: #3f68d9;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: none;
+  color: white;
+  padding-left: 5px;
+}
+
+.transformInputsClass{
+  width: 70px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.transformCategories{
+  margin-left: 10px;
+  float: left;
+}
+
+#changeColor{
+  width: 200px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+#closeMenu{
+  width: 220px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#heirarchy{
+  width: 25vw;
+  height: 250px;
+  background-color: #e7e7e7;
+}
+
+#colorSettings{
+  background-color: #b0b0b0;
+  width: 25vw;
+  height: 110px;
+}
+
+#transformSettings{
+  width: 25vw;
+  height: 220px;
+  background-color: #b0b0b0;
+  margin-top: 20px;
+}
