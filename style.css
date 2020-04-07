@@ -84,7 +84,7 @@ canvas {
 #closeMenu{
   width: 220px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -98,6 +98,18 @@ canvas {
   background-color: #b0b0b0;
   width: 25vw;
   height: 110px;
+}
+
+#editMode{
+  background-color: #b0b0b0;
+  width: 25vw;
+  height: 120px;
+  margin-top: 20px;
+}
+
+#toggleEditMode{
+  width: 150px;
+  margin: auto;
 }
 
 #transformSettings{

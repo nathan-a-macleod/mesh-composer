@@ -17,7 +17,6 @@ var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHei
 camera.position.z += 5;
 camera.position.y += 2;
 camera.rotation.x += -0.4;
-camera.layers.enable(1);
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
 cameraPivot.add(camera);
@@ -29,7 +28,6 @@ raycaster = new THREE.Raycaster();
 var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-renderer.domElement.addEventListener( 'click', raycast, false );
 
 // The menu:
 document.getElementById('menuUnexpanded').addEventListener('click', ()=> {
@@ -42,6 +40,11 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
   document.getElementById('menuUnexpanded').style.display = 'block';
   document.getElementById('menuExpanded').style.display = 'none';
   //camera.translateX(-0.7);
+});
+
+// The edit mode button:
+document.getElementById('toggleEditMode').addEventListener('click', ()=> {
+  camera.layers.toggle(1);
 });
 
 // Define some objects:
@@ -106,6 +109,7 @@ defaultCube.BoxMeshName = 'defaultCubeMesh';
 
 defaultCube.BoxWireframeName = 'defaultCubeMaterial';
 defaultCube.BoxLineName = 'defaultCubeLine';
+BoxLineName.layers.set(1);
 document.getElementById('changeColor').value = '#ffffff';
 //BoxMeshName.setColor(0x0000FF); // to change the colour of the object
 
@@ -133,7 +137,6 @@ gridLine.position.y += -0.5;
 gridLine.position.x += 1;
 gridLine.position.z += -1;
 gridLine.scale.set(2, 2, 2);
-gridLine.layers.set(1);
 
 scene.add(gridLine);
 
@@ -211,27 +214,6 @@ function changeColor(){
       BoxMeshName.setColor(document.getElementById('changeColor').value);
       document.getElementById('changeColor').blur();
       // NEED TO DO AN RGB SLIDER AT SOME POINT!!!!!!!!
-  }
-}
-
-function raycast (e) {
-  //***Selection***
-
-  //Sets the mouse position with a coordinate system where the center
-  //of the screen is the origin (0, 0)
-  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = - (e.clientY / window.innerHeight) * 2 + 1;
-
-  raycaster.setFromCamera(mouse, camera);   
-  
-  raycaster.layers.set(0);
-
-  var intersects = raycaster.intersectObjects(scene.children, true);
-
-  for (var i = 0; i < intersects.length; i++) {
-    console.log(intersects[i]); 
-    
-    //intersects[i].object.material.color.set(0xff0000);
   }
 }
 
