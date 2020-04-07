@@ -7,3 +7,5 @@ Arrow keys for orbiting around, and also W, A, S, D for panning around.
 # Contributing
 I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute, in any way! Before you do, please see if there is anything you could help with in the `issues` section, but if you would prefer to do something else, that's fine.
 **Obviously**, you need to fork the repo, change it and do a pull request if you would like to contribute.
+
+Also, there is an issue for any questions or comments you would like to ask.
