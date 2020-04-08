@@ -116,12 +116,21 @@ function transformInputs(){
   BoxMeshName.position.x = document.getElementById('translation1').value;
   BoxMeshName.position.y = document.getElementById('translation2').value;
   BoxMeshName.position.z = document.getElementById('translation3').value;
+  BoxLineName.position.x = document.getElementById('translation1').value;
+  BoxLineName.position.y = document.getElementById('translation2').value;
+  BoxLineName.position.z = document.getElementById('translation3').value;
   
   BoxMeshName.rotation.x = document.getElementById('rotation1').value;
   BoxMeshName.rotation.y = document.getElementById('rotation2').value;
   BoxMeshName.rotation.z = document.getElementById('rotation3').value;
+  BoxLineName.rotation.x = document.getElementById('rotation1').value;
+  BoxLineName.rotation.y = document.getElementById('rotation2').value;
+  BoxLineName.rotation.z = document.getElementById('rotation3').value;
   
   BoxMeshName.scale.x = document.getElementById('scale1').value;
   BoxMeshName.scale.y = document.getElementById('scale2').value;
-  BoxMeshName.scale.z = document.getElementById('scale3').value;
+  BoxLineName.scale.z = document.getElementById('scale3').value;
+  BoxLineName.scale.x = document.getElementById('scale1').value;
+  BoxLineName.scale.y = document.getElementById('scale2').value;
+  BoxLineName.scale.z = document.getElementById('scale3').value;
 }
