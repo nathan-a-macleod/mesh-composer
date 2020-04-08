@@ -29,91 +29,6 @@ var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// The menu:
-document.getElementById('menuUnexpanded').addEventListener('click', ()=> {
-  document.getElementById('menuUnexpanded').style.display = 'none';
-  document.getElementById('menuExpanded').style.display = 'block';
-  //camera.translateX(0.7);
-});
-
-document.getElementById('closeMenu').addEventListener('click', ()=> {
-  document.getElementById('menuUnexpanded').style.display = 'block';
-  document.getElementById('menuExpanded').style.display = 'none';
-  //camera.translateX(-0.7);
-});
-
-document.getElementById('colorSettingsButton').addEventListener('click', ()=> {
-  document.getElementById('colorSettings').style.display = 'block';
-  document.getElementById('colorSettingsButton').style.display = 'none';
-});
-
-document.getElementById('closeColorSettingsButton').addEventListener('click', ()=> {
-  document.getElementById('colorSettings').style.display = 'none';
-  document.getElementById('colorSettingsButton').style.display = 'block';
-});
-
-// The edit mode button:
-document.getElementById('toggleEditMode').addEventListener('click', ()=> {
-  camera.layers.toggle(1);
-});
-
-// The RGB slider:
-var body = document.body, 
-  r = document.querySelector('#redSlider'),
-  g = document.querySelector('#greenSlider'),
-  b = document.querySelector('#blueSlider'),
-  outputR = document.querySelector('#outputR'),
-  outputG = document.querySelector('#outputG'),
-  b_out = document.querySelector('#outputB'),
-  hexVal_out = document.querySelector('#changeColor');
-
-outputR.value = '255';
-outputG.value = '255';
-outputB.value = '255';
-
-function setColor(){
-  var r_hexVal = parseInt(r.value, 10).toString(16),
-    g_hexVal = parseInt(g.value, 10).toString(16),
-    b_hexVal = parseInt(b.value, 10).toString(16),
-    hexVal = "#" + pad(r_hexVal) + pad(g_hexVal) + pad(b_hexVal);
-  BoxMeshName.setColor(hexVal_out.value);
-  hexVal_out.value = hexVal;
-}
-
-function pad(n){
-  return (n.length<2) ? "0"+n : n;
-}
- 
-r.addEventListener('change', function() {
-  setColor();
-  outputR.value = r.value;
-}, false);
- 
-r.addEventListener('input', function() {
-  setColor();
-  outputR.value = r.value;
-}, false);
- 
-g.addEventListener('change', function() {
-  setColor();
-  outputG.value = g.value;
-}, false);
- 
-g.addEventListener('input', function() {
-  setColor();
-  outputG.value = g.value;
-}, false);
- 
-b.addEventListener('change', function() {
-  setColor();
-  b_out.value = b.value;
-}, false);
- 
-b.addEventListener('input', function() {
-  setColor();
-  b_out.value = b.value;
-}, false);
-
 // Define some objects:
 function CreatePlaneGeometry() {
   this.planeMaterialName;
@@ -204,7 +119,6 @@ gridLine.position.y += -0.5;
 gridLine.position.x += 1;
 gridLine.position.z += -1;
 gridLine.scale.set(2, 2, 2);
-
 scene.add(gridLine);
 
 // Lighting:
@@ -276,16 +190,6 @@ document.addEventListener('keydown', function(event) {
   
   typingText = false;
 });
-
-function changeColor(){
-  typingText = true;
-  
-  if(event.keyCode == 13) {
-      BoxMeshName.setColor(document.getElementById('changeColor').value);
-      document.getElementById('changeColor').blur();
-      // NEED TO DO AN RGB SLIDER AT SOME POINT!!!!!!!!
-  }
-}
 
 function animate() {
 	requestAnimationFrame(animate);
