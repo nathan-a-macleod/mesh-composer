@@ -12,7 +12,7 @@ cameraPivot.position.set(0, 0, 0);
 
 // Camera settings
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0x3a3a3a);
+scene.background = new THREE.Color(0x393939);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z += 5;
 camera.position.y += 2;
@@ -40,6 +40,16 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
   document.getElementById('menuUnexpanded').style.display = 'block';
   document.getElementById('menuExpanded').style.display = 'none';
   //camera.translateX(-0.7);
+});
+
+document.getElementById('colorSettingsButton').addEventListener('click', ()=> {
+  document.getElementById('colorSettings').style.display = 'block';
+  document.getElementById('colorSettingsButton').style.display = 'none';
+});
+
+document.getElementById('closeColorSettingsButton').addEventListener('click', ()=> {
+  document.getElementById('colorSettings').style.display = 'none';
+  document.getElementById('colorSettingsButton').style.display = 'block';
 });
 
 // The edit mode button:
@@ -171,7 +181,7 @@ document.getElementById('changeColor').value = '#ffffff';
 //BoxMeshName.setColor(0x0000FF); // to change the colour of the object
 
 // Create a grid floor from lines:
-var gridMaterial = new THREE.LineBasicMaterial({color: 0x3f68d9});
+var gridMaterial = new THREE.LineBasicMaterial({color: 0xbababa});
 var gridVetices = [];
 gridVetices.push(new THREE.Vector3(-0.5, 0, -0.5));
 gridVetices.push(new THREE.Vector3(0.5, 0, -0.5));

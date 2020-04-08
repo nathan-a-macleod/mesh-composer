@@ -13,16 +13,19 @@
 		  <p>Controls: Arrow keys, and W, A, S, D.</p>
 		</div>
 		
-		<div class="button" id="menuUnexpanded">Open Settings Menu -></div>
+		<div class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
 		<div id="menuExpanded">
 		  <!--<div id="heirarchy"></div>-->
 		  
-		  <div id="colorSettings">
-		    <p class="heading">Color Settings:</p>
+	    <p class="heading">Color Settings:</p>
 		    
+		  <div class="button" id="colorSettingsButton">Open &#8594;</div>
+		  
+		  <div id="colorSettings">
+    	  <div class="button" id="closeColorSettingsButton">Close &#8595;</div>
+    	  <br />
 	      <label>HEX Color Code: </label>
 		    <input placeholder="Enter a HEX code..." value="hi" type="text" class="input" id="changeColor" onkeydown="changeColor()">
-		    
 		    
 		    <p class="heading">RGB Color Code: </p>
 		    
@@ -30,20 +33,24 @@
   	      <label for='r'>RED:</label>
   	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="redSlider">
           <output for="r" id="outputR">0</output>
+          <div id="rBox" class="coloredBoxes"></div>
 		    </form>
 		    
 		    <form class="rgbColorCode">
   	      <label for='g'>GREEN:</label>
   	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="greenSlider">
           <output for="g" id="outputG">0</output>
+          <div id="gBox" class="coloredBoxes"></div>
 		    </form>
 		    
 		    <form class="rgbColorCode">
   	      <label for='b'>BLUE:</label>
   	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="blueSlider">
           <output for="b" id="outputB">0</output>
+          <div id="bBox" class="coloredBoxes"></div>
 		    </form>
-		  </div>
+		    <hr />
+	    </div>
 		  
 		  <div id="editMode">
 		    <p class="heading">Toggle Edit Mode:</p>

@@ -1,6 +1,13 @@
+:root{
+  --main-blue-color: #313131;
+  --main-bg-color: #1c1c1c;
+  --second-bg-color: #1c1c1c;
+}
+
 body { 
   margin: 0;
   font-size: 16px;
+  color: #f2f2f2;
 }
 
 .heading{
@@ -20,47 +27,54 @@ canvas {
 	top: 0px;
 	right: 0px;
 	width: 25%;
-	height: auto;
-	background-color: #a1a1a1;
+	max-height: 100vh;
+  background-color: var(--main-bg-color);
 	text-align: center;
 	z-index: 100;
-	color: white;
   font-size: 18px;
   display: none;
   border-radius: 0px 0px 0px 10px;
+  overflow: auto;
 }
 
 #menuUnexpanded{
   display: block;
   height: 40px;
   width: 240px;
-  background-color: #3f68d9;
+  background-color: #212121;
   line-height: 40px;
   border-radius: 0px 0px 0px 10px;
+  border: none;
+  color: white;
+}
+
+#menuUnexpanded:hover{
+  text-decoration: underline;
 }
 
 .button{
-  background-color: #3f68d9;
+  background-color: var(--main-blue-color);
   height: 40px;
   line-height: 40px;
-  text-decoration: underline;
-  border-radius: 5px;
+  border-radius: 15px;
+  color: white;
 }
 
 .button:hover{
   cursor: pointer;
-  background-color: #5B5BFF;
+  text-decoration: underline;
+  color: white;
 }
 
 .input{
-  background-color: #3f68d9;
+  background-color: var(--main-blue-color);
   height: 40px;
   line-height: 40px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 20px;
-  border: none;
-  color: white;
   padding-left: 5px;
+  border: none;
+  color: #f2f2f2;
 }
 
 .transformInputsClass{
@@ -85,6 +99,8 @@ canvas {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  background-color: #313131;
+  color: white;
 }
 
 #heirarchy{
@@ -94,27 +110,27 @@ canvas {
 }
 
 #colorSettings{
-  background-color: #b0b0b0;
+  background-color: var(--second-bg-color);
   width: 25vw;
   padding-bottom: 10px;
+  display: none; /*By default it is hidden, but you can press a button to show it*/
 }
 
 #editMode{
-  background-color: #b0b0b0;
   width: 25vw;
-  padding-bottom: 10px;
-  margin-top: 20px;
 }
 
 #toggleEditMode{
   width: 150px;
   margin: auto;
+  background-color: #3b3b3b;
+  color: white;
 }
 
 #transformSettings{
   width: 25vw;
   height: 210px;
-  background-color: #b0b0b0;
+  background-color: var(--second-bg-color);
   margin-top: 20px;
 }
 
@@ -169,4 +185,23 @@ label[for=b], output[for=b]{
   border-radius: 2px;
   background-color: #eee;
   color: #00f;
+}
+
+output[for=r], output[for=g], output[for=b]{
+  color: white;
+  background-color: #313131;
+}
+
+#colorSettingsButton{
+  margin: auto;
+  width: 175px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#closeColorSettingsButton{
+  width: 175px;
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 10px;
 }
