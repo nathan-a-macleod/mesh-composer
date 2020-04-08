@@ -1,11 +1,10 @@
 # Javascript-3D-Modeling-Program
 This is a very basic 3D program made in javascript with the three.js library. When it is finished, you should be able to do basic 3d box-modeling, change the colors of the object, and export the asset.
 https://jacob-and-nathan.github.io/Javascript-3D-Modeling-Program/
-### Controls:
-Arrow keys for orbiting around, and also W, A, S, D for panning around.
 
 # Contributing
-I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute, in any way! Before you do, please see if there is anything you could help with in the `issues` section, but if you would prefer to do something else, that's fine.
-**Obviously**, you need to fork the repo, change it and do a pull request if you would like to contribute.
+I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section, but if you would prefer to do something else, please open a new issue, and assign yourself to it. If you want to work on an issue, please comment on the issue, and I will assign you to it, so that I can keep things organised.
+If there is an issue you want to work on that already has someone else assigned, then I may or may not assign you to it, depending on what the status is.
+**Obviously**, you need to comment on an issue - and if you have been assigned to that issue - you need to fork the repo, change it and do a pull request if you would like to contribute.
 
 Also, there is an issue for any questions or comments you would like to ask.
