@@ -5,6 +5,7 @@
 
 var typingText = false;
 var raycaster, mouse = { x : 0, y : 0 };
+var speed = 0.2;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -14,8 +15,8 @@ cameraPivot.position.set(0, 0, 0);
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x393939);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z += 5;
-camera.position.y += 2;
+camera.position.z += 7;
+camera.position.y += 3;
 camera.rotation.x += -0.4;
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
@@ -35,7 +36,7 @@ function CreatePlaneGeometry() {
   this.planePointsName;
   this.planeGeometryName;
   this.planeMeshName;
-  
+   
   planeMaterialName = new THREE.MeshBasicMaterial({color: 0xffffff}); // default color
   planePointsName = [];
   planePointsName.push(new THREE.Vector3(-2, -0.5, -2));
@@ -131,60 +132,54 @@ scene.add(ambientLight);
 
 // Get keyboard input and move the camera accordingly:
 document.addEventListener('keydown', function(event) {
-  if (typingText === false){
-    // ------ Movement ------
-    if(event.keyCode == 87) {
+  if (typingText == false){
+    switch(event.keyCode) {
+      // ------ Movement ------
+      case 87:
         console.log('W was pressed');
-        cameraPivot.translateZ(-0.1);
-    }
-    
-    else if(event.keyCode == 83) {
+        cameraPivot.translateZ(-speed);
+        break;
+      case 83:
         console.log('S was pressed');
-        cameraPivot.translateZ(0.1);
-    }
-    
-    else if(event.keyCode == 65) {
+        cameraPivot.translateZ(speed);
+        break;
+      case 65:
         console.log('A was pressed');
-        cameraPivot.translateX(-0.1);
-    }
-    
-    else if(event.keyCode == 68) {
+        cameraPivot.translateX(-speed);
+        break;
+      case 68:
         console.log('D was pressed');
-        cameraPivot.translateX(0.1);
-    }
-    
-    else if(event.keyCode == 81) {
+        cameraPivot.translateX(speed);
+        break;
+      case 81:
         console.log('Q was pressed');
-        cameraPivot.translateY(-0.1);
-    }
-    
-    else if(event.keyCode == 69) {
+        cameraPivot.translateY(-speed);
+        break;
+      case 69:
         console.log('E was pressed');
-        cameraPivot.translateY(0.1);
-    }
-    
-    // ------ Rotation ------
-    
-    else if(event.keyCode == 37) {
+        cameraPivot.translateY(speed);
+        break;
+      // ------ Rotation ------
+      case 37:
         console.log('Left Arrow was pressed');
-        cameraPivot.rotateY(0.1);
-    }
-    
-    else if(event.keyCode == 39) {
+        cameraPivot.rotateY(speed);
+        break;
+      case 39:
         console.log('Right Arrow was pressed');
-        cameraPivot.rotateY(-0.1);
-    }
-    
-    else if(event.keyCode == 38) {
+        cameraPivot.rotateY(-speed);
+        break;
+      case 38:
         console.log('Up Arrow was pressed');
-        cameraPivot.position.y += 0.2;
+        cameraPivot.position.y += speed*2;
         camera.lookAt(0, 0, 0);
-    }
-    
-    else if(event.keyCode == 40) {
+        break;
+      case 40:
         console.log('Down Arrow was pressed');
-        cameraPivot.position.y += -0.2;
+        cameraPivot.position.y += -speed*2;
         camera.lookAt(0, 0, 0);
+        break;
+      default:
+        // code block
     }
   }
   

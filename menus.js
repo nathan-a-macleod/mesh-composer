@@ -94,6 +94,34 @@ function changeColor(){
   if(event.keyCode == 13) {
       BoxMeshName.setColor(document.getElementById('changeColor').value);
       document.getElementById('changeColor').blur();
-      // NEED TO DO AN RGB SLIDER AT SOME POINT!!!!!!!!
   }
+}
+
+// Transformation inputs:
+document.getElementById('translation1').value = BoxMeshName.position.x;
+document.getElementById('translation2').value = BoxMeshName.position.y;
+document.getElementById('translation3').value = BoxMeshName.position.z;
+
+document.getElementById('rotation1').value = BoxMeshName.rotation.x;
+document.getElementById('rotation2').value = BoxMeshName.rotation.y;
+document.getElementById('rotation3').value = BoxMeshName.rotation.z;
+
+document.getElementById('scale1').value = BoxMeshName.scale.x;
+document.getElementById('scale2').value = BoxMeshName.scale.y;
+document.getElementById('scale3').value = BoxMeshName.scale.z;
+
+function transformInputs(){
+  typingText = true;
+  
+  BoxMeshName.position.x = document.getElementById('translation1').value;
+  BoxMeshName.position.y = document.getElementById('translation2').value;
+  BoxMeshName.position.z = document.getElementById('translation3').value;
+  
+  BoxMeshName.rotation.x = document.getElementById('rotation1').value;
+  BoxMeshName.rotation.y = document.getElementById('rotation2').value;
+  BoxMeshName.rotation.z = document.getElementById('rotation3').value;
+  
+  BoxMeshName.scale.x = document.getElementById('scale1').value;
+  BoxMeshName.scale.y = document.getElementById('scale2').value;
+  BoxMeshName.scale.z = document.getElementById('scale3').value;
 }
