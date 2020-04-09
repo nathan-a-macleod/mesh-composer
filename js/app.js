@@ -5,7 +5,6 @@
 
 var typingText = false;
 var raycaster, mouse = { x : 0, y : 0 };
-var speed = 0.2;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
