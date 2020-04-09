@@ -72,16 +72,25 @@ window.addEventListener('mousemove', ()=> {
     mouseXNow = event.clientX;
     mouseYNow = event.clientY;
     
-    if (mouseXNow - mouseXBefore < 0){
-      cameraPivot.rotation.y += 0.08;
-      // At some point do a thing where the smalest distance you move 
-      // the mouse, the less cameraPivot rotates. The next line could be a starting point:
-      //cameraPivot.rotation.y += (mouseXNow - mouseXBefore)/1000;
-    } else if (mouseXNow - mouseXBefore > 0){
-      cameraPivot.rotation.y += -0.08;
-      // At some point do a thing where the smalest distance you move 
-      // the mouse, the less cameraPivot rotates. The next line could be a starting point:
-      //cameraPivot.rotation.y -= (mouseXNow - mouseXBefore)/1000;
-    }
+    cameraOrbitX()
+    cameraOrbitY()
   }
 });
+
+function cameraOrbitY(){
+  if (mouseXNow - mouseXBefore < 0){
+    cameraPivot.rotation.y += -0.06;
+    // At some point do a thing where the smalest distance you move 
+    // the mouse, the less cameraPivot rotates. The next line could be a starting point:
+    //cameraPivot.rotation.y += (mouseXNow - mouseXBefore)/1000;
+  } else if (mouseXNow - mouseXBefore > 0){
+    cameraPivot.rotation.y += 0.06;
+    // At some point do a thing where the smalest distance you move 
+    // the mouse, the less cameraPivot rotates. The next line could be a starting point:
+    //cameraPivot.rotation.y -= (mouseXNow - mouseXBefore)/1000;
+  }
+}
+
+function cameraOrbitX(){
+  // Code goes here...
+}
