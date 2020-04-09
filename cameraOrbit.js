@@ -29,12 +29,12 @@ document.addEventListener('keydown', function(event) {
       case 38:
         // Up Arrow was pressed
         cameraPivot.position.y += speed*2;
-        camera.lookAt(0, 0, 0);
+        camera.lookAt(BoxMeshName.position);
         break;
       case 40:
         // Down Arrow was pressed
         cameraPivot.position.y += -speed*2;
-        camera.lookAt(0, 0, 0);
+        camera.lookAt(BoxMeshName.position);
         break;
       default:
       // There isn't really any DEFAULT code but there will be
