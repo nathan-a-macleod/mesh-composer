@@ -130,63 +130,16 @@ scene.add(directionalLight);
 var ambientLight = new THREE.AmbientLight(0x404040, 0.5); // soft white light
 scene.add(ambientLight);
 
-// Get keyboard input and move the camera accordingly:
-document.addEventListener('keydown', function(event) {
-  if (typingText == false){
-    switch(event.keyCode) {
-      // ------ Movement ------
-      case 87:
-        console.log('W was pressed');
-        cameraPivot.translateZ(-speed);
-        break;
-      case 83:
-        console.log('S was pressed');
-        cameraPivot.translateZ(speed);
-        break;
-      case 65:
-        console.log('A was pressed');
-        cameraPivot.translateX(-speed);
-        break;
-      case 68:
-        console.log('D was pressed');
-        cameraPivot.translateX(speed);
-        break;
-      case 81:
-        console.log('Q was pressed');
-        cameraPivot.translateY(-speed);
-        break;
-      case 69:
-        console.log('E was pressed');
-        cameraPivot.translateY(speed);
-        break;
-      // ------ Rotation ------
-      case 37:
-        console.log('Left Arrow was pressed');
-        cameraPivot.rotateY(speed);
-        break;
-      case 39:
-        console.log('Right Arrow was pressed');
-        cameraPivot.rotateY(-speed);
-        break;
-      case 38:
-        console.log('Up Arrow was pressed');
-        cameraPivot.position.y += speed*2;
-        camera.lookAt(0, 0, 0);
-        break;
-      case 40:
-        console.log('Down Arrow was pressed');
-        cameraPivot.position.y += -speed*2;
-        camera.lookAt(0, 0, 0);
-        break;
-      default:
-        // code block
-    }
-  }
-  
-  typingText = false;
-});
-
 function animate() {
+  //console.log('BEFORE: X: ' + mouseXBefore, ' Y: ' + mouseYBefore);
+  //console.log('NOW: X: ' + mouseXNow, ' Y: ' + mouseYNow);
+  
+  /*if (rotateCameraRight == true){
+    cameraPivot.rotation.y += 0.01;
+  } else if (rotateCameraLeft == true){
+    cameraPivot.rotation.y += -0.01;
+  }*/
+  
 	requestAnimationFrame(animate);
 	renderer.render(scene, camera);
 }
