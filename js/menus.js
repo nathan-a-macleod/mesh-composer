@@ -89,8 +89,6 @@ b.addEventListener('input', function() {
 
 
 function changeColor(){
-  typingText = true;
-  
   if(event.keyCode == 13) {
       BoxMeshName.setColor(document.getElementById('changeColor').value);
       document.getElementById('changeColor').blur();
@@ -111,8 +109,6 @@ document.getElementById('scale2').value = BoxMeshName.scale.y;
 document.getElementById('scale3').value = BoxMeshName.scale.z;
 
 function transformInputs(){
-  typingText = true;
-  
   BoxMeshName.position.x = document.getElementById('translation1').value;
   BoxMeshName.position.y = document.getElementById('translation2').value;
   BoxMeshName.position.z = document.getElementById('translation3').value;

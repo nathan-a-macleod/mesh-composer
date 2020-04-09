@@ -3,7 +3,7 @@
 
 //material.side = THREE.DoubleSide; // Changes culling if you can't see some faces
 
-var typingText = false;
+var clickedOnSlider = false;
 var raycaster, mouse = { x : 0, y : 0 };
 
 // Create the cameras origin point to be used later: 
