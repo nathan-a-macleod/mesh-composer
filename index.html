@@ -11,7 +11,7 @@
 		<script src="js/three.js"></script>
 		
 		<div id="topMenus">
-		  <p>Controls: Arrow keys, and W, A, S, D, Q, E. <br /> Use up & down arrow keys when changing transform settings.</p>
+		  <p>Controls: W & S, Q & E, and mouse drag. <br /> Use up & down arrow keys when changing transform settings.</p>
 		</div>
 		
 		<div class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
@@ -32,21 +32,21 @@
 		    
 		    <form class="rgbColorCode">
   	      <label for='r'>RED:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="redSlider">
+  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="redSlider">
           <output for="r" id="outputR">0</output>
           <div id="rBox" class="coloredBoxes"></div>
 		    </form>
 		    
 		    <form class="rgbColorCode">
   	      <label for='g'>GREEN:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="greenSlider">
+  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="greenSlider">
           <output for="g" id="outputG">0</output>
           <div id="gBox" class="coloredBoxes"></div>
 		    </form>
 		    
 		    <form class="rgbColorCode">
   	      <label for='b'>BLUE:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" class="rgbSlider" id="blueSlider">
+  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="blueSlider">
           <output for="b" id="outputB">0</output>
           <div id="bBox" class="coloredBoxes"></div>
 		    </form>
