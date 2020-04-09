@@ -66,7 +66,9 @@ window.addEventListener('mouseup', ()=> {
 });
 
 window.addEventListener('mousemove', ()=> {
-  if (isWindowClicked == true){
+  if (isWindowClicked === true){
+    camera.lookAt(BoxMeshName.position);
+    
     mouseXNow = event.clientX;
     mouseYNow = event.clientY;
     
