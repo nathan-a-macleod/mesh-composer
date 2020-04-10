@@ -71,9 +71,11 @@ function cameraOrbitY(){
 function cameraOrbitX(){
   if (cameraPivot.position.y >= 5){
     cameraPivot.position.y = 5;
-  } else if (cameraPivot.position.y <= -5){
-    cameraPivot.position.y = -5;
+  } else if (cameraPivot.position.y <= -10){
+    cameraPivot.position.y = -10;
   }
+  
+  console.log(cameraPivot.position.y);
   
   cameraPivot.position.y += (mouseYNow - mouseYBefore)/1000;
   camera.lookAt(BoxMesh.position);
