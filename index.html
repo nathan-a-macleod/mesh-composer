@@ -10,6 +10,28 @@
 	  <!-- Maybe try using orbit controls but put it here (as in on this line)-->
 		<script src="js/three.js"></script>
 		
+		<div id="detailConfirm">
+		  <p class="heading">Please enter how many segments you would like:</p>
+		  
+		  <div>
+  		  <label>Width Segments:</label>
+  		  <input id="detailConfirmInput1" placeholder="2" class="segmentsInput">
+		  </div>
+		  
+		  <div>
+  		  <label>Height Segments:</label>
+  		  <input id="detailConfirmInput2" placeholder="2" class="segmentsInput">
+		  </div>
+		  
+		  <!-- Delete the following div for certain primative shapes such as a cone -->
+		  <div>
+  		  <label>Depth Segments:</label>
+  		  <input id="detailConfirmInput3" placeholder="2" class="segmentsInput deletebleSegmentsInput">
+		  </div>
+		  
+		  <div class="button" id="enterDetailConfirm">Enter</div>
+		</div>
+		
 		<div id="topMenus">
 		  <p>Controls: W & S, Q & E, and mouse drag. <br /> Use up & down arrow keys when changing transform settings.</p>
 		</div>
