@@ -4,39 +4,45 @@ var cylinderButton = document.getElementById('cylinderButton');
 var PlaneButton = document.getElementById('PlaneButton');
 var SphereButton = document.getElementById('SphereButton');
 var TorusButton = document.getElementById('TorusButton');
+var confirmMessage = 'Warning: If you add a new object, you will delete the object you have already (you can only have one object in a scene right now). Press OK to proceed, or cancel to cancel.';
 
 cubeButton.addEventListener('click', function(){
-  if(confirm("Warning: If you add a new object, you will delete the object you have already (you can only have one object in a scene right now). Press OK to proceed, or cancel to cancel.")){
+  if(confirm(confirmMessage)){
     deleteCurrentObject();
     CreateBoxGeometry();
+    resetTransforms();
   }
 });
 
 cylinderButton.addEventListener('click', function(){
-  if(confirm("Warning: If you add a new object, you will delete the object you have already (you can only have one object in a scene right now). Press OK to proceed, or cancel to cancel.")){
+  if(confirm(confirmMessage)){
     deleteCurrentObject();
     CreateCylinderGeometry();
+    resetTransforms();
   }
 });
 
 PlaneButton.addEventListener('click', function(){
-  if(confirm("Warning: If you add a new object, you will delete the object you have already (you can only have one object in a scene right now). Press OK to proceed, or cancel to cancel.")){
+  if(confirm(confirmMessage)){
     deleteCurrentObject();
     CreatePlaneGeometry();
+    resetTransforms();
   }
 });
 
 SphereButton.addEventListener('click', function(){
-  if(confirm("Warning: If you add a new object, you will delete the object you have already (you can only have one object in a scene right now). Press OK to proceed, or cancel to cancel.")){
+  if(confirm(confirmMessage)){
     deleteCurrentObject();
     CreateSphereGeometry();
+    resetTransforms();
   }
 });
 
 TorusButton.addEventListener('click', function(){
-  if(confirm("Warning: If you add a new object, you will delete the object you have already (you can only have one object in a scene right now). Press OK to proceed, or cancel to cancel.")){
+  if(confirm(confirmMessage)){
     deleteCurrentObject();
     CreateTorusGeometry();
+    resetTransforms();
   }
 });
 

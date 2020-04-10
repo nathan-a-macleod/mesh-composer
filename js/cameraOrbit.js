@@ -75,8 +75,6 @@ function cameraOrbitX(){
     cameraPivot.position.y = -10;
   }
   
-  console.log(cameraPivot.position.y);
-  
   cameraPivot.position.y += (mouseYNow - mouseYBefore)/1000;
   camera.lookAt(BoxMesh.position);
 }

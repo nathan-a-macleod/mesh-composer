@@ -2,8 +2,6 @@
 document.getElementById('menuUnexpanded').addEventListener('click', ()=> {
   document.getElementById('menuUnexpanded').style.display = 'none';
   document.getElementById('menuExpanded').style.display = 'block';
-  console.log('Menu opened');
-  //camera.translateX(0.7);
 });
 
 document.getElementById('closeMenu').addEventListener('click', ()=> {
@@ -11,8 +9,6 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
   document.getElementById('menuExpanded').style.display = 'none';
   document.getElementById('colorSettings').style.display = 'none';
   document.getElementById('colorSettingsButton').style.display = 'block';
-  console.log('Menu opened');
-  //camera.translateX(-0.7);
 });
 
 document.getElementById('colorSettingsButton').addEventListener('click', ()=> {
@@ -108,18 +104,50 @@ function changeColor(){
   }
 }
 
-// Transformation inputs:
-document.getElementById('translation1').value = BoxMesh.position.x;
-document.getElementById('translation2').value = BoxMesh.position.y;
-document.getElementById('translation3').value = BoxMesh.position.z;
+// default transform settings:
+document.getElementById('translation1').value = 0;
+document.getElementById('translation2').value = 0;
+document.getElementById('translation3').value = 0;
 
-document.getElementById('rotation1').value = BoxMesh.rotation.x;
-document.getElementById('rotation2').value = BoxMesh.rotation.y;
-document.getElementById('rotation3').value = BoxMesh.rotation.z;
+document.getElementById('rotation1').value = 0;
+document.getElementById('rotation2').value = 0;
+document.getElementById('rotation3').value = 0;
 
-document.getElementById('scale1').value = BoxMesh.scale.x;
-document.getElementById('scale2').value = BoxMesh.scale.y;
-document.getElementById('scale3').value = BoxMesh.scale.z;
+document.getElementById('scale1').value = 1;
+document.getElementById('scale2').value = 1;
+document.getElementById('scale3').value = 1;
+
+function resetTransforms(currentElementMesh, currentElementLine){
+  if (currentObject == 'cube'){
+    currentElementMesh = BoxMesh;
+    currentElementLine = BoxLine;
+  } else if (currentObject == 'cylinder'){
+    currentElementMesh = CylinderMesh;
+    currentElementLine = CylinderLine;
+  } else if (currentObject == 'plane'){
+    currentElementMesh = PlaneMesh;
+    currentElementLine = PlaneLine;
+  } else if (currentObject == 'sphere'){
+    currentElementMesh = SphereMesh;
+    currentElementLine = SphereLine;
+  } else if (currentObject == 'torus'){
+    currentElementMesh = TorusMesh;
+    currentElementLine = TorusLine;
+  }
+  
+  
+  document.getElementById('translation1').value = currentElementMesh.position.x;
+  document.getElementById('translation2').value = currentElementMesh.position.y;
+  document.getElementById('translation3').value = currentElementMesh.position.z;
+  
+  document.getElementById('rotation1').value = currentElementMesh.rotation.x;
+  document.getElementById('rotation2').value = currentElementMesh.rotation.y;
+  document.getElementById('rotation3').value = currentElementMesh.rotation.z;
+  
+  document.getElementById('scale1').value = currentElementMesh.scale.x;
+  document.getElementById('scale2').value = currentElementMesh.scale.y;
+  document.getElementById('scale3').value = currentElementMesh.scale.z;
+}
 
 function transformInputs(currentElementMesh, currentElementLine){
   if (currentObject == 'cube'){
