@@ -19,17 +19,19 @@ if (document.addEventListener) {
 else document.attachEvent("onmousewheel", MouseWheelHandler);
 
 function mouseScroll(e){
-  var e = window.event || e; // old IE support
-	var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-	// delta returns a value of 1 (scroll up), 0 (not scrolling) or -1 (scrolling down)
-	
-	if (delta == 1){
-	  // Scrolling up
-    camera.translateZ(-speed);
-	} else if (delta == -1){
-	  // Scrolling up
-    camera.translateZ(speed);
-	}
+  if (scrolling == true){
+    var e = window.event || e; // old IE support
+  	var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+  	// delta returns a value of 1 (scroll up), 0 (not scrolling) or -1 (scrolling down)
+  	
+  	if (delta == 1){
+  	  // Scrolling up
+      camera.translateZ(-speed);
+  	} else if (delta == -1){
+  	  // Scrolling up
+      camera.translateZ(speed);
+  	}
+  }
 }
 
 // For orbiting the scene:

@@ -6,6 +6,7 @@
 var clickedOnSlider = false;
 var raycaster, mouse = { x : 0, y : 0 };
 var currentObject;
+var scrolling = true;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();

@@ -30,6 +30,21 @@ document.getElementById('toggleEditMode').addEventListener('click', ()=> {
   camera.layers.toggle(1);
 });
 
+// If mouse in inside menuExpanded div, disable scrolling:
+document.getElementById("menuExpanded").setAttribute("onmouseover", 'menuExpandedOnMouseOver()');
+
+document.getElementById("menuExpanded").setAttribute("onmouseout", 'menuExpandedOnMouseOut()');
+
+function menuExpandedOnMouseOver(){
+  scrolling = false;
+  console.log(scrolling)
+}
+
+function menuExpandedOnMouseOut(){
+  scrolling = true;
+  console.log(scrolling)
+}
+
 // The RGB slider:
 var body = document.body, 
   r = document.querySelector('#redSlider'),
