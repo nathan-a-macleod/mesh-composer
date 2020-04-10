@@ -9,16 +9,32 @@ var confirmMessage = 'Warning: If you add a new object, you will delete the obje
 cubeButton.addEventListener('click', function(){
   if(confirm(confirmMessage)){
     deleteCurrentObject();
-    CreateBoxGeometry();
-    resetTransforms();
+    document.getElementById('detailConfirm').style.display = 'block';
+    
+    document.getElementById('enterDetailConfirm').addEventListener('click', ()=> {
+      var widthSegments = document.getElementById('detailConfirmInput1').value;
+      var heightSegments = document.getElementById('detailConfirmInput2').value;
+      var depthSegments = document.getElementById('detailConfirmInput3').value;
+      CreateBoxGeometry(widthSegments, heightSegments, depthSegments);
+      resetTransforms();
+      document.getElementById('detailConfirm').style.display = 'none';
+    });
   }
 });
 
 cylinderButton.addEventListener('click', function(){
   if(confirm(confirmMessage)){
     deleteCurrentObject();
-    CreateCylinderGeometry();
-    resetTransforms();
+    document.getElementById('detailConfirm').style.display = 'block';
+    
+    document.getElementById('enterDetailConfirm').addEventListener('click', ()=> {
+      var widthSegments = document.getElementById('detailConfirmInput1').value;
+      var heightSegments = document.getElementById('detailConfirmInput2').value;
+      var depthSegments = document.getElementById('detailConfirmInput3').value;
+      CreateCylinderGeometry(widthSegments, heightSegments, depthSegments);
+      resetTransforms();
+      document.getElementById('detailConfirm').style.display = 'none';
+    });
   }
 });
 
