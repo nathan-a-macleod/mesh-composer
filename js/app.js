@@ -5,6 +5,7 @@
 
 var clickedOnSlider = false;
 var raycaster, mouse = { x : 0, y : 0 };
+var currentObject;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -29,69 +30,119 @@ var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Define some objects:
-function CreatePlaneGeometry() {
-  this.planeMaterialName;
-  this.planePointsName;
-  this.planeGeometryName;
-  this.planeMeshName;
-   
-  planeMaterialName = new THREE.MeshBasicMaterial({color: 0xffffff}); // default color
-  planePointsName = [];
-  planePointsName.push(new THREE.Vector3(-2, -0.5, -2));
-  planePointsName.push(new THREE.Vector3(2, -0.5, -2));
-  planePointsName.push(new THREE.Vector3(2, -0.5, 2));
-  planePointsName.push(new THREE.Vector3(-2, -0.5, -2));
-  planePointsName.push(new THREE.Vector3(-2, -0.5, 2));
-  planePointsName.push(new THREE.Vector3(2, -0.5, 2));
-  planePointsName.push(new THREE.Vector3(-2, -0.5, 2));
-  planeGeometryName = new THREE.BufferGeometry().setFromPoints(planePointsName);
-  planeMeshName = new THREE.Mesh(planeGeometryName, planeMaterialName);
-  planeMaterialName.side = THREE.DoubleSide;
-  scene.add(planeMeshName);
+// Create functions for different primative shapes:
+function CreateBoxGeometry() {
+  BoxGeometry = new THREE.BoxGeometry();
+  BoxMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  BoxMesh = new THREE.Mesh(BoxGeometry, BoxMaterial);
+  scene.add(BoxMesh);
   
-  planeMeshName.setColor = function(color){
-    planeMeshName.material.color.set(color);
+  BoxMesh.setColor = function(color){
+    BoxMesh.material.color.set(color);
   };
+  
+  BoxWireframe = new THREE.WireframeGeometry(BoxGeometry);
+  BoxLine = new THREE.LineSegments(BoxWireframe);
+  BoxLine.material.color.setHex(0x1d43ab);
+  BoxLine.layers.set(1);
+  scene.add(BoxLine);
+  
+  BoxLine.setColor = function(color){
+    BoxLine.material.color.set(color);
+  };
+  currentObject = 'cube';
 }
 
-function CreateBoxGeometry() {
-  //this.BoxMaterialName;
-  this.BoxGeometryName;
-  this.BoxMeshName;
-  this.BoxMaterialName;
+function CreateCylinderGeometry() {
+  CylinderGeometry = new THREE.CylinderGeometry();
+  CylinderMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  CylinderMesh = new THREE.Mesh(CylinderGeometry, CylinderMaterial);
+  scene.add(CylinderMesh);
   
-  this.BoxWireframeName;
-  this.BoxLineName;
-  
-  BoxGeometryName = new THREE.BoxGeometry();
-  BoxMaterialName = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
-  BoxMeshName = new THREE.Mesh(BoxGeometryName, BoxMaterialName);
-  scene.add(BoxMeshName);
-  
-  BoxMeshName.setColor = function(color){
-    BoxMeshName.material.color.set(color);
+  CylinderMesh.setColor = function(color){
+    CylinderMesh.material.color.set(color);
   };
   
-  BoxWireframeName = new THREE.WireframeGeometry(BoxGeometryName);
-  BoxLineName = new THREE.LineSegments(BoxWireframeName);
-  BoxLineName.material.color.setHex(0x1d43ab);
-  scene.add(BoxLineName);
+  CylinderWireframe = new THREE.WireframeGeometry(CylinderGeometry);
+  CylinderLine = new THREE.LineSegments(CylinderWireframe);
+  CylinderLine.material.color.setHex(0x1d43ab);
+  CylinderLine.layers.set(1);
+  scene.add(CylinderLine);
   
-  BoxLineName.setColor = function(color){
-    BoxLineName.material.color.set(color);
+  CylinderLine.setColor = function(color){
+    CylinderLine.material.color.set(color);
   };
+  currentObject = 'cylinder';
+}
+
+function CreatePlaneGeometry() {
+  PlaneGeometry = new THREE.PlaneGeometry();
+  PlaneMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  PlaneMesh = new THREE.Mesh(PlaneGeometry, PlaneMaterial);
+  scene.add(PlaneMesh);
+  
+  PlaneMesh.setColor = function(color){
+    PlaneMesh.material.color.set(color);
+  };
+  
+  PlaneWireframe = new THREE.WireframeGeometry(PlaneGeometry);
+  PlaneLine = new THREE.LineSegments(PlaneWireframe);
+  PlaneLine.material.color.setHex(0x1d43ab);
+  PlaneLine.layers.set(1);
+  scene.add(PlaneLine);
+  
+  PlaneLine.setColor = function(color){
+    PlaneLine.material.color.set(color);
+  };
+  currentObject = 'plane';
+}
+
+function CreateSphereGeometry() {
+  SphereGeometry = new THREE.SphereGeometry();
+  SphereMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  SphereMesh = new THREE.Mesh(SphereGeometry, SphereMaterial);
+  scene.add(SphereMesh);
+  
+  SphereMesh.setColor = function(color){
+    SphereMesh.material.color.set(color);
+  };
+  
+  SphereWireframe = new THREE.WireframeGeometry(SphereGeometry);
+  SphereLine = new THREE.LineSegments(SphereWireframe);
+  SphereLine.material.color.setHex(0x1d43ab);
+  SphereLine.layers.set(1);
+  scene.add(SphereLine);
+  
+  SphereLine.setColor = function(color){
+    SphereLine.material.color.set(color);
+  };
+  currentObject = 'sphere';
+}
+
+function CreateTorusGeometry() {
+  TorusGeometry = new THREE.TorusGeometry();
+  TorusMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  TorusMesh = new THREE.Mesh(TorusGeometry, TorusMaterial);
+  scene.add(TorusMesh);
+  
+  TorusMesh.setColor = function(color){
+    TorusMesh.material.color.set(color);
+  };
+  
+  TorusWireframe = new THREE.WireframeGeometry(TorusGeometry);
+  TorusLine = new THREE.LineSegments(TorusWireframe);
+  TorusLine.material.color.setHex(0x1d43ab);
+  TorusLine.layers.set(1);
+  scene.add(TorusLine);
+  
+  TorusLine.setColor = function(color){
+    TorusLine.material.color.set(color);
+  };
+  currentObject = 'torus';
 }
 
 // Create the default cube from box object:
-var defaultCube = new CreateBoxGeometry();
-defaultCube.BoxMaterialName = 'defaultCubeMaterial';
-defaultCube.BoxGeometryName = 'defaultCubeGeometry';
-defaultCube.BoxMeshName = 'defaultCubeMesh';
-
-defaultCube.BoxWireframeName = 'defaultCubeMaterial';
-defaultCube.BoxLineName = 'defaultCubeLine';
-BoxLineName.layers.set(1);
+CreateBoxGeometry();
 document.getElementById('changeColor').value = '#ffffff';
 //BoxMeshName.setColor(0x0000FF); // to change the colour of the object
 

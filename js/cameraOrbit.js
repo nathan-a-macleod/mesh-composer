@@ -7,31 +7,7 @@ var mouseYNow;
 var rotateCameraLeft;
 var rotateCameraRight;
 
-// Make the speed smaller if the camera is closer to the default cube.
-
-
-// Get keyboard input and move the camera accordingly:
-document.addEventListener('keydown', function(event) {
-  switch(event.keyCode) {
-    // ------ Movement ------
-    case 87:
-      // W was pressed
-      camera.translateZ(-speed);
-      break;
-    case 83:
-      // S was pressed
-      camera.translateZ(speed);
-      break;
-    case 81:
-      // Q was pressed
-      cameraPivot.translateY(-speed);
-      break;
-    case 69:
-      // E was pressed
-      cameraPivot.translateY(speed);
-      break;
-  }
-});
+// *** Make the speed smaller if the camera is closer to the default cube. ***
 
 if (document.addEventListener) {
 	// IE9, Chrome, Safari, Opera
@@ -70,7 +46,7 @@ window.addEventListener('mouseup', ()=> {
 
 window.addEventListener('mousemove', ()=> {
   if ((isWindowClicked === true) && (clickedOnSlider == false)){
-    camera.lookAt(BoxMeshName.position);
+    camera.lookAt(BoxMesh.position);
     
     mouseXNow = event.clientX;
     mouseYNow = event.clientY;
@@ -98,5 +74,5 @@ function cameraOrbitX(){
   }
   
   cameraPivot.position.y += (mouseYNow - mouseYBefore)/1000;
-  camera.lookAt(BoxMeshName.position);
+  camera.lookAt(BoxMesh.position);
 }

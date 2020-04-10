@@ -49,7 +49,7 @@ function setColor(){
     g_hexVal = parseInt(g.value, 10).toString(16),
     b_hexVal = parseInt(b.value, 10).toString(16),
     hexVal = "#" + pad(r_hexVal) + pad(g_hexVal) + pad(b_hexVal);
-  BoxMeshName.setColor(hexVal_out.value);
+  BoxMesh.setColor(hexVal_out.value);
   hexVal_out.value = hexVal;
 }
 
@@ -90,43 +90,43 @@ b.addEventListener('input', function() {
 
 function changeColor(){
   if(event.keyCode == 13) {
-      BoxMeshName.setColor(document.getElementById('changeColor').value);
+      BoxMesh.setColor(document.getElementById('changeColor').value);
       document.getElementById('changeColor').blur();
   }
 }
 
 // Transformation inputs:
-document.getElementById('translation1').value = BoxMeshName.position.x;
-document.getElementById('translation2').value = BoxMeshName.position.y;
-document.getElementById('translation3').value = BoxMeshName.position.z;
+document.getElementById('translation1').value = BoxMesh.position.x;
+document.getElementById('translation2').value = BoxMesh.position.y;
+document.getElementById('translation3').value = BoxMesh.position.z;
 
-document.getElementById('rotation1').value = BoxMeshName.rotation.x;
-document.getElementById('rotation2').value = BoxMeshName.rotation.y;
-document.getElementById('rotation3').value = BoxMeshName.rotation.z;
+document.getElementById('rotation1').value = BoxMesh.rotation.x;
+document.getElementById('rotation2').value = BoxMesh.rotation.y;
+document.getElementById('rotation3').value = BoxMesh.rotation.z;
 
-document.getElementById('scale1').value = BoxMeshName.scale.x;
-document.getElementById('scale2').value = BoxMeshName.scale.y;
-document.getElementById('scale3').value = BoxMeshName.scale.z;
+document.getElementById('scale1').value = BoxMesh.scale.x;
+document.getElementById('scale2').value = BoxMesh.scale.y;
+document.getElementById('scale3').value = BoxMesh.scale.z;
 
 function transformInputs(){
-  BoxMeshName.position.x = document.getElementById('translation1').value;
-  BoxMeshName.position.y = document.getElementById('translation2').value;
-  BoxMeshName.position.z = document.getElementById('translation3').value;
-  BoxLineName.position.x = document.getElementById('translation1').value;
-  BoxLineName.position.y = document.getElementById('translation2').value;
-  BoxLineName.position.z = document.getElementById('translation3').value;
+  BoxMesh.position.x = document.getElementById('translation1').value;
+  BoxMesh.position.y = document.getElementById('translation2').value;
+  BoxMesh.position.z = document.getElementById('translation3').value;
+  BoxLine.position.x = document.getElementById('translation1').value;
+  BoxLine.position.y = document.getElementById('translation2').value;
+  BoxLine.position.z = document.getElementById('translation3').value;
   
-  BoxMeshName.rotation.x = document.getElementById('rotation1').value;
-  BoxMeshName.rotation.y = document.getElementById('rotation2').value;
-  BoxMeshName.rotation.z = document.getElementById('rotation3').value;
-  BoxLineName.rotation.x = document.getElementById('rotation1').value;
-  BoxLineName.rotation.y = document.getElementById('rotation2').value;
-  BoxLineName.rotation.z = document.getElementById('rotation3').value;
+  BoxMesh.rotation.x = document.getElementById('rotation1').value;
+  BoxMesh.rotation.y = document.getElementById('rotation2').value;
+  BoxMesh.rotation.z = document.getElementById('rotation3').value;
+  BoxLine.rotation.x = document.getElementById('rotation1').value;
+  BoxLine.rotation.y = document.getElementById('rotation2').value;
+  BoxLine.rotation.z = document.getElementById('rotation3').value;
   
-  BoxMeshName.scale.x = document.getElementById('scale1').value;
-  BoxMeshName.scale.y = document.getElementById('scale2').value;
-  BoxLineName.scale.z = document.getElementById('scale3').value;
-  BoxLineName.scale.x = document.getElementById('scale1').value;
-  BoxLineName.scale.y = document.getElementById('scale2').value;
-  BoxLineName.scale.z = document.getElementById('scale3').value;
+  BoxMesh.scale.x = document.getElementById('scale1').value;
+  BoxMesh.scale.y = document.getElementById('scale2').value;
+  BoxLine.scale.z = document.getElementById('scale3').value;
+  BoxLine.scale.x = document.getElementById('scale1').value;
+  BoxLine.scale.y = document.getElementById('scale2').value;
+  BoxLine.scale.z = document.getElementById('scale3').value;
 }
