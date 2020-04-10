@@ -33,6 +33,29 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
+if (document.addEventListener) {
+	// IE9, Chrome, Safari, Opera
+	document.addEventListener("mousewheel", mouseScroll, false);
+	// Firefox
+	document.addEventListener("DOMMouseScroll", mouseScroll, false);
+}
+// IE 6/7/8
+else document.attachEvent("onmousewheel", MouseWheelHandler);
+
+function mouseScroll(e){
+  var e = window.event || e; // old IE support
+	var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+	// delta returns a value of 1 (scroll up), 0 (not scrolling) or -1 (scrolling down)
+	
+	if (delta == 1){
+	  // Scrolling up
+    camera.translateZ(-speed);
+	} else if (delta == -1){
+	  // Scrolling up
+    camera.translateZ(speed);
+	}
+}
+
 // For orbiting the scene:
 window.addEventListener('mousedown', ()=> {
   isWindowClicked = true;
@@ -58,7 +81,7 @@ window.addEventListener('mousemove', ()=> {
 });
 
 function cameraOrbitY(){
-  if (((mouseXNow - mouseXBefore)/2000 <= 0.1) && ((mouseXNow - mouseXBefore)/2000 >= -0.1)){
+  if (((mouseXNow - mouseXBefore)/2000 <= 0.1) && ((mouseXNow - mouseXBefore)/4000 >= -0.1)){
     cameraPivot.rotation.y -= (mouseXNow - mouseXBefore)/2000;
   } else if ((mouseXNow - mouseXBefore)/2000 > 0){
     cameraPivot.rotation.y -= 0.05;
