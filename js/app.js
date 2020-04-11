@@ -32,8 +32,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Create functions for different primative shapes:
-function CreateBoxGeometry(widthSegments, heightSegments, depthSegments) {
-  BoxGeometry = new THREE.BoxGeometry(1, 1, 1, widthSegments, heightSegments, depthSegments);
+function CreateBoxGeometry() {
+  BoxGeometry = new THREE.BoxGeometry();
   BoxMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
   BoxMesh = new THREE.Mesh(BoxGeometry, BoxMaterial);
   scene.add(BoxMesh);
