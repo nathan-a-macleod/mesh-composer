@@ -46,6 +46,10 @@ TorusButton.addEventListener('click', function(){
   }
 });
 
+document.getElementById('applySubdivision').addEventListener('click', function(){
+  console.log('Apply subdivison algorithm here')
+});
+
 function deleteCurrentObject(){
   if (currentObject == 'cube'){
     scene.remove(BoxMesh);

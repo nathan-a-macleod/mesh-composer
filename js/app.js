@@ -24,12 +24,14 @@ camera.rotation.x += -0.4;
 cameraPivot.add(camera);
 scene.add(cameraPivot);
 
-// Create renderer and raycaster:
-raycaster = new THREE.Raycaster();
-
+// Create renderer:
 var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+// Create the AxisHelper -> Need to add a system to allow you to click on these, and translate the object accordingly.:
+var axesHelper = new THREE.AxesHelper(2);
+scene.add(axesHelper);
 
 // Create functions for different primative shapes:
 function CreateBoxGeometry() {
