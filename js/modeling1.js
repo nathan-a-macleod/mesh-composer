@@ -47,7 +47,20 @@ TorusButton.addEventListener('click', function(){
 });
 
 document.getElementById('applySubdivision').addEventListener('click', function(){
-  console.log('Apply subdivison algorithm here')
+  // Stage 1 -> For each face calculate what the average POINT is.
+  // (A POINT can be defined as the average location between all the
+  // vertices that make up that face).
+  console.log('Executing subdivision algorithm stage 1...')
+  
+  // Stage 2 -> For each edge, add a new POINT (THIS POINT is actual geometry
+  // instead of just a value). This POINT is located in the average position
+  // between the 2 vertices that make up that edge.
+  console.log('Executing subdivision algorithm stage 2...')
+  
+  // Stage 3 -> For each vertex, move it to the average point between:
+  // 1) The X, Y, Z location of where it is now, AND
+  // 2) The average X, Y, and Z locations between the surrounding face points.  
+  console.log('Executing subdivision algorithm stage 3...')
 });
 
 function deleteCurrentObject(){
