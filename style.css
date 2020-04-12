@@ -282,3 +282,9 @@ output[for=r], output[for=g], output[for=b]{
   padding: 0px !important;
   margin-top: 10px;
 }
+
+#applySubdivision{
+  width: 250px;
+  margin: auto;
+  margin-top: 15px;
+}
