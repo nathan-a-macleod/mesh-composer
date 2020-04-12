@@ -50,34 +50,48 @@ document.getElementById('applySubdivision').addEventListener('click', function()
   // Stage 1 -> For each face calculate what the average POINT is.
   // (A POINT can be defined as the average location between all the
   // vertices that make up that face).
-  console.log('Executing subdivision algorithm stage 1...')
+  getObjectType();
+  
+  var facePointsArray = [];
+  
+  for (i=0; i<currentElementMesh.geometry.faces.length; i++){
+    //console.log(currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a]);
+    
+    var facePointX = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].x) / 3;
+    var facePointY = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].y) / 3;
+    var facePointZ = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].z) / 3;
+    
+    var facePointArray = [];
+    facePointArray.push(facePointX);
+    facePointArray.push(facePointY);
+    facePointArray.push(facePointZ);
+    
+    facePointsArray.push(facePointArray);
+    // facePointsArray contains an X, Y and Z value for each face,
+    // console.log(facePointsArray);
+    
+    // Uncomment this code to put a box at the locations to visualize it better:
+    /*var MyBoxGeometry = new THREE.BoxGeometry();
+    var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x000000}); // default color
+    var MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
+    MyBoxMesh.position.x = facePointX;
+    MyBoxMesh.position.y = facePointY;
+    MyBoxMesh.position.z = facePointZ;
+    MyBoxMesh.scale.set(0.03, 0.03, 0.03);
+    scene.add(MyBoxMesh);*/
+  }
   
   // Stage 2 -> For each edge, add a new POINT (THIS POINT is actual geometry
   // instead of just a value). This POINT is located in the average position
   // between the 2 vertices that make up that edge.
-  console.log('Executing subdivision algorithm stage 2...')
   
   // Stage 3 -> For each vertex, move it to the average point between:
   // 1) The X, Y, Z location of where it is now, AND
   // 2) The average X, Y, and Z locations between the surrounding face points.  
-  console.log('Executing subdivision algorithm stage 3...')
 });
 
 function deleteCurrentObject(){
-  if (currentObject == 'cube'){
-    scene.remove(BoxMesh);
-    scene.remove(BoxLine);
-  } else if (currentObject == 'cylinder'){
-    scene.remove(CylinderMesh);
-    scene.remove(CylinderLine);
-  } else if (currentObject == 'plane'){
-    scene.remove(PlaneMesh);
-    scene.remove(PlaneLine);
-  } else if (currentObject == 'sphere'){
-    scene.remove(SphereMesh);
-    scene.remove(SphereLine);
-  } else if (currentObject == 'torus'){
-    scene.remove(TorusMesh);
-    scene.remove(TorusLine);
-  }
+  getObjectType()
+  scene.remove(currentElementMesh);
+  scene.remove(currentElementLine);
 }

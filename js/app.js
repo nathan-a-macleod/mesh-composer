@@ -175,6 +175,30 @@ gridLine.position.z += -1;
 gridLine.scale.set(2, 2, 2);
 scene.add(gridLine);
 
+// Function that you can run to get what type of object it is: 
+var currentElementMesh;
+var currentElementLine;
+
+function getObjectType(){
+  if (currentObject == 'cube'){
+    currentElementMesh = BoxMesh;
+    currentElementLine = BoxLine;
+  } else if (currentObject == 'cylinder'){
+    currentElementMesh = CylinderMesh;
+    currentElementLine = CylinderLine;
+  } else if (currentObject == 'plane'){
+    currentElementMesh = PlaneMesh;
+    currentElementLine = PlaneLine;
+  } else if (currentObject == 'sphere'){
+    currentElementMesh = SphereMesh;
+    currentElementLine = SphereLine;
+  } else if (currentObject == 'torus'){
+    currentElementMesh = TorusMesh;
+    currentElementLine = TorusLine;
+  }
+}
+getObjectType();
+
 // Lighting:
 var directionalLight = new THREE.DirectionalLight(0xffffff);
 directionalLight.position.set(8, 5, 10);
