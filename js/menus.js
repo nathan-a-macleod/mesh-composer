@@ -58,7 +58,8 @@ function setColor(){
     g_hexVal = parseInt(g.value, 10).toString(16),
     b_hexVal = parseInt(b.value, 10).toString(16),
     hexVal = "#" + pad(r_hexVal) + pad(g_hexVal) + pad(b_hexVal);
-  BoxMesh.setColor(hexVal_out.value);
+  getObjectType();
+  currentElementMesh.setColor(hexVal_out.value);
   hexVal_out.value = hexVal;
 }
 
@@ -99,7 +100,8 @@ b.addEventListener('input', function() {
 
 function changeColor(){
   if(event.keyCode == 13) {
-      BoxMesh.setColor(document.getElementById('changeColor').value);
+      getObjectType();
+      currentElementMesh.setColor(document.getElementById('changeColor').value);
       document.getElementById('changeColor').blur();
   }
 }
@@ -117,24 +119,9 @@ document.getElementById('scale1').value = 1;
 document.getElementById('scale2').value = 1;
 document.getElementById('scale3').value = 1;
 
-function resetTransforms(currentElementMesh, currentElementLine){
-  if (currentObject == 'cube'){
-    currentElementMesh = BoxMesh;
-    currentElementLine = BoxLine;
-  } else if (currentObject == 'cylinder'){
-    currentElementMesh = CylinderMesh;
-    currentElementLine = CylinderLine;
-  } else if (currentObject == 'plane'){
-    currentElementMesh = PlaneMesh;
-    currentElementLine = PlaneLine;
-  } else if (currentObject == 'sphere'){
-    currentElementMesh = SphereMesh;
-    currentElementLine = SphereLine;
-  } else if (currentObject == 'torus'){
-    currentElementMesh = TorusMesh;
-    currentElementLine = TorusLine;
-  }
-  
+function resetTransforms(){
+  getObjectType();
+  camera.lookAt(currentElementMesh.position);
   
   document.getElementById('translation1').value = currentElementMesh.position.x;
   document.getElementById('translation2').value = currentElementMesh.position.y;
@@ -149,23 +136,8 @@ function resetTransforms(currentElementMesh, currentElementLine){
   document.getElementById('scale3').value = currentElementMesh.scale.z;
 }
 
-function transformInputs(currentElementMesh, currentElementLine){
-  if (currentObject == 'cube'){
-    currentElementMesh = BoxMesh;
-    currentElementLine = BoxLine;
-  } else if (currentObject == 'cylinder'){
-    currentElementMesh = CylinderMesh;
-    currentElementLine = CylinderLine;
-  } else if (currentObject == 'plane'){
-    currentElementMesh = PlaneMesh;
-    currentElementLine = PlaneLine;
-  } else if (currentObject == 'sphere'){
-    currentElementMesh = SphereMesh;
-    currentElementLine = SphereLine;
-  } else if (currentObject == 'torus'){
-    currentElementMesh = TorusMesh;
-    currentElementLine = TorusLine;
-  }
+function transformInputs(){
+  getObjectType();
   
   currentElementMesh.position.x = document.getElementById('translation1').value;
   currentElementMesh.position.y = document.getElementById('translation2').value;
@@ -188,3 +160,24 @@ function transformInputs(currentElementMesh, currentElementLine){
   currentElementLine.scale.y = document.getElementById('scale2').value;
   currentElementLine.scale.z = document.getElementById('scale3').value;
 }
+
+document.getElementById('previewButton').addEventListener('click', ()=> {
+  previewMode = !previewMode;
+  
+  if (previewMode == false){
+    document.getElementById('menuUnexpanded').style.display = 'block';
+    document.getElementById('topMenus').style.display = 'block';
+    
+    camera.layers.enable(3);
+    
+    getObjectType();
+    currentElementMesh.rotation.x = 0;
+    currentElementMesh.rotation.y = 0;
+    currentElementMesh.rotation.z = 0;
+    currentElementLine.rotation.x = 0;
+    currentElementLine.rotation.y = 0;
+    currentElementLine.rotation.z = 0;
+    
+    document.getElementById('previewButton').innerValue = 'Preview';
+  }
+});

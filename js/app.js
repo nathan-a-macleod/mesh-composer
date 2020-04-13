@@ -7,6 +7,7 @@ var clickedOnSlider = false;
 var raycaster, mouse = { x : 0, y : 0 };
 var currentObject;
 var scrolling = true;
+var previewMode = false;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -19,6 +20,7 @@ var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHei
 camera.position.z += 7;
 camera.position.y += 3;
 camera.rotation.x += -0.4;
+camera.layers.enable(3);
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
 cameraPivot.add(camera);
@@ -28,10 +30,6 @@ scene.add(cameraPivot);
 var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-
-// Create the AxisHelper -> Need to add a system to allow you to click on these, and translate the object accordingly.:
-var axesHelper = new THREE.AxesHelper(2);
-scene.add(axesHelper);
 
 // Create functions for different primative shapes:
 function CreateBoxGeometry() {
@@ -178,6 +176,7 @@ gridLine.position.y += -0.5;
 gridLine.position.x += 1;
 gridLine.position.z += -1;
 gridLine.scale.set(2, 2, 2);
+gridLine.layers.set(3);
 scene.add(gridLine);
 
 // Function that you can run to get what type of object it is: 
@@ -222,13 +221,34 @@ function animate() {
     cameraPivot.rotation.y += -0.01;
   }*/
   
-	requestAnimationFrame(animate);
-  renderer.render(scene, camera);
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
+  
+  if (previewMode == true){
+    document.getElementById('menuUnexpanded').style.display = 'none';
+    document.getElementById('menuExpanded').style.display = 'none';
+    document.getElementById('topMenus').style.display = 'none';
+    
+    camera.layers.disable(1);
+    
+    getObjectType();
+    currentElementMesh.rotateX(0.01);
+    currentElementMesh.rotateY(0.01);
+    currentElementMesh.rotateZ(0.01);
+    currentElementLine.rotateX(0.01);
+    currentElementLine.rotateY(0.01);
+    currentElementLine.rotateZ(0.01);
+    
+    document.getElementById('previewButton').innerValue = 'Preview OFF';
+    
+    camera.layers.disable(3);
+  }
+  
+	requestAnimationFrame(animate);
+  renderer.render(scene, camera);
 }
 
 animate();
