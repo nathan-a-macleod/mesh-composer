@@ -131,19 +131,13 @@ canvas {
 
 #colorSettings{
   background-color: var(--second-bg-color);
-  width: 25vw;
   padding-bottom: 10px;
   display: none; /*By default it is hidden, but you can press a button to show it*/
-}
-
-#editMode{
-  width: 25vw;
 }
 
 #toggleEditMode{
   width: 150px;
   margin: auto;
-  background-color: #3b3b3b;
   color: white;
 }
 
@@ -186,7 +180,7 @@ canvas {
 }
 
 .rgbSlider{
-  width: 16vw;
+  width: 60%;
 }
 
 .rgbColorCode{
