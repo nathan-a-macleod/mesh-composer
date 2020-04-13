@@ -54,6 +54,7 @@ function CreateBoxGeometry() {
     BoxLine.material.color.set(color);
   };
   currentObject = 'cube';
+  getObjectType();
 }
 
 function CreateCylinderGeometry() {
@@ -76,6 +77,7 @@ function CreateCylinderGeometry() {
     CylinderLine.material.color.set(color);
   };
   currentObject = 'cylinder';
+  getObjectType();
 }
 
 function CreatePlaneGeometry() {
@@ -98,6 +100,7 @@ function CreatePlaneGeometry() {
     PlaneLine.material.color.set(color);
   };
   currentObject = 'plane';
+  getObjectType();
 }
 
 function CreateSphereGeometry() {
@@ -120,6 +123,7 @@ function CreateSphereGeometry() {
     SphereLine.material.color.set(color);
   };
   currentObject = 'sphere';
+  getObjectType();
 }
 
 function CreateTorusGeometry() {
@@ -142,6 +146,7 @@ function CreateTorusGeometry() {
     TorusLine.material.color.set(color);
   };
   currentObject = 'torus';
+  getObjectType();
 }
 
 // Create the default cube from box object:
