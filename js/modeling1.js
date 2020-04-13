@@ -12,7 +12,6 @@ cubeButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateBoxGeometry();
     resetTransforms();
-    
     setColor();
   }
 });
@@ -22,17 +21,16 @@ cylinderButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateCylinderGeometry();
     resetTransforms();
-    
     setColor();
   }
 });
 
 PlaneButton.addEventListener('click', function(){
   if(confirm(confirmMessage)){
-    setColor();
     deleteCurrentObject();
     CreatePlaneGeometry();
     resetTransforms();
+    setColor();
   }
 });
 
@@ -41,7 +39,6 @@ SphereButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateSphereGeometry();
     resetTransforms();
-    
     setColor();
   }
 });
@@ -51,7 +48,6 @@ TorusButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateTorusGeometry();
     resetTransforms();
-    
     setColor();
   }
 });
@@ -97,6 +93,8 @@ document.getElementById('applySubdivision').addEventListener('click', function()
   returns an array containing all the vertices in the mesh) It needs to get the
   first vertex in the array, and the second, and create a vertex halfway between
   the 2 vertices. Then do the same for the 3rd & 4th one, then 5th & 6th, etc.*/
+  
+  // https://threejs.org/docs/#api/en/geometries/EdgesGeometry -> THREE.js edges geometry might help
   var vertex1;
   var vertex2;
   var vertex3X;

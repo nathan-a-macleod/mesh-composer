@@ -11,6 +11,7 @@ var previewMode = false;
 var objectRotationX;
 var objectRotationY;
 var objectRotationZ;
+var settingsMenuExpanded;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -36,7 +37,7 @@ document.body.appendChild(renderer.domElement);
 
 // Create functions for different primative shapes:
 function CreateBoxGeometry() {
-  BoxGeometry = new THREE.BoxGeometry();
+  BoxGeometry = new THREE.BoxGeometry(1, 1, 1, 3, 3, 3);
   BoxMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
   BoxMesh = new THREE.Mesh(BoxGeometry, BoxMaterial);
   scene.add(BoxMesh);
@@ -59,7 +60,7 @@ function CreateBoxGeometry() {
 }
 
 function CreateCylinderGeometry() {
-  CylinderGeometry = new THREE.CylinderGeometry();
+  CylinderGeometry = new THREE.CylinderGeometry(1, 1, 2, 14, 4);
   CylinderMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
   CylinderMesh = new THREE.Mesh(CylinderGeometry, CylinderMaterial);
   scene.add(CylinderMesh);
@@ -82,7 +83,7 @@ function CreateCylinderGeometry() {
 }
 
 function CreatePlaneGeometry() {
-  PlaneGeometry = new THREE.PlaneGeometry();
+  PlaneGeometry = new THREE.PlaneGeometry(1, 1, 3, 3);
   PlaneMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
   PlaneMesh = new THREE.Mesh(PlaneGeometry, PlaneMaterial);
   scene.add(PlaneMesh);
@@ -128,7 +129,7 @@ function CreateSphereGeometry() {
 }
 
 function CreateTorusGeometry() {
-  TorusGeometry = new THREE.TorusGeometry();
+  TorusGeometry = new THREE.TorusGeometry(1, 0.5, 10, 25);
   TorusMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
   TorusMesh = new THREE.Mesh(TorusGeometry, TorusMaterial);
   scene.add(TorusMesh);
@@ -155,32 +156,10 @@ CreateBoxGeometry();
 document.getElementById('changeColor').value = '#ffffff';
 //BoxMeshName.setColor(0x0000FF); // to change the colour of the object
 
-// Create a grid floor from lines:
-var gridMaterial = new THREE.LineBasicMaterial({color: 0xbababa});
-var gridVetices = [];
-gridVetices.push(new THREE.Vector3(-0.5, 0, -0.5));
-gridVetices.push(new THREE.Vector3(0.5, 0, -0.5));
-gridVetices.push(new THREE.Vector3(0.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(-0.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(-0.5, 0, -0.5));
-gridVetices.push(new THREE.Vector3(-1.5, 0, -0.5));
-gridVetices.push(new THREE.Vector3(-1.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(0.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(-1.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(-1.5, 0, 1.5));
-gridVetices.push(new THREE.Vector3(-0.5, 0, 1.5));
-gridVetices.push(new THREE.Vector3(-0.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(0.5, 0, 0.5));
-gridVetices.push(new THREE.Vector3(0.5, 0, 1.5));
-gridVetices.push(new THREE.Vector3(-0.5, 0, 1.5));
-var gridGeometry = new THREE.BufferGeometry().setFromPoints(gridVetices);
-var gridLine = new THREE.Line(gridGeometry, gridMaterial);
-gridLine.position.y += -0.5;
-gridLine.position.x += 1;
-gridLine.position.z += -1;
-gridLine.scale.set(2, 2, 2);
-gridLine.layers.set(3);
-scene.add(gridLine);
+var gridHelper = new THREE.GridHelper(8, 8, 0x888888, 0x888888);
+gridHelper.position.y += -0.5;
+gridHelper.layers.set(3);
+scene.add(gridHelper);
 
 // Function that you can run to get what type of object it is: 
 var currentElementMesh;
