@@ -25,10 +25,10 @@ function mouseScroll(e){
   	// delta returns a value of 1 (scroll up), 0 (not scrolling) or -1 (scrolling down)
   	
   	if (delta == 1){
-  	  // Scrolling up
+  	  // User is scrolling up
       camera.translateZ(-speed);
   	} else if (delta == -1){
-  	  // Scrolling up
+  	  // User is scrolling up
       camera.translateZ(speed);
   	}
   }
