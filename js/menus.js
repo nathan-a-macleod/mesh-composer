@@ -159,8 +159,17 @@ function transformInputs(){
   currentElementLine.scale.x = document.getElementById('scale1').value;
   currentElementLine.scale.y = document.getElementById('scale2').value;
   currentElementLine.scale.z = document.getElementById('scale3').value;
+  
+  objectRotationX = currentElementMesh.rotation.x;
+  objectRotationY = currentElementMesh.rotation.y;
+  objectRotationZ = currentElementMesh.rotation.z;
 }
 
+getObjectType();
+objectRotationX = currentElementMesh.rotation.x;
+objectRotationY = currentElementMesh.rotation.y;
+objectRotationZ = currentElementMesh.rotation.z;
+  
 document.getElementById('previewButton').addEventListener('click', ()=> {
   previewMode = !previewMode;
   
@@ -171,12 +180,12 @@ document.getElementById('previewButton').addEventListener('click', ()=> {
     camera.layers.enable(3);
     
     getObjectType();
-    currentElementMesh.rotation.x = 0;
-    currentElementMesh.rotation.y = 0;
-    currentElementMesh.rotation.z = 0;
-    currentElementLine.rotation.x = 0;
-    currentElementLine.rotation.y = 0;
-    currentElementLine.rotation.z = 0;
+    currentElementMesh.rotation.x = objectRotationX;
+    currentElementMesh.rotation.y = objectRotationY;
+    currentElementMesh.rotation.z = objectRotationZ;
+    currentElementLine.rotation.x = objectRotationX;
+    currentElementLine.rotation.y = objectRotationY;
+    currentElementLine.rotation.z = objectRotationZ;
     
     document.getElementById('previewButton').innerValue = 'Preview';
   }

@@ -8,6 +8,9 @@ var raycaster, mouse = { x : 0, y : 0 };
 var currentObject;
 var scrolling = true;
 var previewMode = false;
+var objectRotationX;
+var objectRotationY;
+var objectRotationZ;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();

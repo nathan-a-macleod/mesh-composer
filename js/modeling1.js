@@ -12,6 +12,8 @@ cubeButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateBoxGeometry();
     resetTransforms();
+    
+    setColor();
   }
 });
 
@@ -20,11 +22,14 @@ cylinderButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateCylinderGeometry();
     resetTransforms();
+    
+    setColor();
   }
 });
 
 PlaneButton.addEventListener('click', function(){
   if(confirm(confirmMessage)){
+    setColor();
     deleteCurrentObject();
     CreatePlaneGeometry();
     resetTransforms();
@@ -36,6 +41,8 @@ SphereButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateSphereGeometry();
     resetTransforms();
+    
+    setColor();
   }
 });
 
@@ -44,6 +51,8 @@ TorusButton.addEventListener('click', function(){
     deleteCurrentObject();
     CreateTorusGeometry();
     resetTransforms();
+    
+    setColor();
   }
 });
 
