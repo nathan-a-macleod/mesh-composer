@@ -132,7 +132,10 @@ canvas {
 #colorSettings{
   background-color: var(--second-bg-color);
   padding-bottom: 10px;
-  display: none; /*By default it is hidden, but you can press a button to show it*/
+}
+
+#editMode{
+  margin-top: 15px;
 }
 
 #toggleEditMode{
@@ -212,20 +215,6 @@ label[for=b], output[for=b]{
 output[for=r], output[for=g], output[for=b]{
   color: white;
   background-color: #313131;
-}
-
-#colorSettingsButton{
-  margin: auto;
-  width: 175px;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-#closeColorSettingsButton{
-  width: 175px;
-  margin: auto;
-  margin-top: 10px;
-  margin-left: 10px;
 }
 
 .shapeButton{
