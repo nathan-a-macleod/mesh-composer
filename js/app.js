@@ -48,7 +48,9 @@ function CreateBoxGeometry() {
   
   BoxWireframe = new THREE.WireframeGeometry(BoxGeometry);
   BoxLine = new THREE.LineSegments(BoxWireframe);
-  BoxLine.material.color.setHex(0x1d43ab);
+  BoxLine.material = new THREE.LineBasicMaterial({
+    color: 0x1d43ab, linewidth: 2
+  });
   BoxLine.layers.set(1);
   scene.add(BoxLine);
   
@@ -71,7 +73,9 @@ function CreateCylinderGeometry() {
   
   CylinderWireframe = new THREE.WireframeGeometry(CylinderGeometry);
   CylinderLine = new THREE.LineSegments(CylinderWireframe);
-  CylinderLine.material.color.setHex(0x1d43ab);
+  CylinderLine.material = new THREE.LineBasicMaterial({
+    color: 0x1d43ab, linewidth: 2
+  });
   CylinderLine.layers.set(1);
   scene.add(CylinderLine);
   
@@ -94,7 +98,9 @@ function CreatePlaneGeometry() {
   
   PlaneWireframe = new THREE.WireframeGeometry(PlaneGeometry);
   PlaneLine = new THREE.LineSegments(PlaneWireframe);
-  PlaneLine.material.color.setHex(0x1d43ab);
+  PlaneLine.material = new THREE.LineBasicMaterial({
+    color: 0x1d43ab, linewidth: 2
+  });
   PlaneLine.layers.set(1);
   scene.add(PlaneLine);
   
@@ -106,7 +112,7 @@ function CreatePlaneGeometry() {
 }
 
 function CreateSphereGeometry() {
-  SphereGeometry = new THREE.SphereGeometry();
+  SphereGeometry = new THREE.SphereGeometry(1, 10, 10);
   SphereMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
   SphereMesh = new THREE.Mesh(SphereGeometry, SphereMaterial);
   scene.add(SphereMesh);
@@ -117,7 +123,9 @@ function CreateSphereGeometry() {
   
   SphereWireframe = new THREE.WireframeGeometry(SphereGeometry);
   SphereLine = new THREE.LineSegments(SphereWireframe);
-  SphereLine.material.color.setHex(0x1d43ab);
+  SphereLine.material = new THREE.LineBasicMaterial({
+    color: 0x1d43ab, linewidth: 2
+  });
   SphereLine.layers.set(1);
   scene.add(SphereLine);
   
@@ -140,7 +148,9 @@ function CreateTorusGeometry() {
   
   TorusWireframe = new THREE.WireframeGeometry(TorusGeometry);
   TorusLine = new THREE.LineSegments(TorusWireframe);
-  TorusLine.material.color.setHex(0x1d43ab);
+  TorusLine.material = new THREE.LineBasicMaterial({
+    color: 0x1d43ab, linewidth: 2
+  });
   TorusLine.layers.set(1);
   scene.add(TorusLine);
   

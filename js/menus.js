@@ -8,19 +8,7 @@ document.getElementById('menuUnexpanded').addEventListener('click', ()=> {
 document.getElementById('closeMenu').addEventListener('click', ()=> {
   document.getElementById('menuUnexpanded').style.display = 'block';
   document.getElementById('menuExpanded').style.display = 'none';
-  document.getElementById('colorSettings').style.display = 'none';
-  document.getElementById('colorSettingsButton').style.display = 'block';
   settingsMenuExpanded = false;
-});
-
-document.getElementById('colorSettingsButton').addEventListener('click', ()=> {
-  document.getElementById('colorSettings').style.display = 'block';
-  document.getElementById('colorSettingsButton').style.display = 'none';
-});
-
-document.getElementById('closeColorSettingsButton').addEventListener('click', ()=> {
-  document.getElementById('colorSettings').style.display = 'none';
-  document.getElementById('colorSettingsButton').style.display = 'block';
 });
 
 // The edit mode button:
@@ -182,8 +170,6 @@ document.getElementById('previewButton').addEventListener('click', ()=> {
     } else {
       document.getElementById('menuUnexpanded').style.display = 'block';
       document.getElementById('menuExpanded').style.display = 'none';
-      document.getElementById('colorSettings').style.display = 'none';
-      document.getElementById('colorSettingsButton').style.display = 'block';
     }
     
     document.getElementById('topMenus').style.display = 'block';

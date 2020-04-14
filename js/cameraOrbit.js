@@ -58,7 +58,7 @@ window.addEventListener('mousemove', ()=> {
 });
 
 function cameraOrbitY(){
-  if (((mouseXNow - mouseXBefore)/2000 <= 0.1) && ((mouseXNow - mouseXBefore)/4000 >= -0.1)){
+  if (((mouseXNow - mouseXBefore)/2000 <= 0.05) && ((mouseXNow - mouseXBefore)/4000 >= -0.05)){
     cameraPivot.rotation.y -= (mouseXNow - mouseXBefore)/2000;
   } else if ((mouseXNow - mouseXBefore)/2000 > 0){
     cameraPivot.rotation.y -= 0.05;
