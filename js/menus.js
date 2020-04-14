@@ -38,12 +38,15 @@ document.getElementById('toggleEditMode').addEventListener('click', ()=> {
       MyBoxMesh.scale.set(0.02, 0.02, 0.02);
       scene.add(MyBoxMesh);
     }
+    camera.layers.enable(4);
+    camera.layers.enable(5);
   } else {
     document.getElementById('selectionModes').style.display = 'none';
+    camera.layers.disable(4);
+    camera.layers.disable(5);
   }
   
   camera.layers.toggle(1);
-  camera.layers.enable(4);
 });
 
 // If mouse in inside menuExpanded div, disable scrolling:
