@@ -21,9 +21,10 @@ cameraPivot.position.set(0, 0, 0);
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x393939);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z += 7;
-camera.position.y += 3;
-camera.rotation.x += -0.4;
+camera.position.y += 2;
+camera.position.x += 4;
+camera.position.z += 4;
+camera.lookAt(0, 0, 0);
 camera.layers.enable(3);
 
 // Add the camera to the pivot, so that we can rotate just the pivot:

@@ -52,9 +52,68 @@ TorusButton.addEventListener('click', function(){
   }
 });
 
+// Function to delete the current object that you have now
+function deleteCurrentObject(){
+  getObjectType()
+  scene.remove(currentElementMesh);
+  scene.remove(currentElementLine);
+}
+
+document.getElementById('faceSelectButton').addEventListener('click', function(){
+  camera.layers.enable(4);
+  camera.layers.disable(5);
+  if (document.getElementById('selectionModes').style.display == 'block'){
+    for (i=0; i<currentElementMesh.geometry.faces.length; i++){
+      var facePointX = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].x) / 3;
+      var facePointY = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].y) / 3;
+      var facePointZ = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].z) / 3;
+      
+      var facePointArray = [];
+      facePointArray.push(facePointX);
+      facePointArray.push(facePointY);
+      facePointArray.push(facePointZ);
+      
+      var MyBoxGeometry = new THREE.BoxGeometry();
+      var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x1d43ab});
+      MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
+      MyBoxMesh.position.x = facePointX;
+      MyBoxMesh.position.y = facePointY;
+      MyBoxMesh.position.z = facePointZ;
+      MyBoxMesh.layers.set(1);
+      MyBoxMesh.layers.set(4);
+      MyBoxMesh.scale.set(0.02, 0.02, 0.02);
+      scene.add(MyBoxMesh);
+    }
+  }
+});
+
+document.getElementById('edgeSelectButton').addEventListener('click', ()=> {
+  camera.layers.disable(4);
+  camera.layers.disable(5);
+});
+
+document.getElementById('vertexSelectButton').addEventListener('click', ()=> {
+  camera.layers.disable(4);
+  camera.layers.enable(5);
+  for (i=0; i<currentElementMesh.geometry.vertices.length; i++){
+    var vertex1 = currentElementMesh.geometry.vertices[i];
+    
+    var MyBoxGeometry = new THREE.BoxGeometry();
+    var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x1d43ab}); // default color
+    MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
+    MyBoxMesh.position.x = vertex1.x;
+    MyBoxMesh.position.y = vertex1.y;
+    MyBoxMesh.position.z = vertex1.z;
+    MyBoxMesh.layers.set(1);
+    MyBoxMesh.layers.set(5);
+    MyBoxMesh.scale.set(0.03, 0.03, 0.03);
+    scene.add(MyBoxMesh);
+  }
+});
+
 // The subdivison function
 document.getElementById('applySubdivision').addEventListener('click', function(){
-  // Stage 1 -> For each face calculate what the average POINT is.
+  // Stage 1 -> For each face calculate where the average POINT is.
   // (A POINT can be defined as the average location between all the
   // vertices that make up that face).
   getObjectType();
@@ -73,11 +132,11 @@ document.getElementById('applySubdivision').addEventListener('click', function()
     facePointArray.push(facePointY);
     facePointArray.push(facePointZ);
     
-    facePointsArray.push(facePointArray); // facePointsArray contains an X, Y and Z value for each face.
+    //facePointsArray.push(facePointArray); // facePointsArray contains an X, Y and Z value for each face.
     
     // Uncomment this code to put a box at the locations to visualize it better:
     /*var MyBoxGeometry = new THREE.BoxGeometry();
-    var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x000000}); // default color
+    var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
     var MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
     MyBoxMesh.position.x = facePointX;
     MyBoxMesh.position.y = facePointY;
@@ -100,7 +159,8 @@ document.getElementById('applySubdivision').addEventListener('click', function()
   var vertex3X;
   var vertex3Y;
   var vertex3Z;
-  for (i=0;i<currentElementMesh.geometry.vertices.length; i++){
+  
+  for (i=0; i<currentElementMesh.geometry.vertices.length; i++){
     vertex1 = currentElementMesh.geometry.vertices[i];
     vertex2 = currentElementMesh.geometry.vertices[i + 1];
     if (vertex2 != undefined){
@@ -123,10 +183,3 @@ document.getElementById('applySubdivision').addEventListener('click', function()
   // 1) The X, Y, Z location of where it is now, AND
   // 2) The average X, Y, and Z locations between the surrounding face points.  
 });
-
-// Function to delete the current object that you have now
-function deleteCurrentObject(){
-  getObjectType()
-  scene.remove(currentElementMesh);
-  scene.remove(currentElementLine);
-}

@@ -12,8 +12,38 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
 });
 
 // The edit mode button:
+var MyBoxMesh;
+
 document.getElementById('toggleEditMode').addEventListener('click', ()=> {
+  if (document.getElementById('selectionModes').style.display == 'none'){
+    document.getElementById('selectionModes').style.display = 'block';
+    for (i=0; i<currentElementMesh.geometry.faces.length; i++){
+      var facePointX = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].x) / 3;
+      var facePointY = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].y) / 3;
+      var facePointZ = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].z) / 3;
+      
+      var facePointArray = [];
+      facePointArray.push(facePointX);
+      facePointArray.push(facePointY);
+      facePointArray.push(facePointZ);
+      
+      var MyBoxGeometry = new THREE.BoxGeometry();
+      var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x1d43ab});
+      MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
+      MyBoxMesh.position.x = facePointX;
+      MyBoxMesh.position.y = facePointY;
+      MyBoxMesh.position.z = facePointZ;
+      MyBoxMesh.layers.set(1);
+      MyBoxMesh.layers.set(4);
+      MyBoxMesh.scale.set(0.02, 0.02, 0.02);
+      scene.add(MyBoxMesh);
+    }
+  } else {
+    document.getElementById('selectionModes').style.display = 'none';
+  }
+  
   camera.layers.toggle(1);
+  camera.layers.enable(4);
 });
 
 // If mouse in inside menuExpanded div, disable scrolling:
