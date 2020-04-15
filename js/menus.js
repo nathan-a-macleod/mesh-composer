@@ -18,6 +18,7 @@ document.getElementById('toggleEditMode').addEventListener('click', ()=> {
     faceSelectMode();
   } else {
     document.getElementById('selectionModes').style.display = 'none';
+    document.getElementById('selectionModeText2').innerHTML = 'FACE';
   }
   
   camera.layers.toggle(1);

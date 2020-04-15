@@ -64,15 +64,18 @@ document.getElementById('faceSelectButton').addEventListener('click', function()
 });
 
 function faceSelectMode(){
-  document.getElementById('selectionModeText').innerHTML = 'FACE';
+  document.getElementById('selectionModeText1').innerHTML = 'FACE';
+  document.getElementById('selectionModeText2').innerHTML = 'Edit mode is off.';
 }
 
 document.getElementById('edgeSelectButton').addEventListener('click', ()=> {
-  document.getElementById('selectionModeText').innerHTML = 'EDGE';
+  document.getElementById('selectionModeText1').innerHTML = 'EDGE';
+  document.getElementById('selectionModeText2').innerHTML = 'EDGE';
 });
 
 document.getElementById('vertexSelectButton').addEventListener('click', ()=> {
-  document.getElementById('selectionModeText').innerHTML = 'VERTEX';
+  document.getElementById('selectionModeText1').innerHTML = 'VERTEX';
+  document.getElementById('selectionModeText2').innerHTML = 'VERTEX';
 });
 
 // The subdivison function
