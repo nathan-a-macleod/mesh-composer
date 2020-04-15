@@ -283,7 +283,7 @@ output[for=r], output[for=g], output[for=b]{
   height: 30px;
   padding-top: 3px;
   margin-left: auto; 
-  margin-right: auto;
+  margin-right: 30vw;
   left: 0;
   right: 0;
   bottom: 0;
@@ -292,4 +292,23 @@ output[for=r], output[for=g], output[for=b]{
 
 #previewButton:hover{
   cursor: pointer;
+}
+
+#selectionModeBlock{
+  position: absolute;
+	z-index: 100;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #3f68d9;
+	text-align: center;
+  width: 200px;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  margin-left: 30vw; 
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0px;
 }
