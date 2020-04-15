@@ -60,55 +60,19 @@ function deleteCurrentObject(){
 }
 
 document.getElementById('faceSelectButton').addEventListener('click', function(){
-  camera.layers.enable(4);
-  camera.layers.disable(5);
-  if (document.getElementById('selectionModes').style.display == 'block'){
-    for (i=0; i<currentElementMesh.geometry.faces.length; i++){
-      var facePointX = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].x + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].x) / 3;
-      var facePointY = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].y + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].y) / 3;
-      var facePointZ = (currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].a].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].b].z + currentElementMesh.geometry.vertices[currentElementMesh.geometry.faces[i].c].z) / 3;
-      
-      var facePointArray = [];
-      facePointArray.push(facePointX);
-      facePointArray.push(facePointY);
-      facePointArray.push(facePointZ);
-      
-      var MyBoxGeometry = new THREE.BoxGeometry();
-      var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x1d43ab});
-      MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
-      MyBoxMesh.position.x = facePointX;
-      MyBoxMesh.position.y = facePointY;
-      MyBoxMesh.position.z = facePointZ;
-      MyBoxMesh.layers.set(1);
-      MyBoxMesh.layers.set(4);
-      MyBoxMesh.scale.set(0.02, 0.02, 0.02);
-      scene.add(MyBoxMesh);
-    }
-  }
+  faceSelectMode();
 });
 
+function faceSelectMode(){
+  document.getElementById('selectionModeText').innerHTML = 'FACE';
+}
+
 document.getElementById('edgeSelectButton').addEventListener('click', ()=> {
-  camera.layers.disable(4);
-  camera.layers.disable(5);
+  document.getElementById('selectionModeText').innerHTML = 'EDGE';
 });
 
 document.getElementById('vertexSelectButton').addEventListener('click', ()=> {
-  camera.layers.disable(4);
-  camera.layers.enable(5);
-  for (i=0; i<currentElementMesh.geometry.vertices.length; i++){
-    var vertex1 = currentElementMesh.geometry.vertices[i];
-    
-    var MyBoxGeometry = new THREE.BoxGeometry();
-    var MyBoxMaterial = new THREE.MeshBasicMaterial({color: 0x1d43ab}); // default color
-    MyBoxMesh = new THREE.Mesh(MyBoxGeometry, MyBoxMaterial);
-    MyBoxMesh.position.x = vertex1.x;
-    MyBoxMesh.position.y = vertex1.y;
-    MyBoxMesh.position.z = vertex1.z;
-    MyBoxMesh.layers.set(1);
-    MyBoxMesh.layers.set(5);
-    MyBoxMesh.scale.set(0.03, 0.03, 0.03);
-    scene.add(MyBoxMesh);
-  }
+  document.getElementById('selectionModeText').innerHTML = 'VERTEX';
 });
 
 // The subdivison function
