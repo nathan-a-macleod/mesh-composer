@@ -63,20 +63,41 @@ document.getElementById('faceSelectButton').addEventListener('click', function()
   faceSelectMode();
 });
 
-function faceSelectMode(){
-  document.getElementById('selectionModeText1').innerHTML = 'FACE';
-  document.getElementById('selectionModeText2').innerHTML = 'Edit mode is off.';
-}
-
 document.getElementById('edgeSelectButton').addEventListener('click', ()=> {
-  document.getElementById('selectionModeText1').innerHTML = 'EDGE';
-  document.getElementById('selectionModeText2').innerHTML = 'EDGE';
+  edgeSelectMode();
 });
 
 document.getElementById('vertexSelectButton').addEventListener('click', ()=> {
-  document.getElementById('selectionModeText1').innerHTML = 'VERTEX';
-  document.getElementById('selectionModeText2').innerHTML = 'VERTEX';
+  vertexSelectMode();
 });
+
+document.getElementById('selectionModeBlock').addEventListener('click', function(){
+  if (editModeSelectionMode == 'face'){
+    edgeSelectMode();
+    editModeSelectionMode = 'edge';
+  } else if (editModeSelectionMode == 'edge'){
+    vertexSelectMode();
+    editModeSelectionMode = 'vertex';
+  } else if (editModeSelectionMode == 'vertex'){
+    faceSelectMode();
+    editModeSelectionMode = 'face';
+  }
+});
+
+function faceSelectMode(){
+  document.getElementById('selectionModeText2').innerHTML = 'FACE';
+  editModeSelectionMode = 'face';
+}
+
+function edgeSelectMode(){
+  document.getElementById('selectionModeText2').innerHTML = 'EDGE';
+  editModeSelectionMode = 'edge';
+}
+
+function vertexSelectMode(){
+  document.getElementById('selectionModeText2').innerHTML = 'VERTEX';
+  editModeSelectionMode = 'vertex';
+}
 
 // The subdivison function
 document.getElementById('applySubdivision').addEventListener('click', function(){

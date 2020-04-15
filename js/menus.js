@@ -14,11 +14,19 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
 // The edit mode button:
 document.getElementById('toggleEditMode').addEventListener('click', ()=> {
   if (document.getElementById('selectionModes').style.display == 'none'){
+    editModeSelectionMode = 'editModeOn';
     document.getElementById('selectionModes').style.display = 'block';
-    faceSelectMode();
+    faceSelectMode(); // Needs to be on face select mode by default
+    
+    document.getElementById('selectionModeBlock').classList.add('selectionModeBlockAnimate');
+
+    setTimeout(()=> {
+      document.getElementById('selectionModeBlock').classList.remove('selectionModeBlockAnimate');
+    }, 1000);
   } else {
     document.getElementById('selectionModes').style.display = 'none';
-    document.getElementById('selectionModeText2').innerHTML = 'FACE';
+    document.getElementById('selectionModeText2').innerHTML = 'Edit mode is off.';
+    editModeSelectionMode = 'editModeOff';
   }
   
   camera.layers.toggle(1);

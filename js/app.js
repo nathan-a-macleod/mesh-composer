@@ -12,6 +12,7 @@ var objectRotationX;
 var objectRotationY;
 var objectRotationZ;
 var settingsMenuExpanded;
+var editModeSelectionMode;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -229,10 +230,10 @@ function animate() {
     
     getObjectType();
     currentElementMesh.rotateX(0.01);
-    currentElementMesh.rotateY(0.01);
+    currentElementMesh.rotateY(0.015);
     currentElementMesh.rotateZ(0.01);
     currentElementLine.rotateX(0.01);
-    currentElementLine.rotateY(0.01);
+    currentElementLine.rotateY(0.015);
     currentElementLine.rotateZ(0.01);
     
     document.getElementById('previewButton').innerValue = 'Preview OFF';
