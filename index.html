@@ -7,7 +7,6 @@
 	  <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-	  <!-- Maybe try using orbit controls but put it here (as in on this line)-->
 		<script type="text/javascript" src="js/three.js"></script>
 		
 		<div id="topMenus">
@@ -17,6 +16,33 @@
 		<div class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
 		<div id="menuExpanded">
 		  <!--<div id="heirarchy"></div>-->
+		  
+		  <div id="transformSettings">
+		    <p class="heading">Transform Settings: (X - Y - Z)</p>
+		    
+		    <div id="transformInputs">
+		      <form class="transformCategories">
+  		      <label class="transformLabel">Translation: </label>
+  		      <input type="number" class="input transformInputsClass" id="translation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+  		      <input type="number" class="input transformInputsClass" id="translation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+  		      <input type="number" class="input transformInputsClass" id="translation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+		      </form>
+		      
+		      <form class="transformCategories">
+		        <label class="transformLabel">Rotation: </label>
+  		      <input type="number" class="input transformInputsClass" id="rotation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+  		      <input type="number" class="input transformInputsClass" id="rotation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+  		      <input type="number" class="input transformInputsClass" id="rotation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+		      </form>
+		      
+		      <form class="transformCategories">
+		        <label class="transformLabel">Scale: </label>
+  		      <input type="number" class="input transformInputsClass" id="scale1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+  		      <input type="number" class="input transformInputsClass" id="scale2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+  		      <input type="number" class="input transformInputsClass" id="scale3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
+		      </form>
+		    </div>
+		  </div>
 		  
 	    <p class="heading">Color Settings:</p>
 		    
@@ -57,8 +83,6 @@
 		    
 		    <div id="selectionModes" style="display: none;">
 		      <p class="heading" style="text-align: center; font-size: 22px; margin-top: 10px;">Selection Modes:</p>
-		      <p style="margin-top: -5px; font-size: 16px;">Selection mode: </p>
-		      <p id="selectionModeText1" style="margin-top: -10px; margin-bottom: 5px; font-size: 30px;">FACE</p>
 		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="faceSelectButton">Face Select</div>
 		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="edgeSelectButton">Edge Select</div>
 		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="vertexSelectButton">Vertex Select</div>
@@ -81,42 +105,15 @@
 		    <div class="button shapeButton" id="TorusButton">Torus</div>
 		  </div>
 		  
-		  <div id="transformSettings">
-		    <p class="heading">Transform Settings: (X - Y - Z)</p>
-		    
-		    <div id="transformInputs">
-		      <form class="transformCategories">
-  		      <label class="transformLabel">Translation: </label>
-  		      <input type="number" class="input transformInputsClass" id="translation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="translation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="translation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		      
-		      <form class="transformCategories">
-		        <label class="transformLabel">Rotation: </label>
-  		      <input type="number" class="input transformInputsClass" id="rotation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="rotation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="rotation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		      
-		      <form class="transformCategories">
-		        <label class="transformLabel">Scale: </label>
-  		      <input type="number" class="input transformInputsClass" id="scale1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="scale2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="scale3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		    </div>
-		  </div>
-		  
 		  <!-- At the bottom of the page: -->
 		  <div class="button" id="closeMenu">Close Settings Menu</div>
 		</div>
 		
-		<div id="previewButton">Preview</div>
+		<div id="previewButton"><p style="margin-top: 4px;">Preview</p></div>
 		
 		<div id="selectionModeBlock">
-      <p style="margin-top: -5px; font-size: 16px;">Selection mode: </p>
-      <p id="selectionModeText2" style="margin-top: -10px; margin-bottom: 5px; font-size: 20px;">Edit mode is off.</p>
+      <p style="float: left; margin-top: 3px; margin-left: 15px; font-size: 16px;">Selection mode: </p>
+      <p id="selectionModeText2" style="float: left; margin-bottom: 5px; margin-top: 0px; margin-left: 10px; font-size: 20px;">Edit mode is off.</p>
 		</div>
 		
 		<script src="js/app.js"></script>

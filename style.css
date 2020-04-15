@@ -15,7 +15,7 @@ body {
 }
 
 .heading{
-  font-size: 25px;
+  font-size: 30px;
   margin-top: 0px;
   padding: 10px;
   margin-bottom: -2px;
@@ -117,7 +117,7 @@ canvas {
 #closeMenu{
   width: 220px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
   background-color: #313131;
   color: white;
@@ -280,14 +280,15 @@ output[for=r], output[for=g], output[for=b]{
   background-color: #3f68d9;
 	text-align: center;
   width: 100px;
-  height: 30px;
-  padding-top: 3px;
+  height: 40px;
+  padding-top: 5px;
   margin-left: auto; 
   margin-right: 30vw;
   left: 0;
   right: 0;
   bottom: 0;
   margin-bottom: 0px;
+  box-sizing: border-box;
 }
 
 #previewButton:hover{
@@ -301,7 +302,7 @@ output[for=r], output[for=g], output[for=b]{
   border-radius: 10px 10px 0px 0px;
   background-color: #3f68d9;
 	text-align: center;
-  width: 200px;
+  width: 280px;
   height: 40px;
   padding-top: 10px;
   padding-bottom: 8px;
@@ -311,4 +312,43 @@ output[for=r], output[for=g], output[for=b]{
   right: 0;
   bottom: 0;
   margin-bottom: 0px;
+  box-sizing: border-box;
+}
+
+#selectionModeBlock:hover{
+  cursor: pointer;
+}
+
+@keyframes selectionModeBlockShake {
+  0% {
+    padding-left: 10px;
+    background-color: #e2e2e2;
+    color: black;
+  }
+  25% {
+    padding-left: 5px;
+    background-color: #e2e2e2;
+    color: black;
+  }
+  50% {
+    padding-left: 10px;
+    background-color: #e2e2e2;
+    color: black;
+  }
+  75% {
+    padding-left: 5px;
+    background-color: #e2e2e2;
+    color: black;
+  }
+  100% {
+    padding-left: 0px;
+    background-color: #e2e2e2;
+    color: black;
+  }
+}
+
+.selectionModeBlockAnimate{
+  animation-name: selectionModeBlockShake;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(.66,.07,.23,1.19);
 }
