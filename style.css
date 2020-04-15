@@ -280,7 +280,7 @@ output[for=r], output[for=g], output[for=b]{
   background-color: #3f68d9;
 	text-align: center;
   width: 100px;
-  height: 40px;
+  height: 47px;
   padding-top: 5px;
   margin-left: auto; 
   margin-right: 30vw;
@@ -301,15 +301,12 @@ output[for=r], output[for=g], output[for=b]{
   font-size: 20px;
   border-radius: 10px 10px 0px 0px;
   background-color: #3f68d9;
-	text-align: center;
-  width: 280px;
+	text-align:
   height: 40px;
   padding-top: 10px;
-  padding-bottom: 8px;
-  margin-left: 30vw; 
-  margin-right: auto;
+  padding-right: 15px;
+  margin-left: 30vw;
   left: 0;
-  right: 0;
   bottom: 0;
   margin-bottom: 0px;
   box-sizing: border-box;
