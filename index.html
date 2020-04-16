@@ -77,10 +77,13 @@
 		  
 		  <div id="editMode">
 		    <!-- on edit mode you will be able to extrude parts of the mesh, etc (like in
-		    most 3d software like blender) once it is finished -->
-		    <p class="heading">Edit Mode Settings:</p>
+		    most 3d software like blender) once it is finished. But for now, it will be hidden 
+		    so that you can access it via the blue button at the bottom of the screen. Maybe
+		    once there are more options, I will remove the display: none; attribute and put 
+		    more options there.-->
+		    <p style="display: none;" class="heading">Edit Mode Settings:</p>
 		    
-		    <div class="button" id="toggleEditMode">Toggle Edit Mode</div>
+		    <div style="display: none;" class="button" id="toggleEditMode">Toggle Edit Mode</div>
 		    
 		    <div id="selectionModes" style="display: none;">
 		      <p class="heading" style="text-align: center; font-size: 22px; margin-top: 10px;">Selection Modes:</p>
@@ -109,15 +112,14 @@
 		    <div class="button shapeButton" id="SphereButton">Sphere</div>
 		    <div class="button shapeButton" id="TorusButton">Torus</div>
 		  </div>
-		  
-		  <!-- At the bottom of the page: -->
-		  <div class="button" id="closeMenu">Close Settings Menu</div>
 		</div>
+		
+	  <div class="button" id="closeMenu">Close Settings Menu</div>
 		
 		<div id="previewButton"><p style="margin-top: 4px;">Preview</p></div>
 		
 		<div id="selectionModeBlock">
-      <p style="float: left; margin-top: 3px; margin-left: 15px; font-size: 16px;">Selection mode: </p>
+      <p style="float: left; margin-top: 3px; margin-left: 15px; font-size: 16px;">Edit Mode Setting: </p>
       <p id="selectionModeText2" style="float: left; margin-bottom: 5px; margin-top: 0px; margin-left: 10px; font-size: 20px;">Edit mode is off.</p>
 		</div>
 		

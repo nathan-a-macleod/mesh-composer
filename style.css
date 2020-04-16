@@ -32,7 +32,7 @@ canvas {
 	right: 0px;
   width: 25%;
   min-width: 400px;
-	max-height: 100vh;
+	max-height: 90vh;
   background-color: var(--main-bg-color);
 	text-align: center;
 	z-index: 100;
@@ -40,6 +40,7 @@ canvas {
   display: none;
   border-radius: 0px 0px 0px 10px;
   overflow: auto;
+  padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -60,6 +61,7 @@ canvas {
   border-radius: 0px 0px 0px 10px;
   border: none;
   color: white;
+  padding-bottom: 0px;
 }
 
 #menuUnexpanded:hover{
@@ -115,12 +117,19 @@ canvas {
 }
 
 #closeMenu{
-  width: 220px;
+  width: 200px;
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  background-color: #313131;
+  margin-top: 7px;
+  margin-bottom: auto;
+  background-color: #212121;
   color: white;
+  position: absolute;
+	z-index: 100;
+	text-align: center;
+	text-decoration: underline;
+	top: 92vh;
+	right: 100px;
+	display: none; /*it's hidden by default, but if you open the menu, the close menu button becomes visible*/
 }
 
 #heirarchy{
