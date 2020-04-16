@@ -2,12 +2,14 @@
 document.getElementById('menuUnexpanded').addEventListener('click', ()=> {
   document.getElementById('menuUnexpanded').style.display = 'none';
   document.getElementById('menuExpanded').style.display = 'block';
+  document.getElementById('closeMenu').style.display = 'block';
   settingsMenuExpanded = true;
 });
 
 document.getElementById('closeMenu').addEventListener('click', ()=> {
   document.getElementById('menuUnexpanded').style.display = 'block';
   document.getElementById('menuExpanded').style.display = 'none';
+  document.getElementById('closeMenu').style.display = 'none';
   settingsMenuExpanded = false;
 });
 

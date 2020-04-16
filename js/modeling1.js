@@ -92,17 +92,17 @@ document.getElementById('selectionModeBlock').addEventListener('click', function
 });
 
 function faceSelectMode(){
-  document.getElementById('selectionModeText2').innerHTML = 'FACE';
+  document.getElementById('selectionModeText2').innerHTML = 'Face Select';
   editModeSelectionMode = 'face';
 }
 
 function edgeSelectMode(){
-  document.getElementById('selectionModeText2').innerHTML = 'EDGE';
+  document.getElementById('selectionModeText2').innerHTML = 'Edge Select';
   editModeSelectionMode = 'edge';
 }
 
 function vertexSelectMode(){
-  document.getElementById('selectionModeText2').innerHTML = 'VERTEX';
+  document.getElementById('selectionModeText2').innerHTML = 'Vertex Select';
   editModeSelectionMode = 'vertex';
 }
 
