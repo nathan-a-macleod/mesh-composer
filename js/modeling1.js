@@ -86,7 +86,7 @@ document.getElementById('selectionModeBlock').addEventListener('click', function
   } else if (editModeSelectionMode == 'editModeOff'){
     editModeSelectionMode = 'editModeOn';
     camera.layers.toggle(1);
-    document.getElementById('selectionModes').style.display = 'block';
+    //document.getElementById('selectionModes').style.display = 'block';
     faceSelectMode(); // Needs to be on face select mode by default
   }
 });
