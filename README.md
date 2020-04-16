@@ -1,5 +1,5 @@
 # Javascript-3D-Modeling-Program
-This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. When it is finished, you should be able to do basic 3d box-modeling from primative shapes, change the colors of the object, and export the asset.
+This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. When it is finished, you should be able to do basic 3d box-modeling from primative shapes, customise the colours and materials of the object, and export the asset.
 
 Right now it is probably 20-25% completed in terms of features. A few more things to add would be thr ability to do basic 3d modeling, and eventually being able to export an asset you have created.
 https://jacob-and-nathan.github.io/Javascript-3D-Modeling-Program/
