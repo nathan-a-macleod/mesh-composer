@@ -79,8 +79,15 @@ document.getElementById('selectionModeBlock').addEventListener('click', function
     vertexSelectMode();
     editModeSelectionMode = 'vertex';
   } else if (editModeSelectionMode == 'vertex'){
-    faceSelectMode();
-    editModeSelectionMode = 'face';
+    document.getElementById('selectionModes').style.display = 'none';
+    document.getElementById('selectionModeText2').innerHTML = 'Edit mode is off.';
+    editModeSelectionMode = 'editModeOff';
+    camera.layers.toggle(1);
+  } else if (editModeSelectionMode == 'editModeOff'){
+    editModeSelectionMode = 'editModeOn';
+    camera.layers.toggle(1);
+    document.getElementById('selectionModes').style.display = 'block';
+    faceSelectMode(); // Needs to be on face select mode by default
   }
 });
 

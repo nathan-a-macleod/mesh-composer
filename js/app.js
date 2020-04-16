@@ -12,7 +12,7 @@ var objectRotationX;
 var objectRotationY;
 var objectRotationZ;
 var settingsMenuExpanded;
-var editModeSelectionMode;
+var editModeSelectionMode = 'editModeOff';
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
