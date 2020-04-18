@@ -12,6 +12,9 @@ var objectRotationY;
 var objectRotationZ;
 var settingsMenuExpanded;
 var editModeSelectionMode = 'editModeOff';
+var currentElementMesh;
+var currentElementLine;
+var currentElementMeshMaterial;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -67,7 +70,10 @@ function CreateBoxGeometry() {
 
 function CreateCylinderGeometry() {
   CylinderGeometry = new THREE.CylinderGeometry(1, 1, 2, 14, 4);
-  CylinderMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  CylinderMaterial = new THREE.MeshLambertMaterial({
+    color: 0xffffff,
+    vertexColors: THREE.FaceColors
+  });
   CylinderMesh = new THREE.Mesh(CylinderGeometry, CylinderMaterial);
   scene.add(CylinderMesh);
   
@@ -92,7 +98,10 @@ function CreateCylinderGeometry() {
 
 function CreatePlaneGeometry() {
   PlaneGeometry = new THREE.PlaneGeometry(1, 1, 3, 3);
-  PlaneMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  PlaneMaterial = new THREE.MeshLambertMaterial({
+    color: 0xffffff,
+    vertexColors: THREE.FaceColors
+  });
   PlaneMesh = new THREE.Mesh(PlaneGeometry, PlaneMaterial);
   scene.add(PlaneMesh);
   
@@ -117,7 +126,10 @@ function CreatePlaneGeometry() {
 
 function CreateSphereGeometry() {
   SphereGeometry = new THREE.SphereGeometry(1, 10, 10);
-  SphereMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  SphereMaterial = new THREE.MeshLambertMaterial({
+    color: 0xffffff,
+    vertexColors: THREE.FaceColors
+  });
   SphereMesh = new THREE.Mesh(SphereGeometry, SphereMaterial);
   scene.add(SphereMesh);
   
@@ -142,7 +154,11 @@ function CreateSphereGeometry() {
 
 function CreateTorusGeometry() {
   TorusGeometry = new THREE.TorusGeometry(1, 0.5, 10, 25);
-  TorusMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  //TorusMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // Save this code because I might need it another time.
+  TorusMaterial = new THREE.MeshLambertMaterial({
+    color: 0xffffff,
+    vertexColors: THREE.FaceColors
+  });
   TorusMesh = new THREE.Mesh(TorusGeometry, TorusMaterial);
   scene.add(TorusMesh);
   
@@ -176,9 +192,6 @@ gridHelper.layers.set(3);
 scene.add(gridHelper);
 
 // Function that you can run to get what type of object it is: 
-var currentElementMesh;
-var currentElementLine;
-
 function getObjectType(){
   if (currentObject == 'cube'){
     currentElementMesh = BoxMesh;
@@ -200,11 +213,11 @@ function getObjectType(){
 getObjectType();
 
 // Lighting:
-var directionalLight = new THREE.DirectionalLight(0xffffff);
+var directionalLight = new THREE.DirectionalLight(0xcccccc);
 directionalLight.position.set(8, 5, 10);
 scene.add(directionalLight);
 
-var ambientLight = new THREE.AmbientLight(0x404040, 0.5); // soft white light
+var ambientLight = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(ambientLight);
 
 function animate() {

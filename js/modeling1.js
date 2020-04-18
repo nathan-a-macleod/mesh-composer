@@ -194,13 +194,19 @@ function onMouseMove(event) {
 window.addEventListener( 'mousemove', onMouseMove, false );
 
 document.body.addEventListener('click', function(){
+  // Find the colours of the object, so that when you go to 
+  // a different edit mode selection mode (edge, vertex, etc),
+  // it will reset the colours:
+  
+  
 	raycaster.setFromCamera( mouse, camera );
   
 	var intersects = raycaster.intersectObjects(scene.children);
   
   if (editModeSelectionMode == 'face'){
   	for (var i = 0; i < intersects.length; i++) {
-	    for (var j = 0; j < intersects[i].object.geometry.faces.length; j++){
+	    for (var j = 1; j < intersects[i].object.geometry.faces.length; j++){
+	      // intersects[i] = the object you click, intersects[i].face is the face you click on the object
 	      intersects[i].face.color.r = 0.10;
 	      intersects[i].face.color.g = 0.25;
 	      intersects[i].face.color.b = 0.60;
