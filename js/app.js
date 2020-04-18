@@ -4,7 +4,6 @@
 //material.side = THREE.DoubleSide; // Changes culling if you can't see some faces
 
 var clickedOnSlider = false;
-var raycaster, mouse = { x : 0, y : 0 };
 var currentObject;
 var scrolling = true;
 var previewMode = false;
@@ -40,7 +39,10 @@ document.body.appendChild(renderer.domElement);
 // Create functions for different primative shapes:
 function CreateBoxGeometry() {
   BoxGeometry = new THREE.BoxGeometry(1, 1, 1, 3, 3, 3);
-  BoxMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}); // default color
+  BoxMaterial = new THREE.MeshLambertMaterial({
+    color: 0xffffff,
+    vertexColors: THREE.FaceColors
+  });
   BoxMesh = new THREE.Mesh(BoxGeometry, BoxMaterial);
   scene.add(BoxMesh);
   
@@ -206,15 +208,6 @@ var ambientLight = new THREE.AmbientLight(0x404040, 0.5); // soft white light
 scene.add(ambientLight);
 
 function animate() {
-  //console.log('BEFORE: X: ' + mouseXBefore, ' Y: ' + mouseYBefore);
-  //console.log('NOW: X: ' + mouseXNow, ' Y: ' + mouseYNow);
-  
-  /*if (rotateCameraRight == true){
-    cameraPivot.rotation.y += 0.01;
-  } else if (rotateCameraLeft == true){
-    cameraPivot.rotation.y += -0.01;
-  }*/
-  
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -222,6 +215,7 @@ function animate() {
   });
   
   if (previewMode == true){
+    // Hides **everything** while you are in preview mode:
     document.getElementById('menuUnexpanded').style.display = 'none';
     document.getElementById('menuExpanded').style.display = 'none';
     document.getElementById('topMenus').style.display = 'none';

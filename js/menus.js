@@ -203,5 +203,9 @@ document.getElementById('previewButton').addEventListener('click', ()=> {
     currentElementLine.rotation.z = objectRotationZ;
     
     document.getElementById('previewButton').innerValue = 'Preview';
+    
+    if (editModeSelectionMode != "editModeOff"){
+      camera.layers.enable(1);
+    }
   }
 });

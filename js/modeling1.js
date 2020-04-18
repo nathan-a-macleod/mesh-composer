@@ -106,7 +106,7 @@ function vertexSelectMode(){
   editModeSelectionMode = 'vertex';
 }
 
-// The subdivison function
+// The subdivison function [this feature has been paused]
 document.getElementById('applySubdivision').addEventListener('click', function(){
   // Stage 1 -> For each face calculate where the average POINT is.
   // (A POINT can be defined as the average location between all the
@@ -178,3 +178,36 @@ document.getElementById('applySubdivision').addEventListener('click', function()
   // 1) The X, Y, Z location of where it is now, AND
   // 2) The average X, Y, and Z locations between the surrounding face points.  
 });
+
+// The raycaster to enable the user to select the mesh when in edit mode
+var raycaster = new THREE.Raycaster();
+raycaster.params.Line.threshold = 1;
+var mouse = new THREE.Vector2();
+
+function onMouseMove(event) {
+	// calculate mouse position in normalized device coordinates
+	// (-1 to +1) for both components
+	mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+	mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+}
+
+window.addEventListener( 'mousemove', onMouseMove, false );
+
+document.body.addEventListener('click', function(){
+	raycaster.setFromCamera( mouse, camera );
+  
+	var intersects = raycaster.intersectObjects(scene.children);
+  
+  if (editModeSelectionMode == 'face'){
+  	for (var i = 0; i < intersects.length; i++) {
+	    for (var j = 0; j < intersects[i].object.geometry.faces.length; j++){
+	      intersects[i].face.color.r = 0.10;
+	      intersects[i].face.color.g = 0.25;
+	      intersects[i].face.color.b = 0.60;
+	      intersects[i].object.geometry.colorsNeedUpdate = true;
+	    }
+    }
+  }
+});
+
+var BoxMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, vertexColors: THREE.FaceColors } );
