@@ -216,4 +216,5 @@ document.body.addEventListener('click', function(){
   }
 });
 
+// I didn't even notice this line - do I even need it?!:
 var BoxMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, vertexColors: THREE.FaceColors } );

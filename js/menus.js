@@ -107,11 +107,9 @@ b.addEventListener('input', function() {
 
 
 function changeColor(){
-  if(event.keyCode == 13) {
-      getObjectType();
-      currentElementMesh.setColor(document.getElementById('changeColor').value);
-      document.getElementById('changeColor').blur();
-  }
+  getObjectType();
+  currentElementMesh.setColor(document.getElementById('changeColor').value);
+  document.getElementById('changeColor').blur();
 }
 
 // default transform settings:
