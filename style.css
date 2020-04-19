@@ -111,9 +111,8 @@ canvas {
 }
 
 #changeColor{
-  width: 200px;
+  width: 70%;
   margin: auto;
-  margin-top: -10px;
 }
 
 #closeMenu{

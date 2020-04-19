@@ -48,8 +48,8 @@
 	    <p class="heading">Color Settings:</p>
 		    
 		  <div id="colorSettings">
-	      <label>HEX Color Code: </label>
-		    <input placeholder="Enter a HEX code..." value="hi" type="text" class="input" id="changeColor" onkeydown="changeColor()">
+	      <p class="heading" style="font-size: 18px;">HEX Color Code: </p>
+	      <input type="color" name="color" class="input" id="changeColor" value="#ff0000" onchange="changeColor()">
 		    
 		    <p class="heading" style="font-size: 18px;">RGB Color Code: </p>
 		    
@@ -74,6 +74,10 @@
           <div id="bBox" class="coloredBoxes"></div>
 		    </form>
 	    </div>
+		  
+		  <div id="cameraSettings">
+		    <p class="heading">Camera Settings:</p>
+		  </div>
 		  
 		  <div id="editMode">
 		    <!-- on edit mode you will be able to extrude parts of the mesh, etc (like in
