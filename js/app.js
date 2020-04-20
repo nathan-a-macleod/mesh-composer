@@ -45,7 +45,7 @@ function CreateBoxGeometry() {
   BoxGeometry = new THREE.BoxGeometry(1, 1, 1, 3, 3, 3);
   BoxMaterial = new THREE.MeshLambertMaterial({
     color: 0xffffff,
-    vertexColors: THREE.FaceColors
+    vertexColors: THREE.VertexColors
   });
   BoxMesh = new THREE.Mesh(BoxGeometry, BoxMaterial);
   scene.add(BoxMesh);

@@ -62,11 +62,11 @@ outputG.value = '255';
 outputB.value = '255';
 
 function setColor(){
+  getObjectType();
   var r_hexVal = parseInt(r.value, 10).toString(16),
     g_hexVal = parseInt(g.value, 10).toString(16),
     b_hexVal = parseInt(b.value, 10).toString(16),
     hexVal = "#" + pad(r_hexVal) + pad(g_hexVal) + pad(b_hexVal);
-  getObjectType();
   currentElementMesh.setColor(hexVal_out.value);
   hexVal_out.value = hexVal;
 }
@@ -115,6 +115,8 @@ function changeColor(){
 document.getElementById('camFovSlider').addEventListener('change', function(){
   camera.setFocalLength(document.getElementById('camFovSlider').value)
   camera.updateProjectionMatrix();
+  
+  document.getElementById('camFovOutput').innerHTML = document.getElementById('camFovSlider').value;
 });
 
 // default transform settings:
