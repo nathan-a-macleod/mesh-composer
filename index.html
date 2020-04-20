@@ -48,7 +48,7 @@
 	    <p class="heading">Color Settings:</p>
 		    
 		  <div id="colorSettings">
-	      <p class="heading" style="font-size: 18px;">HEX Color Code: </p>
+	      <p class="heading" style="font-size: 18px; width: 80%;">HEX Color Code: </p>
 	      <input type="color" name="color" class="input" id="changeColor" value="#ff0000" onchange="changeColor()">
 		    
 		    <p class="heading" style="font-size: 18px;">RGB Color Code: </p>
@@ -57,26 +57,39 @@
   	      <label for='r'>RED:</label>
   	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="redSlider">
           <output for="r" id="outputR">0</output>
-          <div id="rBox" class="coloredBoxes"></div>
 		    </form>
 		    
 		    <form class="rgbColorCode">
   	      <label for='g'>GREEN:</label>
   	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="greenSlider">
           <output for="g" id="outputG">0</output>
-          <div id="gBox" class="coloredBoxes"></div>
 		    </form>
 		    
 		    <form class="rgbColorCode">
   	      <label for='b'>BLUE:</label>
   	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="blueSlider">
           <output for="b" id="outputB">0</output>
-          <div id="bBox" class="coloredBoxes"></div>
 		    </form>
 	    </div>
 		  
 		  <div id="cameraSettings">
 		    <p class="heading">Camera Settings:</p>
+		    
+		    <!--<p class="heading" style="font-size: 18px;">Type Of Camera:</p>
+		    
+		    <form id="camType">
+          <input type="radio" id="perspectiveCamOption" name="cameraType" value="perspective" checked="true">
+          <label for="perspective">Perspective</label><br>
+          
+          <input type="radio" id="orthographicCamOption" name="cameraType" value="orthographic">
+          <label for="orthographic">Orthographic</label>
+        </form>-->
+        
+        <div id="perspectiveCamSettings">
+          <p>Field Of View:</p>
+  	      <input type="range" min="10" max="100" step='1' value="40" onmousedown="changedCamSetting=true;" onmouseup="changedCamSetting=false;" id="camFovSlider">
+          <output for="camFovSlider" id="camFovOutput">40</output>
+        </div>
 		  </div>
 		  
 		  <div id="editMode">
