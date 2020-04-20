@@ -20,16 +20,30 @@ This is a description of all the files in the repository:
 
 ROOT DIRECTORY (folder):
 
-  LICENSE.md -> File containing what the license is.
-  README.md -> This file.
-  index.html -> The main HTML file.
-  style.css -> The main CSS file.
-  
-  JS (folder):
-    app.js -> The main javascript file with setup for THREE.js, etc.
-    cameraOrbit.js -> Code allowing the camera to orbit the scene.
-    createNewObject.js -> Code allowing the user to create a new object from the menu.
-    editModeSelection.js -> Code allowing the user to go into edit mode, select new faces, edges and vertices and translate them.
-    menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
-    subdivisionModifier.js -> [Paused] Allows the user to apply a subdivision algorithm to their mesh.
-    three.js -> The THREE.js library file.
+--- --- --- --- --- ---
+
+--LICENSE.md -> File containing what the license is.
+
+--README.md -> This file.
+
+--index.html -> The main HTML file.
+
+--style.css -> The main CSS file.
+
+--- --- --- --- --- --- 
+ 
+--JS (folder):
+
+----app.js -> The main javascript file with setup for THREE.js, etc.
+
+----cameraOrbit.js -> Code allowing the camera to orbit the scene.
+
+----createNewObject.js -> Code allowing the user to create a new object from the menu.
+
+----editModeSelection.js -> Code allowing the user to go into edit mode, select new faces, edges and vertices and translate them.
+
+----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
+
+----subdivisionModifier.js -> [Paused] Allows the user to apply a subdivision algorithm to their mesh.
+
+----three.js -> The THREE.js library file.
