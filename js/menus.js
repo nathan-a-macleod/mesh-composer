@@ -112,6 +112,11 @@ function changeColor(){
   document.getElementById('changeColor').blur();
 }
 
+document.getElementById('camFovSlider').addEventListener('change', function(){
+  camera.setFocalLength(document.getElementById('camFovSlider').value)
+  camera.updateProjectionMatrix();
+});
+
 // default transform settings:
 document.getElementById('translation1').value = 0;
 document.getElementById('translation2').value = 0;

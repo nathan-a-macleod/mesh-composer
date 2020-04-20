@@ -48,7 +48,7 @@ window.addEventListener('mouseup', ()=> {
 });
 
 window.addEventListener('mousemove', ()=> {
-  if ((isWindowClicked === true) && (clickedOnSlider == false)){
+  if ((isWindowClicked === true) && (clickedOnSlider == false) && (changedCamSetting == false)){
     mouseXNow = event.clientX;
     mouseYNow = event.clientY;
     

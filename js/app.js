@@ -4,6 +4,7 @@
 //material.side = THREE.DoubleSide; // Changes culling if you can't see some faces
 
 var clickedOnSlider = false;
+var changedCamSetting = false;
 var currentObject;
 var scrolling = true;
 var previewMode = false;

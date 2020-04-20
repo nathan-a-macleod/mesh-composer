@@ -71,6 +71,22 @@ document.getElementById('vertexSelectButton').addEventListener('click', ()=> {
   vertexSelectMode();
 });
 
+function faceSelectMode(){
+  document.getElementById('selectionModeText2').innerHTML = 'Face Select';
+  editModeSelectionMode = 'face';
+}
+
+function edgeSelectMode(){
+  document.getElementById('selectionModeText2').innerHTML = 'Edge Select';
+  editModeSelectionMode = 'edge';
+}
+
+function vertexSelectMode(){
+  document.getElementById('selectionModeText2').innerHTML = 'Vertex Select';
+  editModeSelectionMode = 'vertex';
+}
+
+// Button at the bottom of the screen to toggle between edit modes.
 document.getElementById('selectionModeBlock').addEventListener('click', function(){
   if (editModeSelectionMode == 'face'){
     edgeSelectMode();
@@ -90,21 +106,6 @@ document.getElementById('selectionModeBlock').addEventListener('click', function
     faceSelectMode(); // Needs to be on face select mode by default
   }
 });
-
-function faceSelectMode(){
-  document.getElementById('selectionModeText2').innerHTML = 'Face Select';
-  editModeSelectionMode = 'face';
-}
-
-function edgeSelectMode(){
-  document.getElementById('selectionModeText2').innerHTML = 'Edge Select';
-  editModeSelectionMode = 'edge';
-}
-
-function vertexSelectMode(){
-  document.getElementById('selectionModeText2').innerHTML = 'Vertex Select';
-  editModeSelectionMode = 'vertex';
-}
 
 // The subdivison function [this feature has been paused]
 document.getElementById('applySubdivision').addEventListener('click', function(){
@@ -203,9 +204,9 @@ document.body.addEventListener('click', function(){
   
 	var intersects = raycaster.intersectObjects(scene.children);
   
-  if (editModeSelectionMode == 'face'){
-  	for (var i = 0; i < intersects.length; i++) {
-	    for (var j = 1; j < intersects[i].object.geometry.faces.length; j++){
+  if (editModeSelectionMode == 'face'){ // If you are in face selection mode, then:
+  	for (var i = 0; i < intersects.length; i++) { // For each of the objects the raycast has intersected, 
+	    for (var j = 1; j < intersects[i].object.geometry.faces.length; j++){ // Do this for each of the faces in that mesh
 	      // intersects[i] = the object you click, intersects[i].face is the face you click on the object
 	      intersects[i].face.color.r = 0.10;
 	      intersects[i].face.color.g = 0.25;
