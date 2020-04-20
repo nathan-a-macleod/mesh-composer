@@ -90,19 +90,23 @@ function vertexSelectMode(){
 document.getElementById('selectionModeBlock').addEventListener('click', function(){
   if (editModeSelectionMode == 'face'){
     edgeSelectMode();
+    removeSelection(); // Clear the selection
     editModeSelectionMode = 'edge';
   } else if (editModeSelectionMode == 'edge'){
     vertexSelectMode();
+    removeSelection(); // Clear the selection
     editModeSelectionMode = 'vertex';
   } else if (editModeSelectionMode == 'vertex'){
     document.getElementById('selectionModes').style.display = 'none';
     document.getElementById('selectionModeText2').innerHTML = 'Edit mode is off.';
     editModeSelectionMode = 'editModeOff';
     camera.layers.toggle(1);
+    removeSelection(); // Clear the selection
   } else if (editModeSelectionMode == 'editModeOff'){
     editModeSelectionMode = 'editModeOn';
     camera.layers.toggle(1);
     //document.getElementById('selectionModes').style.display = 'block';
     faceSelectMode(); // Needs to be on face select mode by default
+    removeSelection(); // Clear the selection
   }
 });
