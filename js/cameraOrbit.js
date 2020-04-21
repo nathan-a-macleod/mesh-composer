@@ -75,6 +75,5 @@ function cameraOrbitX(){
   }
   
   cameraPivot.position.y += (mouseYNow - mouseYBefore)/1000;
-  getObjectType();
-  camera.lookAt(currentElementMesh.position);
+  camera.lookAt(0, 0, 0);
 }
