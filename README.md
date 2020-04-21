@@ -1,3 +1,6 @@
+**Note: This branch is in development - it isn't the master branch.**
+**This branch is different to the master branch because it will allow you to click to place 2d points, then THREE.extrudeGeometry (or something like that) will turn it into 3D. It will be well suited to things like arch-vis and may have pre-build assets like trees, chairs, etc to place around your model.**
+
 # Javascript-3D-Modeling-Program
 This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. When it is finished, you should be able to do basic 3d box-modeling from primative shapes, customise the colours and materials of the object, and export the asset.
 

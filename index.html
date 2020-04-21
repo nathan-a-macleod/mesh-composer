@@ -16,135 +16,21 @@
 		
 		<div class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
 		<div id="menuExpanded">
-		  <!--<div id="heirarchy"></div>-->
-		  
-		  <div id="transformSettings">
-		    <p class="heading">Transform Settings: (X - Y - Z)</p>
-		    
-		    <div id="transformInputs">
-		      <form class="transformCategories">
-  		      <label class="transformLabel">Translation: </label>
-  		      <input type="number" class="input transformInputsClass" id="translation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="translation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="translation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		      
-		      <form class="transformCategories">
-		        <label class="transformLabel">Rotation: </label>
-  		      <input type="number" class="input transformInputsClass" id="rotation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="rotation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="rotation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		      
-		      <form class="transformCategories">
-		        <label class="transformLabel">Scale: </label>
-  		      <input type="number" class="input transformInputsClass" id="scale1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="scale2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="scale3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		    </div>
-		  </div>
-		  
-	    <p class="heading">Color Settings:</p>
-		    
-		  <div id="colorSettings">
-	      <p class="heading" style="font-size: 18px; width: 80%;">HEX Color Code: </p>
-	      <input type="color" name="color" class="input" id="changeColor" value="#ff0000" onchange="changeColor()">
-		    
-		    <p class="heading" style="font-size: 18px;">RGB Color Code: </p>
-		    
-		    <form class="rgbColorCode">
-  	      <label for='r'>RED:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="redSlider">
-          <output for="r" id="outputR">0</output>
-		    </form>
-		    
-		    <form class="rgbColorCode">
-  	      <label for='g'>GREEN:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="greenSlider">
-          <output for="g" id="outputG">0</output>
-		    </form>
-		    
-		    <form class="rgbColorCode">
-  	      <label for='b'>BLUE:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="blueSlider">
-          <output for="b" id="outputB">0</output>
-		    </form>
-	    </div>
-		  
 		  <div id="cameraSettings">
 		    <p class="heading">Camera Settings:</p>
 		    
-		    <!--<p class="heading" style="font-size: 18px;">Type Of Camera:</p>
-		    
-		    <form id="camType">
-          <input type="radio" id="perspectiveCamOption" name="cameraType" value="perspective" checked="true">
-          <label for="perspective">Perspective</label><br>
-          
-          <input type="radio" id="orthographicCamOption" name="cameraType" value="orthographic">
-          <label for="orthographic">Orthographic</label>
-        </form>-->
-        
         <div id="perspectiveCamSettings">
           <p>Field Of View:</p>
   	      <input type="range" min="10" max="100" step='1' value="40" onmousedown="changedCamSetting=true;" onmouseup="changedCamSetting=false;" id="camFovSlider">
           <output for="camFovSlider" id="camFovOutput">40</output>
         </div>
 		  </div>
-		  
-		  <div id="editMode">
-		    <!-- on edit mode you will be able to extrude parts of the mesh, etc (like in
-		    most 3d software like blender) once it is finished. But for now, it will be hidden 
-		    so that you can access it via the blue button at the bottom of the screen. Maybe
-		    once there are more options, I will remove the display: none; attribute and put 
-		    more options there.-->
-		    <p style="display: none;" class="heading">Edit Mode Settings:</p>
-		    
-		    <div style="display: none;" class="button" id="toggleEditMode">Toggle Edit Mode</div>
-		    
-		    <div id="selectionModes" style="display: none;">
-		      <p class="heading" style="text-align: center; font-size: 22px; margin-top: 10px;">Selection Modes:</p>
-		      <!--
-		      <p style="margin-top: -5px; font-size: 16px;">Current Selection mode: </p>
-		      <p id="selectionModeText1" style="margin-top: -10px; margin-bottom: 5px; font-size: 30px;">FACE</p>
-		      -->
-		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="faceSelectButton">Face Select</div>
-		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="edgeSelectButton">Edge Select</div>
-		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="vertexSelectButton">Vertex Select</div>
-		    </div>
-		    
-		    <!-- I have paused adding the subdivison feature.  -->
-		    <div style="display: none;" class="button" id="applySubdivision">Apply Subdivision Algorithm</div>
-		  </div>
-		  
-		  <div id="changeShape">
-		    <p class="heading">Change The Shape:</p><!--Need to confirm the user that he will replace the current object if they add a new shape-->
-		    
-		    <!-- You start with no shape. In the javascript remove the CLASS.
-		    Make it so that you can add a function, which gives a specific name to the object-->
-		    
-		    <div class="button shapeButton" id="cubeButton">Cube</div>
-		    <div class="button shapeButton" id="cylinderButton">Cylinder</div>
-		    <div class="button shapeButton" id="PlaneButton">Plane</div>
-		    <div class="button shapeButton" id="SphereButton">Sphere</div>
-		    <div class="button shapeButton" id="TorusButton">Torus</div>
-		  </div>
 		</div>
-		
+		  
 	  <div class="button" id="closeMenu">Close Settings Menu</div>
-		
-		<div id="previewButton"><p style="margin-top: 4px;">Preview</p></div>
-		
-		<div id="selectionModeBlock">
-      <p style="float: left; margin-top: 3px; margin-left: 15px; font-size: 16px;">Edit Mode Setting: </p>
-      <p id="selectionModeText2" style="float: left; margin-bottom: 5px; margin-top: 0px; margin-left: 10px; font-size: 20px;">Edit mode is off.</p>
-		</div>
 		
 		<script src="js/app.js"></script>
 		<script src="js/menus.js"></script>
 		<script src="js/cameraOrbit.js"></script>
-		<script src="js/createNewObject.js"></script>
-		<script src="js/subdivisionModifier.js"></script>
-		<script src="js/editModeSelection.js"></script>
 	</body>
 </html>
