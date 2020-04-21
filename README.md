@@ -42,12 +42,8 @@ ROOT DIRECTORY (folder):
 
 ----cameraOrbit.js -> Code allowing the camera to orbit the scene.
 
-----createNewObject.js -> Code allowing the user to create a new object from the menu.
-
-----editModeSelection.js -> Code allowing the user to go into edit mode, select new faces, edges and vertices and translate them.
-
 ----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
 
-----subdivisionModifier.js -> [Paused] Allows the user to apply a subdivision algorithm to their mesh.
+----createBaseModel.js -> Allows the user to click to create vertices, etc.
 
 ----three.js -> The THREE.js library file.

@@ -161,3 +161,26 @@ canvas {
   padding-right: 5px;
   border-radius: 2px;
 }
+
+#resetPosition{
+  position: absolute;
+	z-index: 100;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #3f68d9;
+	text-align: center;
+  width: 200px;
+  height: 47px;
+  padding-top: 5px;
+  margin-left: auto; 
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+}
+
+#resetPosition:hover{
+  cursor: pointer;
+}
