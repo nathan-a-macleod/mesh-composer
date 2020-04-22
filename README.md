@@ -42,8 +42,8 @@ ROOT DIRECTORY (folder):
 
 ----cameraOrbit.js -> Code allowing the camera to orbit the scene.
 
-----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
+----menus.js -> Handles things like opening and closing menus.
 
-----createBaseModel.js -> Allows the user to click to create vertices, etc.
+----createBaseModel.js -> Allows the user to click to create vertices and create the base model.
 
 ----three.js -> The THREE.js library file.
