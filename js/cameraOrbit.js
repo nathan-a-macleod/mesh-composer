@@ -52,8 +52,10 @@ window.addEventListener('mousemove', ()=> {
     mouseXNow = event.clientX;
     mouseYNow = event.clientY;
     
-    cameraOrbitY()
-    cameraOrbitX()
+    if (cameraOrbit == true){
+      cameraOrbitY()
+      cameraOrbitX()
+    }
   }
 });
 
