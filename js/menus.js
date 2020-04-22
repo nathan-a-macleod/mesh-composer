@@ -34,3 +34,11 @@ document.getElementById('camFovSlider').addEventListener('change', function(){
   
   document.getElementById('camFovOutput').innerHTML = document.getElementById('camFovSlider').value;
 });
+
+document.getElementById('resetPosition').addEventListener('click', function(){
+  camera.position.x = 0;
+  camera.position.y = 0;
+  camera.position.z = 5;
+  cameraPivot.rotation.y = 0;
+  camera.lookAt(0, 0, 0);
+});
