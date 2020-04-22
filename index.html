@@ -14,7 +14,7 @@
 		  <p>Controls: Mouse Click & Drag, and Zoom. <br /> Use up & down arrow keys when changing transform settings.</p>
 		</div>
 		
-		<div style="display: none;" class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
+		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
 		
 		<div id="menuExpanded">
 		  <div id="cameraSettings">
@@ -28,7 +28,7 @@
 		  </div>
 		</div>
 		  
-	  <div class="button" id="closeMenu">Close Settings Menu</div>
+	  <div class="button" id="closeMenu" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;" >Close Settings Menu</div>
 		
 		<script src="js/app.js"></script>
 		<script src="js/menus.js"></script>
