@@ -49,11 +49,12 @@ function onMouseClick(event) {
   }
 }
 
-document.body.addEventListener('keydown', function(event){
-  if(event.keyCode == "69"){ // The 'E' key
-    if(confirm("If you create a mesh, you will not be able to edit the vertices. Would you like to continue?")){
+document.getElementById('buildModel').addEventListener('click', function(event){
+  if(confirm("If you create a mesh, you will not be able to edit the vertices. Would you like to continue?")){
+    console.log(points)
+    if(points[0] != undefined){
       points.push(points[0])
-      
+    
       var shape = new THREE.Shape();
       shape.moveTo(0,0);
       for (var i = 0; i < points.length; i++){
@@ -77,6 +78,8 @@ document.body.addEventListener('keydown', function(event){
       camera.lookAt(0, 0, 0);
       camera.layers.disable(3);
       cameraOrbit = true;
+    } else {
+      alert("To build a model, click to place points.")
     }
   }
 });
