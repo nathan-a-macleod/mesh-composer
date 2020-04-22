@@ -162,7 +162,8 @@ canvas {
   border-radius: 2px;
 }
 
-#resetPosition{
+/* Example styling for a blue button at the bottom of the screen
+#modeButton{
   position: absolute;
 	z-index: 100;
   font-size: 20px;
@@ -170,7 +171,7 @@ canvas {
   background-color: #3f68d9;
 	text-align: center;
   width: 200px;
-  height: 47px;
+  height: 60px;
   padding-top: 5px;
   margin-left: auto; 
   margin-right: auto;
@@ -181,6 +182,6 @@ canvas {
   box-sizing: border-box;
 }
 
-#resetPosition:hover{
+#modeButton:hover{
   cursor: pointer;
-}
+} */
