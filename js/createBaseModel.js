@@ -8,6 +8,7 @@ var cube;
 var lineMaterial;
 var lineGeometry;
 var line;
+var boundingBoxes = [];
 
 var projectionGeometry = new THREE.PlaneGeometry(100, 100, 100);
 var projectionMaterial = new THREE.MeshBasicMaterial({color: 0xffff00, side: THREE.DoubleSide});
@@ -51,6 +52,8 @@ function onMouseClick(event) {
 document.body.addEventListener('keydown', function(event){
   if(event.keyCode == "69"){ // The 'E' key
     if(confirm("If you create a mesh, you will not be able to edit the vertices. Would you like to continue?")){
+      points.push(points[0])
+      
       var shape = new THREE.Shape();
       shape.moveTo(0,0);
       for (var i = 0; i < points.length; i++){
@@ -74,8 +77,6 @@ document.body.addEventListener('keydown', function(event){
       camera.lookAt(0, 0, 0);
       camera.layers.disable(3);
       cameraOrbit = true;
-      
-      //document.getElementById('menuUnexpanded').style.display = 'block';
     }
   }
 });
