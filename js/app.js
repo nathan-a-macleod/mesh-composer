@@ -7,6 +7,7 @@ var clickedOnSlider = false;
 var changedCamSetting = false;
 var scrolling = true;
 var cameraOrbit = false;
+var mouseOnMenu = false;
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -34,7 +35,7 @@ var directionalLight = new THREE.DirectionalLight(0xcccccc);
 directionalLight.position.set(8, 5, 10);
 scene.add(directionalLight);
 
-var ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+var ambientLight = new THREE.AmbientLight(0x303030); // soft white light
 scene.add(ambientLight);
 
 var gridFloor = new THREE.GridHelper(10, 10, 0x888888, 0x888888);

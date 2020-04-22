@@ -17,7 +17,6 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
 
 // If mouse in inside menuExpanded div, disable scrolling:
 document.getElementById("menuExpanded").setAttribute("onmouseover", 'menuExpandedOnMouseOver()');
-
 document.getElementById("menuExpanded").setAttribute("onmouseout", 'menuExpandedOnMouseOut()');
 
 function menuExpandedOnMouseOver(){

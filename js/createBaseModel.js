@@ -18,8 +18,6 @@ scene.add(projectionPlane);
 function onMouseClick(event) {
 	// calculate mouse position in normalized device coordinates
 	// (-1 to +1) for both components
-	//mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-	//mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 	mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
 	mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 	
@@ -74,6 +72,8 @@ document.body.addEventListener('keydown', function(event){
       camera.lookAt(0, 0, 0);
       camera.layers.disable(3);
       cameraOrbit = true;
+      
+      document.getElementById('menuUnexpanded').style.display = 'block';
     }
   }
 });
