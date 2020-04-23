@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="js/three.js"></script>
 		
 		<div id="topMenus">
-		  <p>Controls: Mouse Click & Drag, and Zoom. <br /> Use up & down arrow keys when changing transform settings.</p>
+		  Click to place points for the house, then press 'Place Fence'. (You don't have to close the vertices)
 		</div>
 		
 		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
@@ -30,7 +30,8 @@
 		  
 	  <div class="button" id="closeMenu" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;" >Close Settings Menu</div>
 		
-		<div id="buildModel" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div>
+		<div style="display: none;" id="buildModel" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div>
+		<div id="placeFence" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Place Fence</div>
 		
 		<script src="js/app.js"></script>
 		<script src="js/menus.js"></script>

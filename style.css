@@ -116,8 +116,8 @@ canvas {
 }
 
 #topMenus{
-  height: 60px;
-  line-height: 20px;
+  height: 60px !important;
+  line-height: 20px !important;
   font-size: 20px;
   text-align: center;
   background-color:rgba(0,0,0,.3);
@@ -138,8 +138,8 @@ canvas {
   color: white;
 }
 
-#topMenus p{
-  margin-top: 10px;
+#topMenus{
+  padding-top: 10px;
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
@@ -186,7 +186,7 @@ canvas {
   cursor: pointer;
 } */
 
-#buildModel{
+#buildModel, #placeFence{
   position: absolute;
 	z-index: 100;
   font-size: 20px;
@@ -205,6 +205,6 @@ canvas {
   box-sizing: border-box;
 }
 
-#buildModel:hover{
+#buildModel, #placeFence:hover{
   cursor: pointer;
 }
