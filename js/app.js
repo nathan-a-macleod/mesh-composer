@@ -8,6 +8,7 @@ var changedCamSetting = false;
 var scrolling = true;
 var cameraOrbit = false;
 var mouseOnMenu = false;
+var mode = "buildHouse";
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -51,6 +52,7 @@ function animate() {
   
 	requestAnimationFrame(animate);
   renderer.render(scene, camera);
+  console.log(mode)
 }
 
 animate();

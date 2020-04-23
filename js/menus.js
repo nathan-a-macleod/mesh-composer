@@ -33,3 +33,9 @@ document.getElementById('camFovSlider').addEventListener('change', function(){
   
   document.getElementById('camFovOutput').innerHTML = document.getElementById('camFovSlider').value;
 });
+
+document.getElementById('placeFence').addEventListener('click', function(){
+  mode = "buildFence";
+  document.getElementById('placeFence').style.display = 'none';
+  document.getElementById('buildModel').style.display = 'block';
+});
