@@ -1,12 +1,14 @@
+**This is a development/experimental branch of the repo. I am using it to explore other ways of 3d modelling - like that of many CAD programs.**
+
 # Javascript-3D-Modeling-Program
-This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. When it is finished, you should be able to do basic 3d box-modeling from primative shapes, customise the colours and materials of the object, and export the asset.
+This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. 
 
-Right now it is probably 20-25% completed in terms of features. A few more things to add would be thr ability to do basic 3d modeling, and eventually being able to export an asset you have created. Here is the live GitHub pages deployment:
+When it is finished, you should be able to create 3d assets (to do so you will click to add vertex points, connect them up, and extrude them to create 3d geometry), customise the colours and materials of the object, and export the asset as a 3d model (.obj - or something like that), or render the asset as a still image with support for directional lights, ambient lights, and multiple materials.
 
-https://jacob-and-nathan.github.io/Javascript-3D-Modeling-Program/
+Right now I would say it's about 20% completed in terms of features.
 
 # Contributing
-I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section - but if you would prefer to do something else, please open a new issue, and assign yourself to it. 
+I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section - but if you would prefer to do something else, please open a new issue, and assign yourself to it. (Of course, there are multiple branches. The main/default one is 'master' but you can also develop any other branch you want to.)
 
 If you want to work on an already existing issue, please comment on the issue, and I will assign you to it, so that I can keep things organised.
 If there is an issue you want to work on that already has someone else assigned, then I may or may not assign you to it, depending on what the status is.
