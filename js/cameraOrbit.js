@@ -52,8 +52,10 @@ window.addEventListener('mousemove', ()=> {
     mouseXNow = event.clientX;
     mouseYNow = event.clientY;
     
-    cameraOrbitY()
-    cameraOrbitX()
+    if (cameraOrbit == true){
+      cameraOrbitY()
+      cameraOrbitX()
+    }
   }
 });
 
@@ -75,6 +77,5 @@ function cameraOrbitX(){
   }
   
   cameraPivot.position.y += (mouseYNow - mouseYBefore)/1000;
-  getObjectType();
-  camera.lookAt(currentElementMesh.position);
+  camera.lookAt(0, 0, 0);
 }
