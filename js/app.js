@@ -8,7 +8,9 @@ var changedCamSetting = false;
 var scrolling = true;
 var cameraOrbit = false;
 var mouseOnMenu = false;
-var mode = "buildHouse";
+var mode = "buildScene";
+var objectsInScene = []; // Important: this will be an array of the objects in the scene when you create custom meshes, or add in a prebuilt one.
+var points = [];
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -18,9 +20,11 @@ cameraPivot.position.set(0, 0, 0);
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x393939);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z += 10;
+camera.position.y = 5;
+camera.position.z = 10;
 camera.lookAt(0, 0, 0);
-camera.layers.enable(3);
+camera.layers.disable(3); // disable the layer with the points that you can edit by default (by default it's not on createCustomGeometry mode)
+cameraOrbit = true;
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
 cameraPivot.add(camera);
@@ -41,14 +45,9 @@ scene.add(ambientLight);
 
 // Grid floor:
 var gridFloor = new THREE.GridHelper(10, 10, 0x888888, 0x888888);
-gridFloor.rotation.x = THREE.Math.degToRad(90);
 scene.add(gridFloor);
-
-// Grass Floor:
-var grassFloorGeometry = new THREE.PlaneGeometry(20, 20, 20);
-var grassFloorMaterial = new THREE.MeshLambertMaterial({color: 0x5cb85d, side: THREE.DoubleSide});
-var grassFloor = new THREE.Mesh(grassFloorGeometry, grassFloorMaterial);
-
+document.getElementById('buildModel').style.display = "none";
+  
 function animate() {
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;

@@ -36,7 +36,6 @@ function mouseScroll(e){
 
 // For orbiting the scene:
 window.addEventListener('mousedown', ()=> {
-    
   isWindowClicked = true;
   
   mouseXBefore = event.clientX;
@@ -72,8 +71,8 @@ function cameraOrbitY(){
 function cameraOrbitX(){
   if (cameraPivot.position.y >= 5){
     cameraPivot.position.y = 5;
-  } else if (cameraPivot.position.y <= -10){
-    cameraPivot.position.y = -10;
+  } else if (cameraPivot.position.y <= -15){
+    cameraPivot.position.y = -15;
   }
   
   cameraPivot.position.y += (mouseYNow - mouseYBefore)/1000;
