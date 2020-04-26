@@ -1,9 +1,9 @@
 **This is a development/experimental branch of the repo. I am using it to explore other ways of 3d modelling - like that of many CAD programs.**
 
 # Javascript-3D-Modeling-Program
-This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. 
+This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020.
 
-When it is finished, you should be able to create 3d assets (to do so you will click to add vertex points, connect them up, and extrude them to create 3d geometry), customise the colours and materials of the object, and export the asset as a 3d model (.obj - or something like that), or render the asset as a still image with support for directional lights, ambient lights, and multiple materials.
+When it is finished, you should be able to create 3d assets (to do so you will click to add vertex points, connect them up, and extrude them to create 3d geometry, then apply modifiers [like subdivision and boolean] to the object), customise the colours and materials of the object, and export the asset as a 3d model (.obj - or something like that), or render the asset as a still image with support for directional lights, ambient lights, and multiple materials.
 
 Right now I would say it's about 20% completed in terms of features.
 
@@ -32,7 +32,7 @@ ROOT DIRECTORY (folder):
 
 --style.css -> The main CSS file.
 
---- --- --- --- --- --- 
+--- --- --- --- --- ---
  
 --JS (folder):
 
