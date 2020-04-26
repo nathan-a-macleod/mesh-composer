@@ -17,6 +17,18 @@
 		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
 		
 		<div id="menuExpanded">
+		  <div id="addNewObject">
+		    <p class="heading">Add New Object:</p>
+		    
+		    <div class="button" id="createCube">Cube</div>
+		    <div class="button" id="createCone">Cone</div>
+		    <div class="button" id="createCylinder">Cylinder</div>
+		    <div class="button" id="createPlane">Plane</div>
+		    <div class="button" id="createSphere">Sphere</div>
+		    <div class="button" id="createTorus">Torus</div>
+		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
+		  </div>
+		  
 		  <div id="cameraSettings">
 		    <p class="heading">Camera Settings:</p>
 		    
@@ -30,11 +42,12 @@
 		  
 	  <div class="button" id="closeMenu" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;" >Close Settings Menu</div>
 		
-		<div id="buildModel" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div>
+		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div> <!--Need to make this button happen in the 'custom geometry' option in create new object swrttings menu--> 
 		
 		<script src="js/app.js"></script>
 		<script src="js/menus.js"></script>
 		<script src="js/cameraOrbit.js"></script>
-		<script src="js/createBaseModel.js"></script>
+		<script src="js/createCustomModel.js"></script>
+		<script src="js/createPrebuiltModel.js"></script>
 	</body>
 </html>

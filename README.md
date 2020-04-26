@@ -5,7 +5,7 @@ This is a very basic 3D program made in javascript with the three.js library, th
 
 When it is finished, you should be able to create 3d assets (to do so you will click to add vertex points, connect them up, and extrude them to create 3d geometry, then apply modifiers [like subdivision and boolean] to the object), customise the colours and materials of the object, and export the asset as a 3d model (.obj - or something like that), or render the asset as a still image with support for directional lights, ambient lights, and multiple materials.
 
-Right now I would say it's about 20% completed in terms of features. The next things to do will be to allow you to transform the object you have (via the settings menu) and let you add as many objects as you want into the scene.
+Right now I would say it's about 20% completed in terms of features.
 
 # Contributing
 I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section - but if you would prefer to do something else, please open a new issue, and assign yourself to it. (Of course, there are multiple branches. The main/default one is 'master' but you can also develop any other branch you want to.)
@@ -40,7 +40,9 @@ ROOT DIRECTORY (folder):
 
 ----cameraOrbit.js -> Code allowing the camera to orbit the scene.
 
-----createBaseModel.js -> Code allowing the user to click to add points, etc.
+----createNewObject.js -> Code allowing the user to create a new object from the menu.
+
+----createPrebuiltModel.js -> Lets the user create a new object from the settings menu
 
 ----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
 
