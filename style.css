@@ -164,7 +164,7 @@ canvas {
   border-radius: 2px;
 }
 
-#buildModel, #placeFence{
+#buildModel{
   position: absolute;
 	z-index: 100;
   font-size: 20px;
@@ -183,6 +183,18 @@ canvas {
   box-sizing: border-box;
 }
 
-#buildModel, #placeFence:hover{
+#buildModel:hover{
   cursor: pointer;
+}
+
+#sceneViewPanelDIV{
+  width: 100%;
+  background-color: #292929;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.newSceneObject{
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
