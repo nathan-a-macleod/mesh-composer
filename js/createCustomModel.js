@@ -1,5 +1,8 @@
 var mouse = new THREE.Vector2();
 var ray = new THREE.Raycaster();
+var points = [];
+var cubeVertices = [];
+var lineEdges = [];
 
 var projectionGeometry = new THREE.PlaneGeometry(100, 100, 100);
 var projectionMaterial = new THREE.MeshBasicMaterial({color: 0xffff00, side: THREE.DoubleSide});
@@ -93,7 +96,7 @@ document.getElementById('buildModel').addEventListener('click', function(){
       
       objectsInScene.push(mesh2);
       
-      document.getElementById('buildModel').innerHTML = "Build Another Model";
+      points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
     }
   } else {
     alert("To build a model, click to place points.")

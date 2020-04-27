@@ -10,7 +10,6 @@ var cameraOrbit = false;
 var mouseOnMenu = false;
 var mode = "buildScene";
 var objectsInScene = []; // Important: this will be an array of the objects in the scene when you create custom meshes, or add in a prebuilt one.
-var points = [];
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -54,6 +53,8 @@ function animate() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
+  
+  console.log(objectsInScene)
   
 	requestAnimationFrame(animate);
   renderer.render(scene, camera);
