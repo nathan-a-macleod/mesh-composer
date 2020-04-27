@@ -54,8 +54,6 @@ function animate() {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
   
-  console.log(objectsInScene)
-  
 	requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }

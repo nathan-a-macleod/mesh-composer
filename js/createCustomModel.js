@@ -80,13 +80,21 @@ document.getElementById('buildModel').addEventListener('click', function(){
       
       var geometry2 = new THREE.ExtrudeGeometry(shape, extrudeSettings);
       var material2 = new THREE.MeshLambertMaterial({color: 0xffffff});
-      var mesh2 = new THREE.Mesh(geometry2, material2) ;
+      var mesh2 = new THREE.Mesh(geometry2, material2);
+      mesh2.name = prompt("Please enter a name for the shape:", objectsInScene.length);
       scene.add(mesh2);
       
       mesh2.rotation.x = THREE.Math.degToRad(90);
       mesh2.position.y += 1;
       camera.position.y += 5;
       
+      // Adds the object name to the scene view panel div HTML element
+      var newSceneObject = document.createElement('p');
+      newSceneObject.innerHTML = mesh2.name;
+      newSceneObject.classList.add('newSceneObject');
+      document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
+      document.getElementById('placeholderObjectName').style.display = 'none';
+  
       camera.position.y += 5;
       camera.lookAt(0, 0, 0);
       camera.layers.disable(3);
