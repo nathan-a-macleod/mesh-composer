@@ -34,6 +34,8 @@ var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
 // Lighting:
 var directionalLight = new THREE.DirectionalLight(0xcccccc);
 directionalLight.position.set(8, 5, 10);
