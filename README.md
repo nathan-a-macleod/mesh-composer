@@ -38,12 +38,12 @@ ROOT DIRECTORY (folder):
 
 ----app.js -> The main javascript file with setup for THREE.js, etc.
 
-----cameraOrbit.js -> Code allowing the camera to orbit the scene.
-
 ----createNewObject.js -> Code allowing the user to create a new object from the menu.
 
 ----createPrebuiltModel.js -> Lets the user create a new object from the settings menu
 
 ----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
+
+----OrbitControls.js -> Orbit Controls library allowing the user to easily orbit and move around the scene.
 
 ----three.js -> The THREE.js library file.
