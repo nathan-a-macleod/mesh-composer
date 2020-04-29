@@ -3,7 +3,7 @@ This is a very basic 3D program made in javascript with the three.js library, th
 
 Right now it is probably 20-25% completed in terms of features. A few more things to add would be thr ability to do basic 3d modeling, and eventually being able to export an asset you have created. Here is the live GitHub pages deployment:
 
-https://jacob-and-nathan.github.io/Javascript-3D-Modeling-Program/
+https://nathan-a-macleod.github.io/mesh-composer/
 
 # Contributing
 I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section - but if you would prefer to do something else, please open a new issue, and assign yourself to it. 
