@@ -64,6 +64,12 @@
 		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
 		  </div>
 		  
+		  <div id="modifiers">
+		    <p class="heading">Apply Modifier: (To selected object)</p>
+		    
+		    <div style="width: 200px;" class="button" id="subdivisionModifier">Subdivision</div>
+		  </div>
+		  
 		  <div id="cameraSettings">
 		    <p class="heading">Camera Settings:</p>
 		    
@@ -80,6 +86,7 @@
 		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div> <!--Need to make this button happen in the 'custom geometry' option in create new object swrttings menu--> 
 
 		<script src="js/OrbitControls.js"></script>
+		<script src="js/SubdivisionModifier.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/menus.js"></script>
 		<script src="js/createCustomModel.js"></script>

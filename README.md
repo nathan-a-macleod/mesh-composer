@@ -48,4 +48,6 @@ ROOT DIRECTORY (folder):
 
 ----OrbitControls.js -> The OrbitControls library allowing the user to easily orbit and move around the scene.
 
+----SubdivisionModifier.js -> The SubdivisionModifier library allowing the user to subdivide some geometry.
+
 ----three.js -> The THREE.js library file.
