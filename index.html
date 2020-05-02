@@ -25,6 +25,33 @@
 		    </div>
 		  </div>
 		  
+		  <div id="transformSettings" style="display: none;">
+		    <p class="heading">Transform Settings: (X - Y - Z)</p>
+		    
+		    <div id="transformInputs"> <!-- By default this section is invisible - it only appears when you add an object -->
+		      <form class="transformCategories">
+  		      <label class="transformLabel">Translation: </label>
+  		      <input type="number" class="input transformInputsClass" id="translationX" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="translationY" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="translationZ" step="0.25" onchange="transformInputs()" value="1">
+		      </form>
+		      
+		      <form class="transformCategories">
+		        <label class="transformLabel">Rotation: </label>
+  		      <input type="number" class="input transformInputsClass" id="rotationX" step="2" onchange="transformInputs()" value="0">
+  		      <input type="number" class="input transformInputsClass" id="rotationY" step="2" onchange="transformInputs()" value="0">
+  		      <input type="number" class="input transformInputsClass" id="rotationZ" step="2" onchange="transformInputs()" value="0">
+		      </form>
+		      
+		      <form class="transformCategories">
+		        <label class="transformLabel">Scale: </label>
+  		      <input type="number" class="input transformInputsClass" id="scaleX" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="scaleY" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="scaleZ" step="0.25" onchange="transformInputs()" value="1">
+		      </form>
+		    </div>
+		  </div>
+		  
 		  <div id="addNewObject">
 		    <p class="heading">Add New Object:</p>
 		    
@@ -57,5 +84,6 @@
 		<script src="js/menus.js"></script>
 		<script src="js/createCustomModel.js"></script>
 		<script src="js/createPrebuiltModel.js"></script>
+		<script src="js/transformInputs.js"></script>
 	</body>
 </html>

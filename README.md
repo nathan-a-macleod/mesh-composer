@@ -40,10 +40,12 @@ ROOT DIRECTORY (folder):
 
 ----createNewObject.js -> Code allowing the user to create a new object from the menu.
 
-----createPrebuiltModel.js -> Lets the user create a new object from the settings menu
+----createPrebuiltModel.js -> Lets the user create a new object from the settings menu.
 
-----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
+----transformInputs.js -> Lets the user edit the transform properties of the selected object.
 
-----OrbitControls.js -> Orbit Controls library allowing the user to easily orbit and move around the scene.
+----menus.js -> Handles things like opening and closing menus, as well as going into preview mode (preview mode has been paused on THIS branch).
+
+----OrbitControls.js -> The OrbitControls library allowing the user to easily orbit and move around the scene.
 
 ----three.js -> The THREE.js library file.
