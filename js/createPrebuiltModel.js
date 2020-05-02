@@ -14,6 +14,9 @@ document.getElementById('createCube').addEventListener('click', function(){
     newSceneObject.classList.add('newSceneObject');
     document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
     document.getElementById('placeholderObjectName').style.display = 'none';
+    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+  
+    resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
 
@@ -33,6 +36,9 @@ document.getElementById('createCone').addEventListener('click', function(){
     newSceneObject.classList.add('newSceneObject');
     document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
     document.getElementById('placeholderObjectName').style.display = 'none';
+    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+  
+    resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
 
@@ -52,6 +58,8 @@ document.getElementById('createCylinder').addEventListener('click', function(){
     newSceneObject.classList.add('newSceneObject');
     document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
     document.getElementById('placeholderObjectName').style.display = 'none';
+    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
 
@@ -72,6 +80,8 @@ document.getElementById('createPlane').addEventListener('click', function(){
     newSceneObject.classList.add('newSceneObject');
     document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
     document.getElementById('placeholderObjectName').style.display = 'none';
+    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
 
@@ -92,6 +102,8 @@ document.getElementById('createSphere').addEventListener('click', function(){
     newSceneObject.classList.add('newSceneObject');
     document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
     document.getElementById('placeholderObjectName').style.display = 'none';
+    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
 
@@ -112,5 +124,7 @@ document.getElementById('createTorus').addEventListener('click', function(){
     newSceneObject.classList.add('newSceneObject');
     document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
     document.getElementById('placeholderObjectName').style.display = 'none';
+    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });

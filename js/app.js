@@ -10,6 +10,7 @@ var cameraOrbit = false;
 var mouseOnMenu = false;
 var mode = "buildScene";
 var objectsInScene = []; // Important: this will be an array of the objects in the scene when you create custom meshes, or add in a prebuilt one.
+var selectedSceneObject = "none";
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -23,7 +24,6 @@ camera.position.y = 5;
 camera.position.z = 10;
 camera.lookAt(0, 0, 0);
 camera.layers.disable(3); // disable the layer with the points that you can edit by default (by default it's not on createCustomGeometry mode)
-cameraOrbit = true;
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
 cameraPivot.add(camera);
@@ -48,7 +48,29 @@ scene.add(ambientLight);
 var gridFloor = new THREE.GridHelper(10, 10, 0x888888, 0x888888);
 scene.add(gridFloor);
 document.getElementById('buildModel').style.display = "none";
-  
+
+// Function to return the text of elements clicked in the object with 'sceneViewPanelDIV' id.
+function updateSceneViewerButtons(){
+  document.getElementById("sceneViewPanelDIV").onclick = e => {
+    selectedSceneObject = e.target.innerText;
+    
+    if (selectedSceneObject != "none"){
+      document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
+    }
+    
+    // Reset the backgroundColor of all the scene objects in the scene viewer:
+    for (var newSceneObjectText = 0; newSceneObjectText < document.getElementsByClassName("newSceneObject").length; newSceneObjectText++){
+      document.getElementsByClassName("newSceneObject")[newSceneObjectText].style.textDecoration = "none";
+    }
+    e.target.style.textDecoration = "underline";
+    
+    resetInputsToSelectedObjectValue();
+    
+    //scene.getObjectByName(selectedSceneObject).position.x += 1; // You can do anything you want with the selected object
+  } 
+}
+
+// ANIMATE function
 function animate() {
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;

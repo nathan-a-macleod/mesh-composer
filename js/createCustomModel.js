@@ -50,8 +50,8 @@ function onMouseClick(event) {
 document.getElementById('createCustomGeometry').addEventListener('click', function(){
   camera.position.set(0, 15, 0);
   camera.lookAt(0, 0, 0);
-  cameraOrbit = false;
   mode = "buildObject";
+  controls.enabled = false;
   document.getElementById('buildModel').style.display = "block";
   camera.layers.enable(3); // Enables layer 3 containing the points and lines to create custom geometry
 });
@@ -95,16 +95,20 @@ document.getElementById('buildModel').addEventListener('click', function(){
       document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
       document.getElementById('placeholderObjectName').style.display = 'none';
   
+      geometry2.center();
+  
       camera.position.y += 5;
       camera.lookAt(0, 0, 0);
       camera.layers.disable(3);
       cameraOrbit = true;
       camera.position.set(0, 5, 10);
-      camera.lookAt(0, 0, 0)
-      
+      camera.lookAt(0, 0, 0);
       objectsInScene.push(mesh2);
       
       points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
+      controls.enabled = true;
+      updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+      document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
     }
   } else {
     alert("To build a model, click to place points.")
