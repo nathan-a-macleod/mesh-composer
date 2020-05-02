@@ -1,5 +1,6 @@
 document.getElementById('createCube').addEventListener('click', function(){
   var cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+  
   var cubeMaterial = new THREE.MeshPhongMaterial({color: 0xffffff});
   var cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
   cubeMesh.position.y += 0.5;

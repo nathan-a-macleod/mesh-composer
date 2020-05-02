@@ -31,13 +31,25 @@ function resetInputsToSelectedObjectValue(){ // Function to change the value of 
   document.getElementById("translationY").value = scene.getObjectByName(selectedSceneObject).position.y;
   document.getElementById("translationZ").value = scene.getObjectByName(selectedSceneObject).position.z;
   
-  document.getElementById('rotationX').value = THREE.Math.degToRad(scene.getObjectByName(selectedSceneObject).rotation.x);
-  document.getElementById('rotationY').value = THREE.Math.degToRad(scene.getObjectByName(selectedSceneObject).rotation.y);
-  document.getElementById('rotationZ').value = THREE.Math.degToRad(scene.getObjectByName(selectedSceneObject).rotation.z);
+  document.getElementById('rotationX').value = THREE.Math.radToDeg(scene.getObjectByName(selectedSceneObject).rotation.x);
+  document.getElementById('rotationY').value = THREE.Math.radToDeg(scene.getObjectByName(selectedSceneObject).rotation.y);
+  document.getElementById('rotationZ').value = THREE.Math.radToDeg(scene.getObjectByName(selectedSceneObject).rotation.z);
   
   document.getElementById("scaleX").value = scene.getObjectByName(selectedSceneObject).scale.x;
   document.getElementById("scaleY").value = scene.getObjectByName(selectedSceneObject).scale.y;
   document.getElementById("scaleZ").value = scene.getObjectByName(selectedSceneObject).scale.z;
 }
 
-// scene.getObjectByName(selectedSceneObject).position.x += 1
+// Apply a subdivision modifier to the selected object when you press the button:
+document.getElementById("subdivisionModifier").addEventListener("click", function(){
+  if (confirm("Would you like to apply a subdivision algorithm to smooth the geometry? (PERMANENT)")){
+    if (selectedSceneObject != "none"){
+      var modifier = new THREE.SubdivisionModifier(1);
+      scene.getObjectByName(selectedSceneObject).geometry = modifier.modify(scene.getObjectByName(selectedSceneObject).geometry);
+    }
+  }
+});
+ 
+ 
+ 
+ 

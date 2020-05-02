@@ -85,7 +85,6 @@ document.getElementById('buildModel').addEventListener('click', function(){
       scene.add(mesh2);
       
       mesh2.rotation.x = THREE.Math.degToRad(90);
-      mesh2.position.y += 1;
       camera.position.y += 5;
       
       // Adds the object name to the scene view panel div HTML element
