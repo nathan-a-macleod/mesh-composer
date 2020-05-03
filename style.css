@@ -122,17 +122,18 @@ canvas {
   line-height: 20px !important;
   font-size: 20px;
   text-align: center;
-  background-color:rgba(0,0,0,.3);
+  background-color: #2e2e2e;
   color: #dfdfdf91;
   position: absolute;
 	width: 600px;
 	top: 0px;
-  left: 0;
-  right: 0;
-  margin-left: auto; 
+  left: 0px;
+  right: 0px;
+  margin-left: 10vw; 
   margin-right: auto; 
 	z-index: 100;
 	border-radius: 5px;
+	padding: 10px;
 }
 
 #topMenus:hover{
