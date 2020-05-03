@@ -54,8 +54,8 @@ canvas {
 #menuUnexpanded{
   display: block;
   height: 40px;
-  width: 240px;
-  min-width: 240px;
+  width: 100px;
+  min-width: 200px;
   background-color: #212121;
   line-height: 40px;
   border-radius: 0px 0px 0px 10px;
@@ -118,18 +118,19 @@ canvas {
 }
 
 #topMenus{
-  height: 60px !important;
+  height: 40px;
   line-height: 20px !important;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   background-color: #2e2e2e;
   color: #dfdfdf91;
   position: absolute;
-	width: 600px;
+	width: 50vw;
+	min-width: 350px;
 	top: 0px;
   left: 0px;
   right: 0px;
-  margin-left: 10vw; 
+  margin-left: auto; 
   margin-right: auto; 
 	z-index: 100;
 	border-radius: 5px;
@@ -147,6 +148,12 @@ canvas {
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;
+}
+
+@media only screen and (min-width: 1430px) {
+  #topMenus{
+    height: 35px;
+  }
 }
 
 #perspectiveCamSettings p{
@@ -191,8 +198,6 @@ canvas {
 #sceneViewPanelDIV{
   width: 100%;
   background-color: #292929;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .newSceneObject{
@@ -203,7 +208,12 @@ canvas {
 }
 
 .newSceneObject:hover{
-    cursor: pointer;
+  cursor: pointer;
+}
+
+#placeholderObjectName{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .input{
