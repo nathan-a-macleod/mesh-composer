@@ -42,10 +42,28 @@ function resetInputsToSelectedObjectValue(){ // Function to change the value of 
 
 // Apply a subdivision modifier to the selected object when you press the button:
 document.getElementById("subdivisionModifier").addEventListener("click", function(){
-  if (confirm("Would you like to apply a subdivision algorithm to smooth the geometry of '" + selectedSceneObject + "'? (PERMANENT)")){
+  if (confirm("Would you like to apply a subdivision algorithm to smooth the geometry of '" + selectedSceneObject + "'? (This cannot be reversed)")){
     if (selectedSceneObject != "none"){
       var modifier = new THREE.SubdivisionModifier(1);
       scene.getObjectByName(selectedSceneObject).geometry = modifier.modify(scene.getObjectByName(selectedSceneObject).geometry);
+    } else {
+      alert("To apply a subdivision algorithm, you must click an object in the 'View Scene Objects' panel to select it.")
     }
+  }
+});
+
+// When the user clicks the button, delete the selected object:
+document.getElementById("deleteSelectedObject").addEventListener("click", function(){
+  if(selectedSceneObject != "none"){
+    if (confirm("Are you sure you want to delete '" + selectedSceneObject + "'?")){
+      scene.remove(scene.getObjectByName(selectedSceneObject));
+      for(var sceneViewPanelObjects = 0; sceneViewPanelObjects < document.getElementsByClassName("newSceneObject").length; sceneViewPanelObjects++){
+        if(document.getElementsByClassName("newSceneObject")[sceneViewPanelObjects].innerHTML == selectedSceneObject){
+          document.getElementsByClassName("newSceneObject")[sceneViewPanelObjects].style.display = "none";
+        }
+      }
+    }
+  } else {
+    alert("To delete an object, you must click an object in the 'View Scene Objects' panel to select it.")
   }
 });
