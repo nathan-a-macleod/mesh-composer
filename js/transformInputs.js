@@ -42,14 +42,10 @@ function resetInputsToSelectedObjectValue(){ // Function to change the value of 
 
 // Apply a subdivision modifier to the selected object when you press the button:
 document.getElementById("subdivisionModifier").addEventListener("click", function(){
-  if (confirm("Would you like to apply a subdivision algorithm to smooth the geometry? (PERMANENT)")){
+  if (confirm("Would you like to apply a subdivision algorithm to smooth the geometry of '" + selectedSceneObject + "'? (PERMANENT)")){
     if (selectedSceneObject != "none"){
       var modifier = new THREE.SubdivisionModifier(1);
       scene.getObjectByName(selectedSceneObject).geometry = modifier.modify(scene.getObjectByName(selectedSceneObject).geometry);
     }
   }
 });
- 
- 
- 
- 

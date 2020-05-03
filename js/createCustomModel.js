@@ -51,16 +51,18 @@ document.getElementById('createCustomGeometry').addEventListener('click', functi
   camera.position.set(0, 15, 0);
   camera.lookAt(0, 0, 0);
   mode = "buildObject";
-  controls.enabled = false;
+  controls.enableRotate = false;
+  controls.enablePan = false;
   document.getElementById('buildModel').style.display = "block";
   camera.layers.enable(3); // Enables layer 3 containing the points and lines to create custom geometry
+  document.getElementById("topMenus").innerHTML = "1. Click to add points and connect them up with lines. 2. Click 'Build Model' to turn it into a 3D model.";
 });
 
 // When you click to actually build the model
 document.getElementById('buildModel').addEventListener('click', function(){
   if(points[0] != undefined){ // IE, if you HAVE some points
     if(confirm("Warning: Would you like to continue to the next stage? (you will not be able to edit it again).")){
-      document.getElementById('topMenus').innerHTML = "Click and drag to orbit around the scene. Open settings menu to add/create more objects.";
+      document.getElementById('topMenus').innerHTML = '1. Press "Open Settings Menu" to add new objects. 2. Select objects in the "View Scene Objects" panel. 3. Edit the transform settings, or apply a modifier to the selected object.';
       mode = "buildScene"; // Takes it out of editing mode
       document.getElementById('buildModel').style.display = "none"; // Removes the button allowing the user to create a 3d geometry from a 2d sketch (you aren't in that mode)
     
@@ -105,9 +107,9 @@ document.getElementById('buildModel').addEventListener('click', function(){
       objectsInScene.push(mesh2);
       
       points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
-      controls.enabled = true;
+      controls.enableRotate = true;
+      controls.enablePan = true;
       updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
-      document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
     }
   } else {
     alert("To build a model, click to place points.")
