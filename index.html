@@ -10,6 +10,8 @@
 	  <!-- Maybe try using orbit controls but put it here (as in on this line)-->
 		<script type="text/javascript" src="js/three.js"></script>
 		
+	  <div id="helpButton">?</div>
+	  
 		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
 		
 		<div id="menuExpanded">
@@ -23,10 +25,7 @@
 		  
 		  <div id="transformSettings" style="display: none;">
 		    <p class="heading">Transform Settings: (X - Y - Z)</p>
-		    
-		    <!-- Need to add some text to indicate what object is selected -->
-		    
-		    <div id="transformInputs"> <!-- By default this section is invisible - it only appears when you add an object -->
+		    <div id="transformInputs"> <!-- By default this section is invisible - it only appears when you add an object and select it -->
 		      <form class="transformCategories">
   		      <label class="transformLabel">Translation: </label>
   		      <input type="number" class="input transformInputsClass" id="translationX" step="0.25" onchange="transformInputs()" value="1">
@@ -48,6 +47,25 @@
   		      <input type="number" class="input transformInputsClass" id="scaleZ" step="0.25" onchange="transformInputs()" value="1">
 		      </form>
 		    </div>
+		  </div>
+		  
+		  <div id="editMaterials" style="display: none;">
+		    <p class="heading">Edit Material Properties:</p>
+		    
+		    <input id="hexColorInput" type="color" value="#ffffff">
+		    
+		    <form>
+  		    <label>Roughness:</label>
+          <input style="margin-top: 15px;" class="sliderInput" type="range" id="roughness" min="0" max="1" value="0.5" step="0.01">
+          <label>Metalness:</label>
+          <input class="sliderInput" type="range" id="metalness" min="0" max="1" value="0" step="0.01">
+          <label>Reflectivity:</label>
+          <input class="sliderInput" type="range" id="reflectivity" min="0" max="1" value="0.5" step="0.01">
+          <label>Clearcoat:</label>
+          <input class="sliderInput" type="range" id="clearcoat" min="0" max="1" value="0" step="0.01">
+          <label>Clearcoat Roughness:</label>
+          <input style="width: 45%;" class="sliderInput" type="range" id="clearcoatRoughness" min="0" max="1" value="0" step="0.01">
+		    </form>
 		  </div>
 		  
 		  <div id="modifiers">
@@ -90,8 +108,8 @@
 		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div> <!--Need to make this button happen in the 'custom geometry' option in create new object swrttings menu--> 
 
     <!-- Instructions. At the bottom of the HTML page to draw it above the other elements -->
-		<div id="topMenus">
-		  1. Press "Open Settings Menu" to add new objects. 2. Select objects in the "View Scene Objects" panel. 3. Edit the transform settings, or apply a modifier to the selected object.
+		<div id="topMenus" style="display: none;">
+		  1. Press "Open Settings Menu" to add new objects. <br> 2. Select objects in the "View Scene Objects" panel. <br> 3. Edit the transform settings, or apply a modifier to the selected object.
 		</div>
 
 		<script src="js/OrbitControls.js"></script>
@@ -101,5 +119,6 @@
 		<script src="js/createCustomModel.js"></script>
 		<script src="js/createPrebuiltModel.js"></script>
 		<script src="js/transformInputs.js"></script>
+		<script src="js/materialInputs.js"></script>
 	</body>
 </html>
