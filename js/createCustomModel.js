@@ -48,6 +48,7 @@ function onMouseClick(event) {
 
 // When you click to start creating the model:
 document.getElementById('createCustomGeometry').addEventListener('click', function(){
+  document.body.style.cursor = "crosshair"; // Change the cursor
   camera.position.set(0, 15, 0);
   camera.lookAt(0, 0, 0);
   mode = "buildObject";
@@ -81,7 +82,7 @@ document.getElementById('buildModel').addEventListener('click', function(){
       };
       
       var geometry2 = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      var material2 = new THREE.MeshLambertMaterial({color: 0xffffff});
+      var material2 = new THREE.MeshPhysicalMaterial({color: 0xffffff});
       var mesh2 = new THREE.Mesh(geometry2, material2);
       mesh2.name = prompt("Please enter a name for the shape:", objectsInScene.length);
       scene.add(mesh2);
@@ -105,6 +106,8 @@ document.getElementById('buildModel').addEventListener('click', function(){
       camera.position.set(0, 5, 10);
       camera.lookAt(0, 0, 0);
       objectsInScene.push(mesh2);
+      
+      document.body.style.cursor = "default"; // Change the cursor back to normal
       
       points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
       controls.enableRotate = true;

@@ -18,7 +18,6 @@ cameraPivot.position.set(0, 0, 0);
 
 // Camera settings
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0x393939);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.y = 5;
 camera.position.z = 10;
@@ -29,9 +28,13 @@ camera.layers.disable(3); // disable the layer with the points that you can edit
 cameraPivot.add(camera);
 scene.add(cameraPivot);
 
+// Scene background settings:
+scene.background = new THREE.Color(0x393939);
+
 // Create renderer:
 var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -41,7 +44,7 @@ var directionalLight = new THREE.DirectionalLight(0xcccccc);
 directionalLight.position.set(8, 5, 10);
 scene.add(directionalLight);
 
-var ambientLight = new THREE.AmbientLight(0x303030); // soft white light
+var ambientLight = new THREE.AmbientLight(0x202020);
 scene.add(ambientLight);
 
 // Grid floor:
@@ -56,6 +59,7 @@ function updateSceneViewerButtons(){
     
     if (selectedSceneObject != "none"){
       document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
+      document.getElementById("editMaterials").style.display = "block"; // Allows the user to change the material properties
     }
     
     // Reset the backgroundColor of all the scene objects in the scene viewer:

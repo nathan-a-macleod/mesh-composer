@@ -33,3 +33,11 @@ document.getElementById('camFovSlider').addEventListener('change', function(){
   
   document.getElementById('camFovOutput').innerHTML = document.getElementById('camFovSlider').value;
 });
+
+document.getElementById("helpButton").addEventListener("click", function(){
+  if(document.getElementById("topMenus").style.display == "block"){
+    document.getElementById("topMenus").style.display = "none";
+  } else if(document.getElementById("topMenus").style.display == "none"){
+    document.getElementById("topMenus").style.display = "block";
+  }
+});
