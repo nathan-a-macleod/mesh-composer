@@ -38,11 +38,13 @@ ROOT DIRECTORY (folder):
 
 ----app.js -> The main javascript file with setup for THREE.js, etc.
 
-----createNewObject.js -> Code allowing the user to create a new object from the menu.
+----createCustomModel.js -> Code allowing the user to make a mesh by clicking to add vertices
 
 ----createPrebuiltModel.js -> Lets the user create a new object from the settings menu.
 
 ----transformInputs.js -> Lets the user edit the transform properties of the selected object.
+
+----materialInputs.js -> Lets the user edit the material settings of the selected object.
 
 ----menus.js -> Handles things like opening and closing menus, as well as going into preview mode (preview mode has been paused on THIS branch).
 
