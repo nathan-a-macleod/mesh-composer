@@ -41,3 +41,26 @@ document.getElementById("helpButton").addEventListener("click", function(){
     document.getElementById("topMenus").style.display = "block";
   }
 });
+
+// 'Render' the scene when the user presses the button:
+function exportCanvasAsPNG(id, fileName) {
+  var canvasElement = document.getElementById(id);
+  
+  var MIME_TYPE = "image/png";
+  
+  var imgURL = canvasElement.toDataURL(MIME_TYPE);
+  
+  var dlLink = document.createElement('a');
+  dlLink.download = fileName;
+  dlLink.href = imgURL;
+  dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
+  
+  document.body.appendChild(dlLink);
+  dlLink.click();
+  document.body.removeChild(dlLink);
+}
+
+document.getElementById("renderButton").addEventListener("click", function(){
+  exportCanvasAsPNG("main3dCanvas", "mesh-composer-output-1")
+});
+

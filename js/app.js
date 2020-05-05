@@ -23,6 +23,7 @@ camera.position.y = 5;
 camera.position.z = 10;
 camera.lookAt(0, 0, 0);
 camera.layers.disable(3); // disable the layer with the points that you can edit by default (by default it's not on createCustomGeometry mode)
+camera.layers.enable(4); // The layer with the grid Floor - disabled when rendered.
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
 cameraPivot.add(camera);
@@ -32,7 +33,7 @@ scene.add(cameraPivot);
 scene.background = new THREE.Color(0x393939);
 
 // Create renderer:
-var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true, canvas: document.getElementById("main3dCanvas"), preserveDrawingBuffer: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
@@ -49,6 +50,7 @@ scene.add(ambientLight);
 
 // Grid floor:
 var gridFloor = new THREE.GridHelper(10, 10, 0x888888, 0x888888);
+gridFloor.layers.set(4);
 scene.add(gridFloor);
 document.getElementById('buildModel').style.display = "none";
 
@@ -60,6 +62,7 @@ function updateSceneViewerButtons(){
     if (selectedSceneObject != "none"){
       document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
       document.getElementById("editMaterials").style.display = "block"; // Allows the user to change the material properties
+      document.getElementById("deleteObject").style.display = "block"; // Allows the user to delete an object
     }
     
     // Reset the backgroundColor of all the scene objects in the scene viewer:
@@ -75,6 +78,11 @@ function updateSceneViewerButtons(){
   } 
 }
 
+// Allows us to save the contents of the canvas into an image later
+var canvas = document.getElementById("main3dCanvas");
+var img = canvas.toDataURL("image/png");
+// document.write('<img src="'+img+'"/>'); // When we want to 'render' the image
+
 // ANIMATE function
 function animate() {
   window.addEventListener('resize', () => {
@@ -86,5 +94,6 @@ function animate() {
 	requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
+
 
 animate();
