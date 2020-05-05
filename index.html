@@ -7,7 +7,8 @@
 	  <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-	  <!-- Maybe try using orbit controls but put it here (as in on this line)-->
+	  <canvas id="main3dCanvas"></canvas>
+	  
 		<script type="text/javascript" src="js/three.js"></script>
 		
 	  <div id="helpButton">?</div>
@@ -86,7 +87,7 @@
 		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
 		  </div>
 		  
-		  <div id="deleteObject">
+		  <div id="deleteObject" style="display: none;">
 		    <p class="heading">Delete An Object:</p>
 		    
 		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
@@ -101,6 +102,8 @@
           <output for="camFovSlider" id="camFovOutput">40</output>
         </div>
 		  </div>
+		  
+		  <div class="button" id="renderButton">RENDER!</div>
 		</div>
 		  
 	  <div class="button" id="closeMenu" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;" >Close Settings Menu</div>
