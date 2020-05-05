@@ -69,6 +69,7 @@ function updateSceneViewerButtons(){
     e.target.style.textDecoration = "underline";
     
     resetInputsToSelectedObjectValue();
+    resetMaterialsToSelectedObjectValue();
     
     //scene.getObjectByName(selectedSceneObject).position.x += 1; // You can do anything you want with the selected object
   } 

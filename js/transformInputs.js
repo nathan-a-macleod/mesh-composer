@@ -62,6 +62,9 @@ document.getElementById("deleteSelectedObject").addEventListener("click", functi
           document.getElementsByClassName("newSceneObject")[sceneViewPanelObjects].style.display = "none";
         }
       }
+      
+      document.getElementById("transformSettings").style.display = "none";
+      document.getElementById("editMaterials").style.display = "none";
     }
   } else {
     alert("To delete an object, you must click an object in the 'View Scene Objects' panel to select it.")

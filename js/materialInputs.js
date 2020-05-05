@@ -8,6 +8,11 @@ function hexToRgb(hex) {
   } : null;
 }
 
+// Function to easily turn a rgb values value into a hex color:
+function rgbToHex(r, g, b) { 
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+};
+
 document.getElementById("hexColorInput").addEventListener("change", function(){
   scene.getObjectByName(selectedSceneObject).material.color.r = hexToRgb(document.getElementById("hexColorInput").value).r / 255;
   scene.getObjectByName(selectedSceneObject).material.color.g = hexToRgb(document.getElementById("hexColorInput").value).g / 255;
@@ -33,3 +38,16 @@ document.getElementById("clearcoat").addEventListener("change", function(){
 document.getElementById("clearcoatRoughness").addEventListener("change", function(){
   scene.getObjectByName(selectedSceneObject).material.clearcoatRoughness = document.getElementById("clearcoatRoughness").value;
 });
+
+function resetMaterialsToSelectedObjectValue(){
+  document.getElementById("hexColorInput").value = rgbToHex(scene.getObjectByName(selectedSceneObject).material.color.r * 255, scene.getObjectByName(selectedSceneObject).material.color.g * 255, scene.getObjectByName(selectedSceneObject).material.color.b * 255);
+
+  document.getElementById("roughness").value = scene.getObjectByName(selectedSceneObject).material.roughness;
+  document.getElementById("metalness").value = scene.getObjectByName(selectedSceneObject).material.metalness;
+  document.getElementById("reflectivity").value = scene.getObjectByName(selectedSceneObject).material.reflectivity;
+  document.getElementById("clearcoat").value = scene.getObjectByName(selectedSceneObject).material.clearcoat;
+  document.getElementById("clearcoatRoughness").value = scene.getObjectByName(selectedSceneObject).material.clearcoatRoughness;
+}
+
+
+
