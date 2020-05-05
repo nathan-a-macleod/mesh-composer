@@ -15,7 +15,7 @@ body {
 }
 
 .heading{
-  font-size: 30px;
+  font-size: 26px;
   margin-top: 0px;
   padding: 10px;
   margin-bottom: -2px;
@@ -230,7 +230,7 @@ canvas {
   right: 0px;
   width: 65%;
   display: inline-block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 #hexColorInput{
@@ -278,8 +278,8 @@ canvas {
   cursor: pointer;
 }
 
-#editMaterials > label{
-  background-color: var(--second-bg-color);
+#editMaterials > form > label{
+  background-color: var(--main-blue-color);
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 2px;
