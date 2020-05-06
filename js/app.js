@@ -42,8 +42,29 @@ var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 // Lighting:
 var directionalLight = new THREE.DirectionalLight(0xcccccc);
-directionalLight.position.set(8, 5, 10);
+directionalLight.position.set(5, 8, 10);
+directionalLight.name = "Directional Light";
 scene.add(directionalLight);
+
+// Add the directional light to the scene view panel:
+var newSceneObject = document.createElement('p');
+newSceneObject.innerHTML = directionalLight.name;
+newSceneObject.id = "directionalLightText";
+newSceneObject.classList.add('newSceneObject');
+document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
+selectedSceneObject = directionalLight.name;
+document.getElementById('placeholderObjectName').style.display = 'none';
+
+// Select the light by default:
+document.getElementById("directionalLightText").style.textDecoration = "underline";
+document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
+resetInputsToSelectedObjectValue();
+document.getElementById("modifiers").style.display = "none";
+
+// Add a directionalLight helper:
+var directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2);
+scene.add(directionalLightHelper);
+directionalLightHelper.layers.set(4);
 
 var ambientLight = new THREE.AmbientLight(0x202020);
 scene.add(ambientLight);
@@ -61,7 +82,15 @@ function updateSceneViewerButtons(){
     
     if (selectedSceneObject != "none"){
       document.getElementById("transformSettings").style.display = "block"; // Allows the user to change the transform properties
-      document.getElementById("editMaterials").style.display = "block"; // Allows the user to change the material properties
+      
+      if (selectedSceneObject != directionalLight.name){ // As long as the light isn't selected (the light doesn't have a material)
+        document.getElementById("editMaterials").style.display = "block"; // Allows the user to change the material properties
+        document.getElementById("modifiers").style.display = "block";
+      } else {
+        document.getElementById("editMaterials").style.display = "none";
+        document.getElementById("modifiers").style.display = "none";
+      }
+      
       document.getElementById("deleteObject").style.display = "block"; // Allows the user to delete an object
     }
     
@@ -69,10 +98,13 @@ function updateSceneViewerButtons(){
     for (var newSceneObjectText = 0; newSceneObjectText < document.getElementsByClassName("newSceneObject").length; newSceneObjectText++){
       document.getElementsByClassName("newSceneObject")[newSceneObjectText].style.textDecoration = "none";
     }
+    
     e.target.style.textDecoration = "underline";
     
     resetInputsToSelectedObjectValue();
-    resetMaterialsToSelectedObjectValue();
+    if (selectedSceneObject != directionalLight.name){ // As long as tghe light isn't selected (the light doesn't have a material)
+      resetMaterialsToSelectedObjectValue();
+    }
     
     //scene.getObjectByName(selectedSceneObject).position.x += 1; // You can do anything you want with the selected object
   } 
@@ -83,7 +115,7 @@ var canvas = document.getElementById("main3dCanvas");
 var img = canvas.toDataURL("image/png");
 // document.write('<img src="'+img+'"/>'); // When we want to 'render' the image
 
-// ANIMATE function
+// ANIMATE function (updates every frame)
 function animate() {
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
