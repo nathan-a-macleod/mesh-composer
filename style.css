@@ -30,8 +30,8 @@ canvas {
   position: absolute;
 	top: 0px;
 	right: 0px;
-  width: 25%;
-  min-width: 400px;
+  width: 20%;
+  min-width: 380px;
 	max-height: 90vh;
   background-color: var(--main-bg-color);
 	text-align: center;
@@ -233,6 +233,14 @@ canvas {
   margin-bottom: 10px;
 }
 
+.sliderInput2{
+  left: 0px;
+  right: 0px;
+  width: 45%;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 #hexColorInput{
   height: 40px;
   width: 50%;
@@ -291,4 +299,15 @@ canvas {
   background-color: #ff00ff;
   width: 100vw;
   height: 100vh;
+}
+
+#worldBackgroundColor{
+  height: 40px;
+  width: 55%;
+}
+
+#sceneLightColor{
+  height: 40px;
+  width: 55%;
+  margin-top: 15px;
 }
