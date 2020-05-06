@@ -42,7 +42,7 @@ var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 // Lighting:
 var directionalLight = new THREE.DirectionalLight(0xcccccc);
-directionalLight.position.set(5, 8, 10);
+directionalLight.position.set(-3.5, 5.5, -6);
 directionalLight.name = "Directional Light";
 scene.add(directionalLight);
 
@@ -62,11 +62,10 @@ resetInputsToSelectedObjectValue();
 document.getElementById("modifiers").style.display = "none";
 
 // Add a directionalLight helper:
-var directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2);
+var directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2, 0x888888);
 scene.add(directionalLightHelper);
-directionalLightHelper.layers.set(4);
 
-var ambientLight = new THREE.AmbientLight(0x202020);
+var ambientLight = new THREE.AmbientLight(scene.background, 0.5);
 scene.add(ambientLight);
 
 // Grid floor:

@@ -42,7 +42,7 @@ document.getElementById("helpButton").addEventListener("click", function(){
   }
 });
 
-// 'Render' the scene when the user presses the button:
+// 'Render' the scene when the user presses the button (just saves what's on the canvas as a png image):
 function exportCanvasAsPNG(id, fileName) {
   var canvasElement = document.getElementById(id);
   
@@ -63,4 +63,18 @@ function exportCanvasAsPNG(id, fileName) {
 document.getElementById("renderButton").addEventListener("click", function(){
   exportCanvasAsPNG("main3dCanvas", "mesh-composer-output-1")
 });
+
+document.getElementById("worldBackgroundColor").addEventListener("change", function(){
+  scene.background = new THREE.Color(document.getElementById("worldBackgroundColor").value);
+});
+
+document.getElementById("sceneLightColor").addEventListener("change", function(){
+  ambientLight.color = new THREE.Color(document.getElementById("sceneLightColor").value);
+});
+
+document.getElementById("sceneLightIntensity").addEventListener("change", function(){
+  ambientLight.intensity = document.getElementById("sceneLightIntensity").value;
+});
+
+
 
