@@ -64,6 +64,7 @@ document.getElementById("renderButton").addEventListener("click", function(){
   exportCanvasAsPNG("main3dCanvas", "mesh-composer-output-1")
 });
 
+// Things for setting like the world background color, etc...
 document.getElementById("worldBackgroundColor").addEventListener("change", function(){
   scene.background = new THREE.Color(document.getElementById("worldBackgroundColor").value);
 });

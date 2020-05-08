@@ -33,9 +33,8 @@ scene.add(cameraPivot);
 scene.background = new THREE.Color(0x393939);
 
 // Create renderer:
-var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true, canvas: document.getElementById("main3dCanvas"), preserveDrawingBuffer: true});
+var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true, canvas: document.getElementById("main3dCanvas")});
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
