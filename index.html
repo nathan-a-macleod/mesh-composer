@@ -7,11 +7,11 @@
 	  <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-	  <canvas id="main3dCanvas"></canvas>
+	  <canvas id="main3dCanvas"></canvas> <!-- The main 3d canvas -->
 	  
 		<script type="text/javascript" src="js/three.js"></script>
 		
-	  <div id="helpButton">?</div>
+	  <div id="helpButton" style="display: none;">?</div>
 	  
 		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
 		
@@ -75,6 +75,12 @@
 		    <div style="width: 200px;" class="button" id="subdivisionModifier">Subdivision</div>
 		  </div>
 		  
+		  <div id="deleteObject" style="display: none;">
+		    <p class="heading">Delete An Object:</p>
+		    
+		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
+		  </div>
+		  
 		  <div id="addNewObject">
 		    <p class="heading">Add New Object:</p>
 		    
@@ -85,12 +91,6 @@
 		    <div class="button" id="createSphere">Sphere</div>
 		    <div class="button" id="createTorus">Torus</div>
 		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
-		  </div>
-		  
-		  <div id="deleteObject" style="display: none;">
-		    <p class="heading">Delete An Object:</p>
-		    
-		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
 		  </div>
 		  
 		  <div id="cameraSettings">
