@@ -55,8 +55,29 @@ document.getElementById('createCustomGeometry').addEventListener('click', functi
   controls.enableRotate = false;
   controls.enablePan = false;
   document.getElementById('buildModel').style.display = "block";
+  document.getElementById('cancelBuilding').style.display = "block";
   camera.layers.enable(3); // Enables layer 3 containing the points and lines to create custom geometry
   document.getElementById("topMenus").innerHTML = "1. Click to add points and connect them up with lines. 2. Click 'Build Model' to turn it into a 3D model.";
+});
+
+// If you click to cancel building:
+document.getElementById("cancelBuilding").addEventListener("click", function(){
+  document.getElementById('topMenus').innerHTML = '1. Press "Open Settings Menu" to add new objects. 2. Select objects in the "View Scene Objects" panel. 3. Edit the transform settings, or apply a modifier to the selected object.';
+  mode = "buildScene"; // Takes it out of editing mode
+  document.getElementById('buildModel').style.display = "none";
+  document.getElementById('cancelBuilding').style.display = "none";
+  
+  camera.lookAt(0, 0, 0);
+  camera.layers.disable(3);
+  cameraOrbit = true;
+  camera.position.set(0, 5, 10);
+  camera.lookAt(0, 0, 0);
+  
+  document.body.style.cursor = "default"; // Change the cursor back to normal
+  
+  points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
+  controls.enableRotate = true;
+  controls.enablePan = true;
 });
 
 // When you click to actually build the model
@@ -66,7 +87,8 @@ document.getElementById('buildModel').addEventListener('click', function(){
       document.getElementById('topMenus').innerHTML = '1. Press "Open Settings Menu" to add new objects. 2. Select objects in the "View Scene Objects" panel. 3. Edit the transform settings, or apply a modifier to the selected object.';
       mode = "buildScene"; // Takes it out of editing mode
       document.getElementById('buildModel').style.display = "none"; // Removes the button allowing the user to create a 3d geometry from a 2d sketch (you aren't in that mode)
-    
+      document.getElementById('cancelBuilding').style.display = "none";
+      
       points.push(points[0])
     
       var shape = new THREE.Shape();

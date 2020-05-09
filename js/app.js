@@ -1,7 +1,9 @@
 // ONLY FOR DEBBUGGING!
 (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
 
-//material.side = THREE.DoubleSide; // Changes culling if you can't see some faces
+// For realistic textures:
+//const colorMap = new TextureLoader().load( 'colorMap.jpg' );
+//colorMap.encoding = sRGBEncoding;
 
 var clickedOnSlider = false;
 var changedCamSetting = false;
@@ -33,7 +35,11 @@ scene.add(cameraPivot);
 scene.background = new THREE.Color(0x393939);
 
 // Create renderer:
-var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true, canvas: document.getElementById("main3dCanvas")});
+var renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.getElementById("main3dCanvas")});
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.gammaFactor = 0.2;
+renderer.gammaOutput = true;
+renderer.physicallyCorrectLights;
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -64,7 +70,8 @@ document.getElementById("modifiers").style.display = "none";
 var directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2, 0x888888);
 scene.add(directionalLightHelper);
 
-var ambientLight = new THREE.AmbientLight(scene.background, 0.5);
+// Add the ambient light:
+var ambientLight = new THREE.AmbientLight(scene.background, 0.15);
 scene.add(ambientLight);
 
 // Grid floor:
