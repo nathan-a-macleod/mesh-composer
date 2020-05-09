@@ -91,9 +91,11 @@ function updateSceneViewerButtons(){
       if (selectedSceneObject != directionalLight.name){ // As long as the light isn't selected (the light doesn't have a material)
         document.getElementById("editMaterials").style.display = "block"; // Allows the user to change the material properties
         document.getElementById("modifiers").style.display = "block";
+        document.getElementById("editMesh").style.display = "block";
       } else {
         document.getElementById("editMaterials").style.display = "none";
         document.getElementById("modifiers").style.display = "none";
+        document.getElementById("editMesh").style.display = "none";
       }
       
       document.getElementById("deleteObject").style.display = "block"; // Allows the user to delete an object
@@ -132,5 +134,5 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-
 animate();
+
