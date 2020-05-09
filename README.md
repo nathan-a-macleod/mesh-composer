@@ -46,6 +46,8 @@ ROOT DIRECTORY (folder):
 
 ----materialInputs.js -> Lets the user edit the material settings of the selected object.
 
+----editMode.js -> Lets the user go into edit mode, and click to select faces, extrude them, etc.
+
 ----menus.js -> Handles things like opening and closing menus, as well as going into preview mode (preview mode has been paused on THIS branch).
 
 ----OrbitControls.js -> The OrbitControls library allowing the user to easily orbit and move around the scene.

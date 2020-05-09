@@ -31,7 +31,7 @@ canvas {
 	top: 0px;
 	right: 0px;
   width: 20%;
-  min-width: 380px;
+  min-width: 300px;
 	max-height: 90vh;
   background-color: var(--main-bg-color);
 	text-align: center;
@@ -41,6 +41,21 @@ canvas {
   border-radius: 0px 0px 0px 10px;
   overflow: auto;
   padding-bottom: 10px;
+}
+
+#menuExpanded2{
+  position: absolute;
+	top: 0px;
+	left: 0px;
+  width: 20%;
+  min-width: 280px;
+	max-height: 100vh;
+  background-color: var(--main-bg-color);
+	text-align: center;
+	z-index: 100;
+  font-size: 18px;
+  border-radius: 0px 0px 0px 10px;
+  overflow: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -251,7 +266,7 @@ canvas {
   margin: auto;
   left: 0px;
   right: 0px;
-  width: 65%;
+  width: 50%;
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -276,9 +291,9 @@ canvas {
 }
 
 .transformInputsClass{
-  width: 70px;
+  width: 45px;
   margin-bottom: 10px;
-  margin-right: 5px;
+  margin-right: 5psx;
 }
 
 .transformCategories{
@@ -325,11 +340,11 @@ canvas {
 
 #worldBackgroundColor{
   height: 40px;
-  width: 55%;
+  width: 35%;
 }
 
 #sceneLightColor{
   height: 40px;
-  width: 55%;
+  width: 35%;
   margin-top: 15px;
 }

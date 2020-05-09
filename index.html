@@ -15,6 +15,51 @@
 	  
 		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
 		
+		<div id="menuExpanded2">
+		  <div id="addNewObject">
+		    <p class="heading">Add New Object:</p>
+		    
+		    <div class="button" id="createCube">Cube</div>
+		    <div class="button" id="createCone">Cone</div>
+		    <div class="button" id="createCylinder">Cylinder</div>
+		    <div class="button" id="createPlane">Plane</div>
+		    <div class="button" id="createSphere">Sphere</div>
+		    <div class="button" id="createTorus">Torus</div>
+		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
+		  </div>
+		  
+		  <div id="cameraSettings">
+		    <p class="heading">Camera Settings:</p>
+		    
+        <div id="perspectiveCamSettings">
+          <p>Field Of View:</p>
+  	      <input type="range" min="10" max="100" step='1' value="40" onmousedown="changedCamSetting=true;" onmouseup="changedCamSetting=false;" id="camFovSlider">
+          <output for="camFovSlider" id="camFovOutput">40</output>
+        </div>
+		  </div>
+		  
+		  <div id="worldSettings">
+		    <p class="heading">World Settings:</p>
+		    
+		    <form>
+  		    <label>Background Color:</label>
+          <input type="color" value="#4f4f4f" id="worldBackgroundColor">
+          
+  		    <label>Scene Light Color:</label>
+          <input type="color" value="#393939" id="sceneLightColor">
+          
+  		    <label>Scene Light Intensity:</label>
+          <input class="sliderInput2" type="range" value="0.15" min="0" max="2" step="0.01" id="sceneLightIntensity">
+		    </form>
+		  </div>
+		  
+		  <div id="renerSettings">
+		    <p class="heading">Render Settings:</p>
+		    
+		    <div class="button" id="renderButton">RENDER!</div>
+		  </div>
+		</div>
+		
 		<div id="menuExpanded">
 		  <div id="sceneViewPanel">
 		    <p class="heading">View Scene Objects:</p>
@@ -65,11 +110,9 @@
           <label>Clearcoat:</label>
           <input class="sliderInput" type="range" id="clearcoat" min="0" max="1" value="0" step="0.01">
           <label>Clearcoat Roughness:</label>
-          <input style="width: 45%;" class="sliderInput" type="range" id="clearcoatRoughness" min="0" max="1" value="0" step="0.01">
+          <input style="width: 35%;" class="sliderInput" type="range" id="clearcoatRoughness" min="0" max="1" value="0" step="0.01">
 		    </form>
 		  </div>
-		  
-		  <div id="editMesh"></div>
 		  
 		  <div id="modifiers">
 		    <p class="heading">Apply Modifier: (To selected object)</p>
@@ -77,55 +120,16 @@
 		    <div style="width: 200px;" class="button" id="subdivisionModifier">Subdivision</div>
 		  </div>
 		  
+		  <div id="editMesh" style="display: none;">
+		    <p class="heading">Edit Mode:</p>
+		    
+		    <div class="button" style="width: 200px;">Toggle Edit Mode</div>
+		  </div>
+		  
 		  <div id="deleteObject" style="display: none;">
 		    <p class="heading">Delete An Object:</p>
 		    
 		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
-		  </div>
-		  
-		  <hr>
-		  
-		  <div id="addNewObject">
-		    <p class="heading">Add New Object:</p>
-		    
-		    <div class="button" id="createCube">Cube</div>
-		    <div class="button" id="createCone">Cone</div>
-		    <div class="button" id="createCylinder">Cylinder</div>
-		    <div class="button" id="createPlane">Plane</div>
-		    <div class="button" id="createSphere">Sphere</div>
-		    <div class="button" id="createTorus">Torus</div>
-		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
-		  </div>
-		  
-		  <div id="cameraSettings">
-		    <p class="heading">Camera Settings:</p>
-		    
-        <div id="perspectiveCamSettings">
-          <p>Field Of View:</p>
-  	      <input type="range" min="10" max="100" step='1' value="40" onmousedown="changedCamSetting=true;" onmouseup="changedCamSetting=false;" id="camFovSlider">
-          <output for="camFovSlider" id="camFovOutput">40</output>
-        </div>
-		  </div>
-		  
-		  <div id="worldSettings">
-		    <p class="heading">World Settings:</p>
-		    
-		    <form>
-  		    <label>Background Color:</label>
-          <input type="color" value="#4f4f4f" id="worldBackgroundColor">
-          
-  		    <label>Scene Light Color:</label>
-          <input type="color" value="#393939" id="sceneLightColor">
-          
-  		    <label>Scene Light Intensity:</label>
-          <input class="sliderInput2" type="range" value="0.15" min="0" max="2" step="0.01" id="sceneLightIntensity">
-		    </form>
-		  </div>
-		  
-		  <div id="renerSettings">
-		    <p class="heading">Render Settings:</p>
-		    
-		    <div class="button" id="renderButton">RENDER!</div>
 		  </div>
 		</div>
 		  
@@ -147,6 +151,7 @@
 		<script src="js/createCustomModel.js"></script>
 		<script src="js/createPrebuiltModel.js"></script>
 		<script src="js/materialInputs.js"></script>
+		<script src="js/editMode.js"></script>
 		
 	</body>
 </html>
