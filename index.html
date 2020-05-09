@@ -69,6 +69,8 @@
 		    </form>
 		  </div>
 		  
+		  <div id="editMesh"></div>
+		  
 		  <div id="modifiers">
 		    <p class="heading">Apply Modifier: (To selected object)</p>
 		    
@@ -80,6 +82,8 @@
 		    
 		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
 		  </div>
+		  
+		  <hr>
 		  
 		  <div id="addNewObject">
 		    <p class="heading">Add New Object:</p>
@@ -108,13 +112,13 @@
 		    
 		    <form>
   		    <label>Background Color:</label>
-          <input type="color" value="#393939" id="worldBackgroundColor">
+          <input type="color" value="#4f4f4f" id="worldBackgroundColor">
           
   		    <label>Scene Light Color:</label>
           <input type="color" value="#393939" id="sceneLightColor">
           
   		    <label>Scene Light Intensity:</label>
-          <input class="sliderInput2" type="range" value="0.5" min="0" max="2" step="0.01" id="sceneLightIntensity">
+          <input class="sliderInput2" type="range" value="0.15" min="0" max="2" step="0.01" id="sceneLightIntensity">
 		    </form>
 		  </div>
 		  
@@ -127,7 +131,8 @@
 		  
 	  <div class="button" id="closeMenu" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;" >Close Settings Menu</div>
 		
-		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div> <!--Need to make this button happen in the 'custom geometry' option in create new object swrttings menu--> 
+		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div>
+		<div id="cancelBuilding" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Cancel Building</div> <!--Button to cancel creating custom geometry--> 
 
     <!-- Instructions. At the bottom of the HTML page to draw it above the other elements -->
 		<div id="topMenus" style="display: none;">

@@ -179,7 +179,7 @@ canvas {
   width: 200px;
   height: 60px;
   padding-top: 5px;
-  margin-left: auto; 
+  margin-left: 28vw; 
   margin-right: auto;
   left: 0;
   right: 0;
@@ -189,6 +189,29 @@ canvas {
 }
 
 #buildModel:hover{
+  cursor: pointer;
+}
+
+#cancelBuilding{
+  position: absolute;
+	z-index: 100;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #3f68d9;
+	text-align: center;
+  width: 200px;
+  height: 60px;
+  padding-top: 5px;
+  margin-left: auto; 
+  margin-right: 28vw;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+}
+
+#cancelBuilding:hover{
   cursor: pointer;
 }
 
