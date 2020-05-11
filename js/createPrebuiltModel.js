@@ -1,3 +1,19 @@
+// Runs this function every time you create an object:
+function newObjectSettings(meshName){
+  var newSceneObject = document.createElement('p');
+  newSceneObject.innerHTML = meshName.name;
+  newSceneObject.classList.add('newSceneObject');
+  document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
+  document.getElementById('placeholderObjectName').style.display = 'none';
+  updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+  
+  // Make it not edit mode:
+  if (editModeLine != null){
+    scene.remove(editModeLine);
+    editMode = false;
+  }
+}
+
 document.getElementById('createCube').addEventListener('click', function(){
   var cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
   var cubeMaterial = new THREE.MeshPhysicalMaterial({color: 0xffffff});
@@ -8,15 +24,11 @@ document.getElementById('createCube').addEventListener('click', function(){
   
   if (cubeMesh.name){ // If you haven't pressed cancel
     scene.add(cubeMesh);
+    cubeMesh.layers.set(5); // A different layer so that you can disable it when you create custom geometry
     objectsInScene.push(cubeMesh);
     
-    var newSceneObject = document.createElement('p');
-    newSceneObject.innerHTML = cubeMesh.name;
-    newSceneObject.classList.add('newSceneObject');
-    document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
-    document.getElementById('placeholderObjectName').style.display = 'none';
-    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
-  
+    newObjectSettings(cubeMesh);
+    
     // resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
@@ -31,15 +43,11 @@ document.getElementById('createCone').addEventListener('click', function(){
   
   if (coneMesh.name){
     scene.add(coneMesh);
+    coneMesh.layers.set(5); // A different layer so that you can disable it when you create custom geometry
     objectsInScene.push(coneMesh);
     
-    var newSceneObject = document.createElement('p');
-    newSceneObject.innerHTML = coneMesh.name;
-    newSceneObject.classList.add('newSceneObject');
-    document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
-    document.getElementById('placeholderObjectName').style.display = 'none';
-    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
-  
+    newObjectSettings(coneMesh);
+    
     // resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
@@ -54,14 +62,11 @@ document.getElementById('createCylinder').addEventListener('click', function(){
   
   if (cylinderMesh.name){
     scene.add(cylinderMesh);
+    cylinderMesh.layers.set(5); // A different layer so that you can disable it when you create custom geometry
     objectsInScene.push(cylinderMesh);
     
-    var newSceneObject = document.createElement('p');
-    newSceneObject.innerHTML = cylinderMesh.name;
-    newSceneObject.classList.add('newSceneObject');
-    document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
-    document.getElementById('placeholderObjectName').style.display = 'none';
-    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    newObjectSettings(cylinderMesh);
+    
     // resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
@@ -77,14 +82,11 @@ document.getElementById('createPlane').addEventListener('click', function(){
   
   if (planeMesh.name){
     scene.add(planeMesh);
+    planeMesh.layers.set(5); // A different layer so that you can disable it when you create custom geometry
     objectsInScene.push(planeMesh);
     
-    var newSceneObject = document.createElement('p');
-    newSceneObject.innerHTML = planeMesh.name;
-    newSceneObject.classList.add('newSceneObject');
-    document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
-    document.getElementById('placeholderObjectName').style.display = 'none';
-    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    newObjectSettings(planeMesh);
+    
     // resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
@@ -100,14 +102,11 @@ document.getElementById('createSphere').addEventListener('click', function(){
   
   if (sphereMesh.name){
     scene.add(sphereMesh);
+    sphereMesh.layers.set(5); // A different layer so that you can disable it when you create custom geometry
     objectsInScene.push(sphereMesh);
     
-    var newSceneObject = document.createElement('p');
-    newSceneObject.innerHTML = sphereMesh.name;
-    newSceneObject.classList.add('newSceneObject');
-    document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
-    document.getElementById('placeholderObjectName').style.display = 'none';
-    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    newObjectSettings(sphereMesh);
+    
     // resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });
@@ -123,14 +122,11 @@ document.getElementById('createTorus').addEventListener('click', function(){
   
   if (torusMesh.name){
     scene.add(torusMesh);
+    torusMesh.layers.set(5); // A different layer so that you can disable it when you create custom geometry
     objectsInScene.push(torusMesh);
     
-    var newSceneObject = document.createElement('p');
-    newSceneObject.innerHTML = torusMesh.name;
-    newSceneObject.classList.add('newSceneObject');
-    document.getElementById('sceneViewPanelDIV').appendChild(newSceneObject);
-    document.getElementById('placeholderObjectName').style.display = 'none';
-    updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
+    newObjectSettings(torusMesh);
+    
     // resetInputs(); // Reset the inputs to 0 (translate), 0 (rotation), 1 (scale), etc
   }
 });

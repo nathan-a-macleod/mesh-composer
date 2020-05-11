@@ -11,8 +11,11 @@ var scrolling = true;
 var cameraOrbit = false;
 var mouseOnMenu = false;
 var mode = "buildScene";
+var editMode = false;
 var objectsInScene = []; // Important: this will be an array of the objects in the scene when you create custom meshes, or add in a prebuilt one.
 var selectedSceneObject = "none";
+var editModeEdges; // Stuff for edit mode
+var editModeLine; // Stuff for edit mode
 
 // Create the cameras origin point to be used later: 
 var cameraPivot = new THREE.Object3D();
@@ -26,6 +29,7 @@ camera.position.z = 10;
 camera.lookAt(0, 0, 0);
 camera.layers.disable(3); // disable the layer with the points that you can edit by default (by default it's not on createCustomGeometry mode)
 camera.layers.enable(4); // The layer with the grid Floor - disabled when rendered.
+camera.layers.enable(5); // The layer with the ibjects to disable when you create custom geometry
 
 // Add the camera to the pivot, so that we can rotate just the pivot:
 cameraPivot.add(camera);
@@ -47,7 +51,7 @@ var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 // Lighting:
 var directionalLight = new THREE.DirectionalLight(0xcccccc);
-directionalLight.position.set(-3.5, 5.5, -6);
+directionalLight.position.set(1.5, 2, 6);
 directionalLight.name = "Directional Light";
 scene.add(directionalLight);
 
@@ -111,6 +115,11 @@ function updateSceneViewerButtons(){
     resetInputsToSelectedObjectValue();
     if (selectedSceneObject != directionalLight.name){ // As long as tghe light isn't selected (the light doesn't have a material)
       resetMaterialsToSelectedObjectValue();
+    }
+    
+    if (editModeLine != null){
+      scene.remove(editModeLine);
+      editMode = false;
     }
     
     //scene.getObjectByName(selectedSceneObject).position.x += 1; // You can do anything you want with the selected object

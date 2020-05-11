@@ -24,6 +24,20 @@ function transformInputs(){
   scene.getObjectByName(selectedSceneObject).scale.x = document.getElementById('scaleX').value;
   scene.getObjectByName(selectedSceneObject).scale.y = document.getElementById('scaleY').value;
   scene.getObjectByName(selectedSceneObject).scale.z = document.getElementById('scaleZ').value;
+  
+  if (editMode == true){
+    editModeLine.position.x = document.getElementById('translationX').value;
+    editModeLine.position.y = document.getElementById('translationY').value;
+    editModeLine.position.z = document.getElementById('translationZ').value;
+    
+    editModeLine.rotation.x = THREE.Math.degToRad(document.getElementById('rotationX').value);
+    editModeLine.rotation.y = THREE.Math.degToRad(document.getElementById('rotationY').value);
+    editModeLine.rotation.z = THREE.Math.degToRad(document.getElementById('rotationZ').value);
+    
+    editModeLine.scale.x = document.getElementById('scaleX').value;
+    editModeLine.scale.y = document.getElementById('scaleY').value;
+    editModeLine.scale.z = document.getElementById('scaleZ').value;
+  }
 }
 
 function resetInputsToSelectedObjectValue(){ // Function to change the value of the inputs to what the values are for the selected object

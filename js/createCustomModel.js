@@ -28,6 +28,7 @@ function onMouseClick(event) {
       	// Create cubes where you click, and lines to connect them up.
       	var geometry = new THREE.BoxGeometry(0.05, 0.05, 0.05);
         var material = new THREE.MeshBasicMaterial({color: 0x3f68d9});
+        material.color.convertSRGBToLinear();
         var cube = new THREE.Mesh(geometry, material);
         cube.position.x = intersects[i].point.x;
         cube.position.y = intersects[i].point.y;
@@ -48,12 +49,21 @@ function onMouseClick(event) {
 
 // When you click to start creating the model:
 document.getElementById('createCustomGeometry').addEventListener('click', function(){
+  // Make it not edit mode:
+  if (editModeLine != null){
+    scene.remove(editModeLine);
+    editMode = false;
+  }
+
   document.body.style.cursor = "crosshair"; // Change the cursor
-  camera.position.set(0, 15, 0);
+  camera.position.x = 0;
+  camera.position.y = 15;
+  camera.position.z = 0;
   camera.lookAt(0, 0, 0);
   mode = "buildObject";
   controls.enableRotate = false;
   controls.enablePan = false;
+  controls.enableZoom = false;
   document.getElementById('buildModel').style.display = "block";
   document.getElementById('cancelBuilding').style.display = "block";
   camera.layers.enable(3); // Enables layer 3 containing the points and lines to create custom geometry
@@ -67,8 +77,8 @@ document.getElementById("cancelBuilding").addEventListener("click", function(){
   document.getElementById('buildModel').style.display = "none";
   document.getElementById('cancelBuilding').style.display = "none";
   
-  camera.lookAt(0, 0, 0);
   camera.layers.disable(3);
+  camera.layers.disable(5);
   cameraOrbit = true;
   camera.position.set(0, 5, 10);
   camera.lookAt(0, 0, 0);
@@ -78,6 +88,7 @@ document.getElementById("cancelBuilding").addEventListener("click", function(){
   points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
   controls.enableRotate = true;
   controls.enablePan = true;
+  controls.enableZoom = true;
 });
 
 // When you click to actually build the model
@@ -124,16 +135,19 @@ document.getElementById('buildModel').addEventListener('click', function(){
       camera.position.y += 5;
       camera.lookAt(0, 0, 0);
       camera.layers.disable(3);
+      camera.layers.enable(5);
       cameraOrbit = true;
       camera.position.set(0, 5, 10);
       camera.lookAt(0, 0, 0);
       objectsInScene.push(mesh2);
+      mesh2.layers.set(5); // A different layer so that you can disable it when you create custom geometry
       
       document.body.style.cursor = "default"; // Change the cursor back to normal
       
       points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
       controls.enableRotate = true;
       controls.enablePan = true;
+    controls.enableZoom = true;
       updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
     }
   } else {
