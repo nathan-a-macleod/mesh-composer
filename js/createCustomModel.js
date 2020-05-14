@@ -57,7 +57,7 @@ document.getElementById('createCustomGeometry').addEventListener('click', functi
 
   document.body.style.cursor = "crosshair"; // Change the cursor
   camera.position.x = 0;
-  camera.position.y = 15;
+  camera.position.y = 25;
   camera.position.z = 0;
   camera.lookAt(0, 0, 0);
   mode = "buildObject";
@@ -67,6 +67,7 @@ document.getElementById('createCustomGeometry').addEventListener('click', functi
   document.getElementById('buildModel').style.display = "block";
   document.getElementById('cancelBuilding').style.display = "block";
   camera.layers.enable(3); // Enables layer 3 containing the points and lines to create custom geometry
+  camera.layers.disable(5);
   document.getElementById("topMenus").innerHTML = "1. Click to add points and connect them up with lines. 2. Click 'Build Model' to turn it into a 3D model.";
 });
 
@@ -78,7 +79,7 @@ document.getElementById("cancelBuilding").addEventListener("click", function(){
   document.getElementById('cancelBuilding').style.display = "none";
   
   camera.layers.disable(3);
-  camera.layers.disable(5);
+  camera.layers.enable(5);
   cameraOrbit = true;
   camera.position.set(0, 5, 10);
   camera.lookAt(0, 0, 0);
@@ -115,7 +116,7 @@ document.getElementById('buildModel').addEventListener('click', function(){
       };
       
       var geometry2 = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      var material2 = new THREE.MeshPhysicalMaterial({color: 0xffffff});
+      var material2 = new THREE.MeshPhysicalMaterial({color: 0xffffff, vertexColors: THREE.FaceColors});
       var mesh2 = new THREE.Mesh(geometry2, material2);
       mesh2.name = prompt("Please enter a name for the shape:", objectsInScene.length);
       scene.add(mesh2);
@@ -147,7 +148,7 @@ document.getElementById('buildModel').addEventListener('click', function(){
       points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
       controls.enableRotate = true;
       controls.enablePan = true;
-    controls.enableZoom = true;
+      controls.enableZoom = true;
       updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
     }
   } else {

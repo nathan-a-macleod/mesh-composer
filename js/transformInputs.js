@@ -60,6 +60,12 @@ document.getElementById("subdivisionModifier").addEventListener("click", functio
     if (selectedSceneObject != "none"){
       var modifier = new THREE.SubdivisionModifier(1);
       scene.getObjectByName(selectedSceneObject).geometry = modifier.modify(scene.getObjectByName(selectedSceneObject).geometry);
+      
+      // Make it not edit mode:
+      if (editModeLine != null){
+        scene.remove(editModeLine);
+        editMode = false;
+      }
     } else {
       alert("To apply a subdivision algorithm, you must click an object in the 'View Scene Objects' panel to select it.")
     }

@@ -61,7 +61,7 @@ function exportCanvasAsPNG(id, fileName) {
 }
 
 document.getElementById("renderButton").addEventListener("click", function(){
-  exportCanvasAsPNG("main3dCanvas", "mesh-composer-output-1")
+  exportCanvasAsPNG("main3dCanvas", "mesh-composer-output-1");
 });
 
 // Things for setting like the world background color, etc...

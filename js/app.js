@@ -14,6 +14,7 @@ var mode = "buildScene";
 var editMode = false;
 var objectsInScene = []; // Important: this will be an array of the objects in the scene when you create custom meshes, or add in a prebuilt one.
 var selectedSceneObject = "none";
+var selectedSceneFace = []; // Currently selected scene face (in edit mode)
 var editModeEdges; // Stuff for edit mode
 var editModeLine; // Stuff for edit mode
 
@@ -39,7 +40,7 @@ scene.add(cameraPivot);
 scene.background = new THREE.Color(0x393939);
 
 // Create renderer:
-var renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.getElementById("main3dCanvas")});
+var renderer = new THREE.WebGLRenderer({alpha: true, preserveDrawingBuffer: true, antialias: true, canvas: document.getElementById("main3dCanvas")});
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.gammaFactor = 0.2;
 renderer.gammaOutput = true;
