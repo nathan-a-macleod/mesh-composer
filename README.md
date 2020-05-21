@@ -42,16 +42,16 @@ ROOT DIRECTORY (folder):
 
 ----createPrebuiltModel.js -> Lets the user create a new object from the settings menu.
 
-----transformInputs.js -> Lets the user edit the transform properties of the selected object.
+----transformInputs.js -> Lets the user edit the transform properties of the selected object (movement, rotation, scale).
 
 ----materialInputs.js -> Lets the user edit the material settings of the selected object.
 
-----editMode.js -> Lets the user go into edit mode, and click to select faces, extrude them, etc.
+----editMode.js -> Lets the user go into edit mode, and click to select faces, extrude them, transform them, etc.
 
 ----menus.js -> Handles things like opening and closing menus, as well as going into preview mode (preview mode has been paused on THIS branch).
 
 ----OrbitControls.js -> The OrbitControls library allowing the user to easily orbit and move around the scene.
 
-----SubdivisionModifier.js -> The SubdivisionModifier library allowing the user to subdivide some geometry.
+----SubdivisionModifier.js -> The SubdivisionModifier library allowing the user to subdivide selected geometry.
 
 ----three.js -> The THREE.js library file.

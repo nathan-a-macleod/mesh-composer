@@ -11,11 +11,13 @@
 	  
 		<script type="text/javascript" src="js/three.js"></script>
 		
-	  <div id="helpButton" style="display: none;">?</div>
-	  
-		<div class="button" id="menuUnexpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Open Settings Menu &#8594;</div>
+		<div id="renderMode" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Render Mode: Off</div>
 		
-		<div id="menuExpanded2">
+	  <div id="helpButton" style="display: none;">?</div> <!-- I have hidden thsi for now - not sure if I will keep it. -->
+	  
+		<div class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
+		
+		<div id="menuExpanded2" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">
 		  <div id="addNewObject">
 		    <p class="heading">Add New Object:</p>
 		    
@@ -53,16 +55,16 @@
 		    </form>
 		  </div>
 		  
-		  <div id="renerSettings">
+		  <div id="renderSettings">
 		    <p class="heading">Render Settings:</p>
 		    
 		    <div class="button" id="renderButton">RENDER!</div>
 		  </div>
 		</div>
 		
-		<div id="menuExpanded">
+		<div id="menuExpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">
 		  <div id="sceneViewPanel">
-		    <p class="heading">View Scene Objects:</p>
+		    <p class="heading" style="margin-top: 0px;">View Scene Objects:</p>
 		    
 		    <div id="sceneViewPanelDIV">
 		      <p id="placeholderObjectName">You don't have any objects in the scene yet.</p>
@@ -96,7 +98,7 @@
 		  </div>
 		  
 		  <div id="editMaterials" style="display: none;">
-		    <p class="heading">Edit Material Properties:</p>
+		    <p style="font-size: 24px;" class="heading">Edit Material Properties:</p>
 		    
 		    <input id="hexColorInput" type="color" value="#ffffff">
 		    
@@ -126,14 +128,14 @@
 		    <div class="button" style="width: 200px;">Toggle Edit Mode</div>
 		  </div>
 		  
-		  <div id="deleteObject" style="display: none;">
+		  <div id="deleteObject" style="padding-bottom: 10px;">
 		    <p class="heading">Delete An Object:</p>
 		    
 		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
 		  </div>
 		</div>
 		  
-	  <div class="button" id="closeMenu" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;" >Close Settings Menu</div>
+	  <div class="button" id="closeMenu" >Close Settings Menu</div>
 		
 		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div>
 		<div id="cancelBuilding" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Cancel Building</div> <!--Button to cancel creating custom geometry--> 

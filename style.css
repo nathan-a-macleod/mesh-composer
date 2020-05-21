@@ -1,11 +1,13 @@
 :root{
-  --main-blue-color: #313131;
+  --main-blue-color: #2c2c2c;
   --main-bg-color: #1c1c1c;
   --second-bg-color: #1c1c1c;
 }
 
 html, body {
   width: 100%;
+  font-family: Times-New-Roman;
+  webkit-font-smoothing: none;
 }
 
 body { 
@@ -16,7 +18,7 @@ body {
 
 .heading{
   font-size: 26px;
-  margin-top: 0px;
+  margin-top: 20px;
   padding: 10px;
   margin-bottom: -2px;
   text-align: left;
@@ -32,15 +34,14 @@ canvas {
 	right: 0px;
   width: 20%;
   min-width: 300px;
-	max-height: 90vh;
+	max-height: 100vh;
   background-color: var(--main-bg-color);
 	text-align: center;
 	z-index: 100;
   font-size: 18px;
-  display: none;
+  /*display: none;*/
   border-radius: 0px 0px 0px 10px;
   overflow: auto;
-  padding-bottom: 10px;
 }
 
 #menuExpanded2{
@@ -54,8 +55,12 @@ canvas {
 	text-align: center;
 	z-index: 100;
   font-size: 18px;
-  border-radius: 0px 0px 0px 10px;
+  border-radius: 0px 0px 10px 10px;
   overflow: auto;
+}
+
+#renderSettings{
+  padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -67,7 +72,7 @@ canvas {
 }
 
 #menuUnexpanded{
-  display: block;
+  display: none;
   height: 40px;
   width: 100px;
   min-width: 200px;
@@ -159,6 +164,10 @@ canvas {
   #topMenus{
     height: 50px;
     line-height: 17.5px;
+  }
+  
+  #worldBackgroundColor, #sceneLightColor{
+    width: 45% !important;
   }
 }
 
@@ -280,7 +289,7 @@ canvas {
 }
 
 #hexColorInput{
-  height: 40px;
+  height: 30px;
   width: 50%;
 }
 
@@ -323,6 +332,30 @@ canvas {
   cursor: pointer;
 }
 
+#renderMode{
+  position: absolute;
+  height: 40px;
+  line-height: 40px;
+  width: 200px;
+  background-color: #212121;
+  border: none;
+  color: white;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+  font-size: 20px
+}
+
+#renderMode:hover{
+  cursor: pointer;
+}
+
 #editMaterials > form > label{
   background-color: var(--main-blue-color);
   padding-left: 10px;
@@ -332,19 +365,18 @@ canvas {
   border: 5px;
 }
 
-#raytraceCanvasContainer{
-  background-color: #ff00ff;
-  width: 100vw;
-  height: 100vh;
-}
-
 #worldBackgroundColor{
-  height: 40px;
+  height: 30px;
   width: 35%;
 }
 
 #sceneLightColor{
-  height: 40px;
+  height: 30px;
   width: 35%;
   margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#sceneLightIntensity{
+  width: 80%;
 }
