@@ -77,5 +77,22 @@ document.getElementById("sceneLightIntensity").addEventListener("change", functi
   ambientLight.intensity = document.getElementById("sceneLightIntensity").value;
 });
 
+// Allowing you to click to disable the grid, etc.
+document.getElementById("renderMode").addEventListener("click", function(){
+  camera.layers.toggle(4);
+  if (scene.getObjectByName("Directional Light Helper").visible == true){ // Directional light helper is true -> needs to be disabled
+    scene.getObjectByName("Directional Light Helper").visible = false;
+    document.getElementById("renderMode").innerHTML = "Render Mode: On"
+    // Hide the menus:
+    document.getElementById("menuExpanded").style.display = "none";
+    document.getElementById("menuExpanded2").style.display = "none";
+  } else {
+    scene.getObjectByName("Directional Light Helper").visible = true;
+    document.getElementById("renderMode").innerHTML = "Render Mode: Off"
+    // Show the menus:
+    document.getElementById("menuExpanded").style.display = "block";
+    document.getElementById("menuExpanded2").style.display = "block";
+  }
+});
 
 

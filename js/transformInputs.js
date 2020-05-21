@@ -76,12 +76,29 @@ document.getElementById("subdivisionModifier").addEventListener("click", functio
 document.getElementById("deleteSelectedObject").addEventListener("click", function(){
   if(selectedSceneObject != "none"){
     if (confirm("Are you sure you want to delete '" + selectedSceneObject + "'?")){
+      // Make it not edit mode - unless the light is selected (light doesn't have edit mode):
+      if (selectedSceneObject != "Directional Light"){
+        if (editModeLine != null){
+          scene.remove(editModeLine);
+          editMode = false;
+        }
+        for (var j = 0; j < scene.getObjectByName(selectedSceneObject).geometry.faces.length; j++){
+          scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.r = 1;
+          scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.g = 1;
+          scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.b = 1;
+          scene.getObjectByName(selectedSceneObject).geometry.colorsNeedUpdate = true;
+        }
+        selectedSceneFace = [];
+      }
+      
       scene.remove(scene.getObjectByName(selectedSceneObject));
       for(var sceneViewPanelObjects = 0; sceneViewPanelObjects < document.getElementsByClassName("newSceneObject").length; sceneViewPanelObjects++){
         if(document.getElementsByClassName("newSceneObject")[sceneViewPanelObjects].innerHTML == selectedSceneObject){
           document.getElementsByClassName("newSceneObject")[sceneViewPanelObjects].style.display = "none";
         }
       }
+      
+      selectedSceneObject = "none";
       
       document.getElementById("transformSettings").style.display = "none";
       document.getElementById("editMaterials").style.display = "none";

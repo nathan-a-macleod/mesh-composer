@@ -145,6 +145,21 @@ document.getElementById('buildModel').addEventListener('click', function(){
       
       document.body.style.cursor = "default"; // Change the cursor back to normal
       
+      // Make it not edit mode - unless the light is selected (light doesn't have edit mode):
+      if (selectedSceneObject != "Directional Light"){
+        if (editModeLine != null){
+          scene.remove(editModeLine);
+          editMode = false;
+        }
+        for (var j = 0; j < scene.getObjectByName(selectedSceneObject).geometry.faces.length; j++){
+          scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.r = 1;
+          scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.g = 1;
+          scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.b = 1;
+          scene.getObjectByName(selectedSceneObject).geometry.colorsNeedUpdate = true;
+        }
+        selectedSceneFace = [];
+      }
+      
       points = []; // Clear the points selecting thing every time you create a new object so that you can create as many different objects as you like
       controls.enableRotate = true;
       controls.enablePan = true;

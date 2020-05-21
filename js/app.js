@@ -73,6 +73,8 @@ document.getElementById("modifiers").style.display = "none";
 
 // Add a directionalLight helper:
 var directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2, 0x888888);
+directionalLightHelper.layers.set(4);
+directionalLightHelper.name = "Directional Light Helper";
 scene.add(directionalLightHelper);
 
 // Add the ambient light:
@@ -145,4 +147,6 @@ function animate() {
 }
 
 animate();
+
+
 

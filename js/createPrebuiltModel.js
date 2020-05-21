@@ -7,10 +7,19 @@ function newObjectSettings(meshName){
   document.getElementById('placeholderObjectName').style.display = 'none';
   updateSceneViewerButtons(); // Function (defined in app.js) allowing the user to click on each of the objects in the scene
   
-  // Make it not edit mode:
-  if (editModeLine != null){
-    scene.remove(editModeLine);
-    editMode = false;
+  // Make it not edit mode - unless the light is selected (light doesn't have edit mode):
+  if (selectedSceneObject != "Directional Light"){
+    if (editModeLine != null){
+      scene.remove(editModeLine);
+      editMode = false;
+    }
+    for (var j = 0; j < scene.getObjectByName(selectedSceneObject).geometry.faces.length; j++){
+      scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.r = 1;
+      scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.g = 1;
+      scene.getObjectByName(selectedSceneObject).geometry.faces[j].color.b = 1;
+      scene.getObjectByName(selectedSceneObject).geometry.colorsNeedUpdate = true;
+    }
+    selectedSceneFace = [];
   }
 }
 
