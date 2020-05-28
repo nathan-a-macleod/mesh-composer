@@ -1,4 +1,5 @@
-function resetInputs(){
+// I don't think I need this function, but will just uncomment for now just in case
+/*function resetInputs(){
   document.getElementById('translationX').value = 0;
   document.getElementById('translationY').value = 0;
   document.getElementById('translationZ').value = 0;
@@ -10,7 +11,7 @@ function resetInputs(){
   document.getElementById('scaleX').value = 1;
   document.getElementById('scaleY').value = 1;
   document.getElementById('scaleZ').value = 1;
-}
+}*/
 
 function transformInputs(){
   scene.getObjectByName(selectedSceneObject).position.x = document.getElementById('translationX').value;

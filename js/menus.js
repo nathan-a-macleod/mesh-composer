@@ -15,10 +15,7 @@ document.getElementById('closeMenu').addEventListener('click', ()=> {
 
 // The edit mode button:
 
-// If mouse in inside menuExpanded div, disable scrolling:
-document.getElementById("menuExpanded").setAttribute("onmouseover", 'menuExpandedOnMouseOver()');
-document.getElementById("menuExpanded").setAttribute("onmouseout", 'menuExpandedOnMouseOut()');
-
+// Functions for if mouse in inside menuExpanded div, disable scrolling:
 function menuExpandedOnMouseOver(){
   scrolling = false;
 }
