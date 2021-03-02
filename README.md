@@ -1,4 +1,4 @@
-![](./mesh-composer-output.png)
+![](./mesh-composer-output-1.png)
 
 # Javascript-3D-Modeling-Program
 This is a fairly basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020.
