@@ -1,12 +1,14 @@
+**This is a development/experimental branch of the repo. I am using it to explore other ways of 3d modelling - like that of many CAD programs.**
+
 # Javascript-3D-Modeling-Program
-This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020. When it is finished, you should be able to do basic 3d box-modeling from primative shapes, customise the colours and materials of the object, and export the asset.
+This is a very basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020.
 
-Right now it is probably 20-25% completed in terms of features. A few more things to add would be thr ability to do basic 3d modeling, and eventually being able to export an asset you have created. Here is the live GitHub pages deployment:
+When it is finished, you should be able to create 3d assets (to do so you will click to add vertex points, connect them up, and extrude them to create 3d geometry, then apply modifiers [like subdivision and boolean] to the object), customise the colours and materials of the object, and export the asset as a 3d model (.obj - or something like that), or render the asset as a still image with support for directional lights, ambient lights, and multiple materials.
 
-https://nathan-a-macleod.github.io/mesh-composer/
+Right now I would say it's about 20% completed in terms of features.
 
 # Contributing
-I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section - but if you would prefer to do something else, please open a new issue, and assign yourself to it. 
+I am quite new to **WEBGL** and  **THREE.JS**, so I would be grateful if you were able to contribute in any way! Before you do, please see if there is anything you could help with in the `issues` section - but if you would prefer to do something else, please open a new issue, and assign yourself to it. (Of course, there are multiple branches. The main/default one is 'master' but you can also develop any other branch you want to.)
 
 If you want to work on an already existing issue, please comment on the issue, and I will assign you to it, so that I can keep things organised.
 If there is an issue you want to work on that already has someone else assigned, then I may or may not assign you to it, depending on what the status is.
@@ -30,20 +32,26 @@ ROOT DIRECTORY (folder):
 
 --style.css -> The main CSS file.
 
---- --- --- --- --- --- 
+--- --- --- --- --- ---
  
 --JS (folder):
 
 ----app.js -> The main javascript file with setup for THREE.js, etc.
 
-----cameraOrbit.js -> Code allowing the camera to orbit the scene.
+----createCustomModel.js -> Code allowing the user to make a mesh by clicking to add vertices
 
-----createNewObject.js -> Code allowing the user to create a new object from the menu.
+----createPrebuiltModel.js -> Lets the user create a new object from the settings menu.
 
-----editModeSelection.js -> Code allowing the user to go into edit mode, select new faces, edges and vertices and translate them.
+----transformInputs.js -> Lets the user edit the transform properties of the selected object (movement, rotation, scale).
 
-----menus.js -> Handles things like opening and closing menus, as well as going into preview mode.
+----materialInputs.js -> Lets the user edit the material settings of the selected object.
 
-----subdivisionModifier.js -> [Paused] Allows the user to apply a subdivision algorithm to their mesh.
+----editMode.js -> Lets the user go into edit mode, and click to select faces, extrude them, transform them, etc.
+
+----menus.js -> Handles things like opening and closing menus, as well as going into preview mode (preview mode has been paused on THIS branch).
+
+----OrbitControls.js -> The OrbitControls library allowing the user to easily orbit and move around the scene.
+
+----SubdivisionModifier.js -> The SubdivisionModifier library allowing the user to subdivide selected geometry.
 
 ----three.js -> The THREE.js library file.

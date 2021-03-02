@@ -2,89 +2,37 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Javascript 3D Modeling Program</title>
+		<title>Mesh Composer - A Javascript 3D Modeling Program</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1, user-scalable=no" />
 	  <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-	  <!-- Maybe try using orbit controls but put it here (as in on this line)-->
+	  <canvas id="main3dCanvas"></canvas> <!-- The main 3d canvas -->
+	  
 		<script type="text/javascript" src="js/three.js"></script>
 		
-		<div id="topMenus">
-		  <p>Controls: Mouse Click & Drag, and Zoom. <br /> Use up & down arrow keys when changing transform settings.</p>
-		</div>
+		<div id="renderMode" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Render Mode: Off</div>
 		
+	  <div id="helpButton" style="display: none;">?</div> <!-- I have hidden thsi for now - not sure if I will keep it. -->
+	  
 		<div class="button" id="menuUnexpanded">Open Settings Menu &#8594;</div>
-		<div id="menuExpanded">
-		  <!--<div id="heirarchy"></div>-->
-		  
-		  <div id="transformSettings">
-		    <p class="heading">Transform Settings: (X - Y - Z)</p>
+		
+		<div id="menuExpanded2" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">
+		  <div id="addNewObject">
+		    <p class="heading">Add New Object:</p>
 		    
-		    <div id="transformInputs">
-		      <form class="transformCategories">
-  		      <label class="transformLabel">Translation: </label>
-  		      <input type="number" class="input transformInputsClass" id="translation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="translation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="translation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		      
-		      <form class="transformCategories">
-		        <label class="transformLabel">Rotation: </label>
-  		      <input type="number" class="input transformInputsClass" id="rotation1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="rotation2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="rotation3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		      
-		      <form class="transformCategories">
-		        <label class="transformLabel">Scale: </label>
-  		      <input type="number" class="input transformInputsClass" id="scale1" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="scale2" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-  		      <input type="number" class="input transformInputsClass" id="scale3" step="0.25" onfocus="typingText=true" onchange="transformInputs()">
-		      </form>
-		    </div>
+		    <div class="button" id="createCube">Cube</div>
+		    <div class="button" id="createCone">Cone</div>
+		    <div class="button" id="createCylinder">Cylinder</div>
+		    <div class="button" id="createPlane">Plane</div>
+		    <div class="button" id="createSphere">Sphere</div>
+		    <div class="button" id="createTorus">Torus</div>
+		    <div class="button" id="createCustomGeometry" style="width: 200px;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Custom Geometry</div>
 		  </div>
-		  
-	    <p class="heading">Color Settings:</p>
-		    
-		  <div id="colorSettings">
-	      <p class="heading" style="font-size: 18px; width: 80%;">HEX Color Code: </p>
-	      <input type="color" name="color" class="input" id="changeColor" value="#ff0000" onchange="changeColor()">
-		    
-		    <p class="heading" style="font-size: 18px;">RGB Color Code: </p>
-		    
-		    <form class="rgbColorCode">
-  	      <label for='r'>RED:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="redSlider">
-          <output for="r" id="outputR">0</output>
-		    </form>
-		    
-		    <form class="rgbColorCode">
-  	      <label for='g'>GREEN:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="greenSlider">
-          <output for="g" id="outputG">0</output>
-		    </form>
-		    
-		    <form class="rgbColorCode">
-  	      <label for='b'>BLUE:</label>
-  	      <input type="range" min="1" max="255" step='1' value="255" onmousedown="clickedOnSlider = true;" onmouseup="clickedOnSlider=false;" class="rgbSlider" id="blueSlider">
-          <output for="b" id="outputB">0</output>
-		    </form>
-	    </div>
 		  
 		  <div id="cameraSettings">
 		    <p class="heading">Camera Settings:</p>
 		    
-		    <!--<p class="heading" style="font-size: 18px;">Type Of Camera:</p>
-		    
-		    <form id="camType">
-          <input type="radio" id="perspectiveCamOption" name="cameraType" value="perspective" checked="true">
-          <label for="perspective">Perspective</label><br>
-          
-          <input type="radio" id="orthographicCamOption" name="cameraType" value="orthographic">
-          <label for="orthographic">Orthographic</label>
-        </form>-->
-        
         <div id="perspectiveCamSettings">
           <p>Field Of View:</p>
   	      <input type="range" min="10" max="100" step='1' value="40" onmousedown="changedCamSetting=true;" onmouseup="changedCamSetting=false;" id="camFovSlider">
@@ -92,59 +40,120 @@
         </div>
 		  </div>
 		  
-		  <div id="editMode">
-		    <!-- on edit mode you will be able to extrude parts of the mesh, etc (like in
-		    most 3d software like blender) once it is finished. But for now, it will be hidden 
-		    so that you can access it via the blue button at the bottom of the screen. Maybe
-		    once there are more options, I will remove the display: none; attribute and put 
-		    more options there.-->
-		    <p style="display: none;" class="heading">Edit Mode Settings:</p>
+		  <div id="worldSettings">
+		    <p class="heading">World Settings:</p>
 		    
-		    <div style="display: none;" class="button" id="toggleEditMode">Toggle Edit Mode</div>
-		    
-		    <div id="selectionModes" style="display: none;">
-		      <p class="heading" style="text-align: center; font-size: 22px; margin-top: 10px;">Selection Modes:</p>
-		      <!--
-		      <p style="margin-top: -5px; font-size: 16px;">Current Selection mode: </p>
-		      <p id="selectionModeText1" style="margin-top: -10px; margin-bottom: 5px; font-size: 30px;">FACE</p>
-		      -->
-		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="faceSelectButton">Face Select</div>
-		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="edgeSelectButton">Edge Select</div>
-		      <div class="button" style="margin-bottom: 10px; width: 120px;" id="vertexSelectButton">Vertex Select</div>
-		    </div>
-		    
-		    <!-- I have paused adding the subdivison feature.  -->
-		    <div style="display: none;" class="button" id="applySubdivision">Apply Subdivision Algorithm</div>
+		    <form>
+  		    <label>Background Color:</label>
+          <input type="color" value="#4f4f4f" id="worldBackgroundColor">
+          
+  		    <label>Scene Light Color:</label>
+          <input type="color" value="#393939" id="sceneLightColor">
+          
+  		    <label>Scene Light Intensity:</label>
+          <input class="sliderInput2" type="range" value="0.15" min="0" max="2" step="0.01" id="sceneLightIntensity">
+		    </form>
 		  </div>
 		  
-		  <div id="changeShape">
-		    <p class="heading">Change The Shape:</p><!--Need to confirm the user that he will replace the current object if they add a new shape-->
+		  <div id="renderSettings">
+		    <p class="heading">Render Settings:</p>
 		    
-		    <!-- You start with no shape. In the javascript remove the CLASS.
-		    Make it so that you can add a function, which gives a specific name to the object-->
-		    
-		    <div class="button shapeButton" id="cubeButton">Cube</div>
-		    <div class="button shapeButton" id="cylinderButton">Cylinder</div>
-		    <div class="button shapeButton" id="PlaneButton">Plane</div>
-		    <div class="button shapeButton" id="SphereButton">Sphere</div>
-		    <div class="button shapeButton" id="TorusButton">Torus</div>
+		    <div class="button" id="renderButton">RENDER!</div>
 		  </div>
 		</div>
 		
-	  <div class="button" id="closeMenu">Close Settings Menu</div>
-		
-		<div id="previewButton"><p style="margin-top: 4px;">Preview</p></div>
-		
-		<div id="selectionModeBlock">
-      <p style="float: left; margin-top: 3px; margin-left: 15px; font-size: 16px;">Edit Mode Setting: </p>
-      <p id="selectionModeText2" style="float: left; margin-bottom: 5px; margin-top: 0px; margin-left: 10px; font-size: 20px;">Edit mode is off.</p>
+		<div id="menuExpanded" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">
+		  <div id="sceneViewPanel">
+		    <p class="heading" style="margin-top: 0px;">View Scene Objects:</p>
+		    
+		    <div id="sceneViewPanelDIV">
+		      <p id="placeholderObjectName">You don't have any objects in the scene yet.</p>
+		    </div>
+		  </div>
+		  
+		  <div id="transformSettings" style="display: none;">
+		    <p class="heading">Transform Settings: (X - Y - Z)</p>
+		    <div id="transformInputs"> <!-- By default this section is invisible - it only appears when you add an object and select it -->
+		      <form class="transformCategories">
+  		      <label class="transformLabel">Translation: </label>
+  		      <input type="number" class="input transformInputsClass" id="translationX" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="translationY" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="translationZ" step="0.25" onchange="transformInputs()" value="1">
+		      </form>
+		      
+		      <form class="transformCategories">
+		        <label class="transformLabel">Rotation: </label>
+  		      <input type="number" class="input transformInputsClass" id="rotationX" step="2" onchange="transformInputs()" value="0">
+  		      <input type="number" class="input transformInputsClass" id="rotationY" step="2" onchange="transformInputs()" value="0">
+  		      <input type="number" class="input transformInputsClass" id="rotationZ" step="2" onchange="transformInputs()" value="0">
+		      </form>
+		      
+		      <form class="transformCategories">
+		        <label class="transformLabel">Scale: </label>
+  		      <input type="number" class="input transformInputsClass" id="scaleX" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="scaleY" step="0.25" onchange="transformInputs()" value="1">
+  		      <input type="number" class="input transformInputsClass" id="scaleZ" step="0.25" onchange="transformInputs()" value="1">
+		      </form>
+		    </div>
+		  </div>
+		  
+		  <div id="editMaterials" style="display: none;">
+		    <p style="font-size: 24px;" class="heading">Edit Material Properties:</p>
+		    
+		    <input id="hexColorInput" type="color" value="#ffffff">
+		    
+		    <form>
+  		    <label>Roughness:</label>
+          <input style="margin-top: 15px;" class="sliderInput" type="range" id="roughness" min="0" max="1" value="0.5" step="0.01">
+          <label>Metalness:</label>
+          <input class="sliderInput" type="range" id="metalness" min="0" max="1" value="0" step="0.01">
+          <label>Reflectivity:</label>
+          <input class="sliderInput" type="range" id="reflectivity" min="0" max="1" value="0.5" step="0.01">
+          <label>Clearcoat:</label>
+          <input class="sliderInput" type="range" id="clearcoat" min="0" max="1" value="0" step="0.01">
+          <label>Clearcoat Roughness:</label>
+          <input style="width: 35%;" class="sliderInput" type="range" id="clearcoatRoughness" min="0" max="1" value="0" step="0.01">
+		    </form>
+		  </div>
+		  
+		  <div id="modifiers">
+		    <p class="heading">Apply Modifier: (To selected object)</p>
+		    
+		    <div style="width: 200px;" class="button" id="subdivisionModifier">Subdivision</div>
+		  </div>
+		  
+		  <div id="editMesh" style="display: none;">
+		    <p class="heading">Edit Mode:</p>
+		    
+		    <div class="button" style="width: 200px;">Toggle Edit Mode</div>
+		  </div>
+		  
+		  <div id="deleteObject" style="padding-bottom: 10px;">
+		    <p class="heading">Delete An Object:</p>
+		    
+		    <div class="button" id="deleteSelectedObject" style="width: 200px;">Delete Selected Object</div>
+		  </div>
 		</div>
+		  
+	  <div class="button" id="closeMenu" >Close Settings Menu</div>
 		
+		<div id="buildModel" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Build Model</div>
+		<div id="cancelBuilding" style="display: none;" onmouseover="mouseOnMenu = true;" onmouseout="mouseOnMenu = false;">Cancel Building</div> <!--Button to cancel creating custom geometry--> 
+
+    <!-- Instructions. At the bottom of the HTML page to draw it above the other elements -->
+		<div id="topMenus" style="display: none;">
+		  1. Press "Open Settings Menu" to add new objects. <br> 2. Select objects in the "View Scene Objects" panel. <br> 3. Edit the transform settings, or apply a modifier to the selected object.
+		</div>
+    
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/SubdivisionModifier.js"></script>
+		<script src="js/transformInputs.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/menus.js"></script>
-		<script src="js/cameraOrbit.js"></script>
-		<script src="js/createNewObject.js"></script>
-		<script src="js/subdivisionModifier.js"></script>
-		<script src="js/editModeSelection.js"></script>
+		<script src="js/createCustomModel.js"></script>
+		<script src="js/createPrebuiltModel.js"></script>
+		<script src="js/materialInputs.js"></script>
+		<script src="js/editMode.js"></script>
+		
 	</body>
 </html>
