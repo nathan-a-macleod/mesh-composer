@@ -1,4 +1,4 @@
-**This is a development/experimental branch of the repo. I am using it to explore other ways of 3d modelling - like that of many CAD programs.**
+![](./mesh-composer-output.png)
 
 # Javascript-3D-Modeling-Program
 This is a fairly basic 3D program made in javascript with the three.js library, that I started on the 6th of April 2020.
