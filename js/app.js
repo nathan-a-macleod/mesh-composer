@@ -129,7 +129,7 @@ function updateSceneViewerButtons(){
   } 
 }
 
-// Allows us to save the contents of the canvas into an image later
+// Allows you to save the contents of the canvas into an image later
 var canvas = document.getElementById("main3dCanvas");
 var img = canvas.toDataURL("image/png");
 // document.write('<img src="'+img+'"/>'); // When we want to 'render' the image

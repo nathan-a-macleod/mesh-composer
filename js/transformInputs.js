@@ -13,6 +13,27 @@
   document.getElementById('scaleZ').value = 1;
 }*/
 
+// change the translation values when the right keys are pressed
+window.addEventListener('keydown', function(event) {
+  const key = event.key;
+  
+  if (key == "w"){
+    scene.getObjectByName(selectedSceneObject).position.y += 0.25;
+  } else if (key == "s"){
+    scene.getObjectByName(selectedSceneObject).position.y -= 0.25;
+  } else if (key == "a"){
+    scene.getObjectByName(selectedSceneObject).position.x -= 0.25;
+  } else if (key == "d"){
+    scene.getObjectByName(selectedSceneObject).position.x += 0.25;
+  } else if (key == "q"){
+    scene.getObjectByName(selectedSceneObject).position.z -= 0.25;
+  } else if (key == "e"){
+    scene.getObjectByName(selectedSceneObject).position.z += 0.25;
+  }
+
+  resetInputsToSelectedObjectValue()
+});
+
 function transformInputs(){
   scene.getObjectByName(selectedSceneObject).position.x = document.getElementById('translationX').value;
   scene.getObjectByName(selectedSceneObject).position.y = document.getElementById('translationY').value;
